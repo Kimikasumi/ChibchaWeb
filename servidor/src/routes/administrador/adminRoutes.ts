@@ -9,7 +9,10 @@ class AdminRoutes{
     }
 
     config():void{
-        this.router.get('/', adminController.index);
+        this.router.get('/', adminController.list);
+        this.router.get('/:cedula', adminController.getOne);
+        this.router.post('/',adminController.create);
+        this.router.put('/:cedula', adminController.update)
     }
 }
 

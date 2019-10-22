@@ -11,7 +11,10 @@ class AdminRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', adminController_1.default.index);
+        this.router.get('/', adminController_1.default.list);
+        this.router.get('/:cedula', adminController_1.default.getOne);
+        this.router.post('/', adminController_1.default.create);
+        this.router.put('/:cedula', adminController_1.default.update);
     }
 }
 const adminRoutes = new AdminRoutes();

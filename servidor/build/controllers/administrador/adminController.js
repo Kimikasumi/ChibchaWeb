@@ -5,9 +5,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../../database"));
 class AdminController {
-    index(req, res) {
+    list(req, res) {
         database_1.default.query('DESCRIBE cliente');
-        res.json('games');
+        res.json('Listando admins');
+    }
+    getOne(req, res) {
+        database_1.default.query('DESCRIBE cliente');
+        res.json('Listando admin ' + req.params.cedula);
+    }
+    create(req, res) {
+        res.json({ text: 'Creando un administrador' });
+    }
+    update(req, res) {
+        res.json({ text: 'Aditando un administrador ' + req.params.cedula });
     }
 }
 const adminController = new AdminController();
