@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
 import db from '../../database';
 class AdminController{
-    public list (req: Request,res: Response) {
+    public listarClientes (req: Request,res: Response) {
         db.query('DESCRIBE cliente');
         res.json('Listando admins');
     } 
