@@ -9,10 +9,20 @@ class AdminRoutes{
     }
 
     config():void{
-        this.router.get('/', adminController.list);
-        this.router.get('/:cedula', adminController.getOne);
-        this.router.post('/',adminController.create);
-        this.router.put('/:cedula', adminController.update)
+        this.router.get('/empleado', adminController.list);
+        this.router.get('/empleado/:cedula', adminController.getOne);
+        this.router.post('/empleado',adminController.create);
+        this.router.put('/empleado/:cedula', adminController.update);
+
+        this.router.get('/distribuidor', adminController.list);
+        this.router.get('/distribuidor/:cedula', adminController.getOne);
+        this.router.post('/distribuidor',adminController.create);
+        this.router.put('/distribuidor/:cedula', adminController.update);
+
+        this.router.get('/regDominio', adminController.list);
+        this.router.get('/regDominio/:cedula', adminController.getOne);
+        this.router.post('/regDominio',adminController.create);
+        this.router.put('/regDominio/:cedula', adminController.update);
     }
 }
 
