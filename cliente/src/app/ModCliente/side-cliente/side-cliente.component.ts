@@ -15,7 +15,7 @@ export class SideClienteComponent {
   fillerNav=[
     {name:"inicio", route:"inicio", icon: "home"},
     {name:"perfil", route:"perfil", icon:"account_circle"},
-    {name:"PQR", route:"PQR", icon:"build"}
+    {name:"PQR", route:"pqr", icon:"build"}
   ]
 
   fillerContent = Array(2).fill(0).map(() =>

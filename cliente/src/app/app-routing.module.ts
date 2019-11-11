@@ -4,13 +4,15 @@ import { SideClienteComponent } from './ModCliente/side-cliente/side-cliente.com
 import { PagInicioComponent } from './pag-inicio/pag-inicio.component';
 import { PerfilClienteComponent } from './ModCliente/perfil-cliente/perfil-cliente.component';
 import { InicioClienteComponent } from './ModCliente/inicio-cliente/inicio-cliente.component';
+import { PqrClienteComponent } from './ModCliente/pqr-cliente/pqr-cliente.component';
 
 const routes: Routes = [
     {path: '', component: PagInicioComponent },
     {path: 'cliente', component: SideClienteComponent, children:
       [
         {path: 'inicio', component: InicioClienteComponent},
-        {path: 'perfil', component: PerfilClienteComponent }
+        {path: 'perfil', component: PerfilClienteComponent },
+        {path: 'pqr', component: PqrClienteComponent}
       ] 
     },
     

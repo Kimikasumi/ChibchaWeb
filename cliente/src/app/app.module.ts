@@ -22,6 +22,7 @@ import { InicioClienteComponent } from './ModCliente/inicio-cliente/inicio-clien
 import {MatSelectModule} from '@angular/material/select';
 import { ModalLoginComponent } from './modal-login/modal-login.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { PqrClienteComponent } from './ModCliente/pqr-cliente/pqr-cliente.component';
 
 
 
@@ -36,7 +37,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     InicioClienteComponent,
     ModalLoginComponent,
     RegistroDialog,
-    LoginDialog
+    LoginDialog,
+    PqrClienteComponent
   ],
   imports: [
     BrowserModule,
