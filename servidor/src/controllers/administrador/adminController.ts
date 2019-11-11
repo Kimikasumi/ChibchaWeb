@@ -104,6 +104,7 @@ class AdminController{
         await db.query('UPDATE REGISTRADOR SET cod_pais='+req.body.cod_pais+' WHERE cod_registrador=?',cod_registrador);
         await db.query("UPDATE USUARIO SET correo='"+req.body.correo+"', nombre='"+req.body.nombre+"' WHERE cedula=?",parseInt(req.body.cod_registrador));
         res.json({text: 'Actualizando distribuidor '+ req.params.cod_registrador});
+        
     }
 
     public async eliminarRegistrador(req:Request, res:Response): Promise<void>{
