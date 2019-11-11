@@ -1,0 +1,62 @@
+  <div class="row">
+    <div class="col-3" >
+      <img align="center" class="imgResponsive" src="../../../assets/images/LogoCW.jpg">
+    </div>
+    <div class="col-3">
+        <br/>
+    </div>
+    <div class="col-6" >
+      <div class="row">
+        <h1 >Perfil</h1>
+      </div>
+      <div class="row">
+          <table class="table table-sm table-dark">
+              <thead>
+                <tr >
+                  <th scope="col">Nombre del dominio</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Plan</th>
+                </tr>
+              </thead>
+              <tbody class="bg-danger"> 
+                <tr>
+                  <th scope="row">ElMenWeb</th>
+                  <td>Aceptado</td>
+                  <td>ChibchaOro</td>
+                </tr>
+              </tbody>
+            </table>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <form class="example-form">
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nombre">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Apellido">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Plan">
+        </mat-form-field>
+        
+        <mat-select placeholder="Tipo de pago">
+            <mat-option *ngFor="let food of foods" [value]="food.value" >
+              {{food.viewValue}}
+            </mat-option>
+          </mat-select>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Número de tarjeta">
+        </mat-form-field>
+
+        
+        </form>
+    </div>
+  </div>
