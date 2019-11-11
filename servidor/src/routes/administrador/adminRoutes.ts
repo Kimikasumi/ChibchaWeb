@@ -15,18 +15,17 @@ class AdminRoutes{
         this.router.put('/empleado/:cedula', adminController.editarEmpleado);
         this.router.delete('/empleado/:cedula', adminController.eliminarEmpleado);
 
-        this.router.get('/distribuidor', adminController.listarEmpleados);
-        this.router.get('/distribuidor/:cedula', adminController.obtenerEmpleado);
-        this.router.post('/distribuidor',adminController.crearEmpleado);
-        this.router.put('/distribuidor/:cedula', adminController.editarEmpleado);
-        this.router.delete('/distribuidor/:cedula', adminController.eliminarEmpleado);
+        this.router.get('/distribuidor', adminController.listarDistribuidores);
+        this.router.get('/distribuidor/:cedula', adminController.obtenerDistribuidor);
+        this.router.post('/distribuidor',adminController.crearDistribuidor);
+        this.router.put('/distribuidor/:cedula', adminController.editarDistribuidor);
+        this.router.delete('/distribuidor/:cedula', adminController.eliminarDistribuidor);
 
-
-        this.router.get('/regDominio', adminController.listarEmpleados);
-        this.router.get('/regDominio/:cedula', adminController.obtenerEmpleado);
-        this.router.post('/regDominio',adminController.crearEmpleado);
-        this.router.put('/regDominio/:cedula', adminController.editarEmpleado);
-        this.router.delete('/distribuidor/:cedula', adminController.eliminarEmpleado);
+        this.router.get('/registrador', adminController.listarRegistrador);
+        this.router.get('/registrador/:cod_registrador', adminController.obtenerRegistrador);
+        this.router.post('/registrador',adminController.crearRegistrador);
+        this.router.put('/registrador/:cod_registrador', adminController.editarRegistrador);
+        this.router.delete('/registrador/:cod_registrador', adminController.eliminarRegistrador);
 
     }
 }
