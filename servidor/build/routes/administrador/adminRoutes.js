@@ -16,16 +16,16 @@ class AdminRoutes {
         this.router.post('/empleado', adminController_1.default.crearEmpleado);
         this.router.put('/empleado/:cedula', adminController_1.default.editarEmpleado);
         this.router.delete('/empleado/:cedula', adminController_1.default.eliminarEmpleado);
-        this.router.get('/distribuidor', adminController_1.default.listarEmpleados);
-        this.router.get('/distribuidor/:cedula', adminController_1.default.obtenerEmpleado);
-        this.router.post('/distribuidor', adminController_1.default.crearEmpleado);
-        this.router.put('/distribuidor/:cedula', adminController_1.default.editarEmpleado);
-        this.router.delete('/distribuidor/:cedula', adminController_1.default.eliminarEmpleado);
-        this.router.get('/regDominio', adminController_1.default.listarEmpleados);
-        this.router.get('/regDominio/:cedula', adminController_1.default.obtenerEmpleado);
-        this.router.post('/regDominio', adminController_1.default.crearEmpleado);
-        this.router.put('/regDominio/:cedula', adminController_1.default.editarEmpleado);
-        this.router.delete('/distribuidor/:cedula', adminController_1.default.eliminarEmpleado);
+        this.router.get('/distribuidor', adminController_1.default.listarDistribuidores);
+        this.router.get('/distribuidor/:cedula', adminController_1.default.obtenerDistribuidor);
+        this.router.post('/distribuidor', adminController_1.default.crearDistribuidor);
+        this.router.put('/distribuidor/:cedula', adminController_1.default.editarDistribuidor);
+        this.router.delete('/distribuidor/:cedula', adminController_1.default.eliminarDistribuidor);
+        this.router.get('/registrador', adminController_1.default.listarRegistrador);
+        this.router.get('/registrador/:cod_registrador', adminController_1.default.obtenerRegistrador);
+        this.router.post('/registrador', adminController_1.default.crearRegistrador);
+        this.router.put('/registrador/:cod_registrador', adminController_1.default.editarRegistrador);
+        this.router.delete('/registrador/:cod_registrador', adminController_1.default.eliminarRegistrador);
     }
 }
 const adminRoutes = new AdminRoutes();
