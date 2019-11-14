@@ -1,7 +1,8 @@
 import express, {Application} from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import adminRoutes from './routes/adminRoutes'
+import adminRoutes from './routes/adminRoutes';
+import registradorRoutes from './routes/registradorRoutes';
 class Server{
 
     public app: Application;
@@ -21,6 +22,7 @@ class Server{
 
     routes():void{
         this.app.use('/admin',adminRoutes);
+        this.app.use('/regDominio', registradorRoutes)
     }
 
     start():void{
