@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import adminController from '../../controllers/administrador/adminController'
+import adminController from '../controllers/adminController'
 class AdminRoutes{
 
     public router: Router = Router();
