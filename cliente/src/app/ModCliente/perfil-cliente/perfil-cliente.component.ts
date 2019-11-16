@@ -25,3 +25,14 @@ export class PerfilClienteComponent implements OnInit {
   }
 
 }
+
+@Component({
+  selector: 'modal-tarjeta',
+  templateUrl: 'modal-tarjeta.component.html',
+})
+export class ModalTarjeta {
+
+  constructor() {
+
+  }
+}

@@ -4,8 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavPrincipalComponent } from "./nav-principal/nav-principal.component";
-import {RegistroDialog} from "./nav-principal/nav-principal.component"
-import {LoginDialog} from "./nav-principal/nav-principal.component"
+import {RegistroDialog} from "./nav-principal/nav-principal.component";
+import {LoginDialog} from "./nav-principal/nav-principal.component";
+import {ModalTarjeta} from "./ModCliente/perfil-cliente/perfil-cliente.component";
 /*
 * Angular Material
 */
@@ -38,7 +39,8 @@ import { PqrClienteComponent } from './ModCliente/pqr-cliente/pqr-cliente.compon
     ModalLoginComponent,
     RegistroDialog,
     LoginDialog,
-    PqrClienteComponent
+    PqrClienteComponent,
+    ModalTarjeta
   ],
   imports: [
     BrowserModule,

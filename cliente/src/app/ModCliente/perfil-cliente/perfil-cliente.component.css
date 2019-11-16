@@ -12,5 +12,10 @@
     max-width: 100%;
     height: auto;
   }
+
+  .modal-backdrop {
+    /* bug fix - no overlay */    
+    display: none;    
+}
   
   
