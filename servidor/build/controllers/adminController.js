@@ -43,7 +43,7 @@ class AdminController {
         return __awaiter(this, void 0, void 0, function* () {
             const { cedula } = req.params;
             console.log(req.body);
-            yield database_1.default.query('UPDATE EMPLEADO SET cod_t_empleado=' + req.body.cod_t_empleado + ' WHERE cedula=?', cedula);
+            yield database_1.default.query('UPDATE EMPLEADO SET cod_t_empleado=' + req.body.cod_t_empleado + ' WHERE cedula=?', [cedula]);
             yield database_1.default.query("UPDATE USUARIO SET correo='" + req.body.correo + "', nombre='" + req.body.nombre + "' WHERE cedula=?", parseInt(req.body.cedula));
             res.json({ text: 'Actualizando empleado ' + req.params.cedula });
         });
@@ -96,6 +96,13 @@ class AdminController {
             yield database_1.default.query('DELETE FROM DISTRIBUIDOR WHERE cedula= ?', [cedula]);
             yield database_1.default.query('DELETE FROM USUARIO WHERE cedula= ?', [cedula]);
             res.json({ text: 'Borrando distribuidor ' + req.params.cedula });
+        });
+    }
+    obtenerCliDis(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const cedula_distribuidor = parseInt(req.body.cedula_distribuidor);
+            const cantidad = yield database_1.default.query('SELECT COUNT(CLIENTE.cedula) AS Cantidad FROM CLIENTE WHERE CLIENTE.cedula_distribuidor=?', [cedula_distribuidor]);
+            res.json(cantidad);
         });
     }
     /**REGISTRADOR DE DOMINIO */

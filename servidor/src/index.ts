@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import adminRoutes from './routes/adminRoutes';
 import registradorRoutes from './routes/registradorRoutes';
+import distribuidorRoutes from './routes/distribuidorRoutes';
 class Server{
 
     public app: Application;
@@ -22,7 +23,8 @@ class Server{
 
     routes():void{
         this.app.use('/admin',adminRoutes);
-        this.app.use('/regDominio', registradorRoutes)
+        this.app.use('/regDominio', registradorRoutes);
+        this.app.use('/distribuidor', distribuidorRoutes);
     }
 
     start():void{

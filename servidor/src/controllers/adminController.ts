@@ -27,7 +27,7 @@ class AdminController{
     public async editarEmpleado(req:Request, res:Response): Promise<void>{
         const {cedula} = req.params;
         console.log(req.body)
-        await db.query('UPDATE EMPLEADO SET cod_t_empleado='+req.body.cod_t_empleado+' WHERE cedula=?',cedula);
+        await db.query('UPDATE EMPLEADO SET cod_t_empleado='+req.body.cod_t_empleado+' WHERE cedula=?',[cedula]);
         await db.query("UPDATE USUARIO SET correo='"+req.body.correo+"', nombre='"+req.body.nombre+"' WHERE cedula=?",parseInt(req.body.cedula));
         res.json({text: 'Actualizando empleado '+ req.params.cedula});
     }
@@ -75,6 +75,14 @@ class AdminController{
         await db.query('DELETE FROM USUARIO WHERE cedula= ?', [cedula]);
         res.json({text: 'Borrando distribuidor '+ req.params.cedula});
     }
+    
+    
+    public async obtenerCliDis(req:Request, res:Response): Promise<void>{
+        const cedula_distribuidor = parseInt(req.body.cedula_distribuidor);
+        const cantidad =await db.query('SELECT COUNT(CLIENTE.cedula) AS Cantidad FROM CLIENTE WHERE CLIENTE.cedula_distribuidor=?', [cedula_distribuidor]);
+        res.json(cantidad);
+    }
+    
 
     /**REGISTRADOR DE DOMINIO */
 

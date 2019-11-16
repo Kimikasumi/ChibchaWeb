@@ -10,9 +10,10 @@ class RegistradorRoutes{
 
     config():void{
         this.router.get('/dominio', registradorController.listarDominios);
-        this.router.get('/dominio/:cod_dominio', registradorController.obtenerDominio);
-        this.router.post('/dominio',registradorController.crearDominio);
-        this.router.delete('/dominio/:cod_dominio', registradorController.eliminarDominio);
+        this.router.get('/dominio/get', registradorController.obtenerDominio);
+        this.router.put('/dominio',registradorController.aceptarDominio);
+        this.router.put('/dominio/delete', registradorController.eliminarDominio);
+        this.router.put('/dominio/perfil', registradorController.editarRegistrador);
 
     }
 }

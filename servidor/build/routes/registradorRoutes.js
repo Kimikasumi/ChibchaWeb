@@ -12,9 +12,10 @@ class RegistradorRoutes {
     }
     config() {
         this.router.get('/dominio', registradorController_1.default.listarDominios);
-        this.router.get('/dominio/:cod_dominio', registradorController_1.default.obtenerDominio);
-        this.router.post('/dominio', registradorController_1.default.crearDominio);
-        this.router.delete('/dominio/:cod_dominio', registradorController_1.default.eliminarDominio);
+        this.router.get('/dominio/get', registradorController_1.default.obtenerDominio);
+        this.router.put('/dominio', registradorController_1.default.aceptarDominio);
+        this.router.put('/dominio/delete', registradorController_1.default.eliminarDominio);
+        this.router.put('/dominio/perfil', registradorController_1.default.editarRegistrador);
     }
 }
 const registradorRoutes = new RegistradorRoutes();
