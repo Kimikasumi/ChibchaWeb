@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavPrincipalComponent } from "./nav-principal/nav-principal.component";
-import {RegistroDialog} from "./nav-principal/nav-principal.component";
-import {LoginDialog} from "./nav-principal/nav-principal.component";
-import {ModalTarjeta} from "./ModCliente/perfil-cliente/perfil-cliente.component";
+import { NavPrincipalComponent } from './nav-principal/nav-principal.component';
+import {RegistroDialog} from './nav-principal/nav-principal.component';
+import {LoginDialog} from './nav-principal/nav-principal.component';
+import {ModalTarjeta} from './ModCliente/perfil-cliente/perfil-cliente.component';
 /*
 * Angular Material
 */
@@ -24,6 +24,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { ModalLoginComponent } from './modal-login/modal-login.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PqrClienteComponent } from './ModCliente/pqr-cliente/pqr-cliente.component';
+import { EmpleadoNHostComponent } from './empleado_tecnico/empleado-n-host/empleado-n-host.component';
 
 
 
@@ -40,7 +41,8 @@ import { PqrClienteComponent } from './ModCliente/pqr-cliente/pqr-cliente.compon
     RegistroDialog,
     LoginDialog,
     PqrClienteComponent,
-    ModalTarjeta
+    ModalTarjeta,
+    EmpleadoNHostComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,7 @@ import { PqrClienteComponent } from './ModCliente/pqr-cliente/pqr-cliente.compon
     MatInputModule,
     MatSelectModule,
     MatDialogModule,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

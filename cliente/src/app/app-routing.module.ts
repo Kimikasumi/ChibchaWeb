@@ -6,6 +6,9 @@ import { PerfilClienteComponent } from './ModCliente/perfil-cliente/perfil-clien
 import { InicioClienteComponent } from './ModCliente/inicio-cliente/inicio-cliente.component';
 import { PqrClienteComponent } from './ModCliente/pqr-cliente/pqr-cliente.component';
 
+/*Empleado*/
+import { EmpleadoNHostComponent } from './empleado_tecnico/empleado-n-host/empleado-n-host.component';
+
 const routes: Routes = [
     {path: '', component: PagInicioComponent },
     {path: 'cliente', component: SideClienteComponent, children:
@@ -13,10 +16,8 @@ const routes: Routes = [
         {path: 'inicio', component: InicioClienteComponent},
         {path: 'perfil', component: PerfilClienteComponent },
         {path: 'pqr', component: PqrClienteComponent}
-      ] 
-    },
-    
-    
+      ]},
+  { path: 'empleado', component: EmpleadoNHostComponent},
 ];
 
 @NgModule({
