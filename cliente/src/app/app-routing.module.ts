@@ -17,7 +17,7 @@ const routes: Routes = [
         {path: 'perfil', component: PerfilClienteComponent },
         {path: 'pqr', component: PqrClienteComponent}
       ]},
-  { path: 'empleado', component: EmpleadoNHostComponent},
+  { path: 'empleado/nhost', component: EmpleadoNHostComponent},
 ];
 
 @NgModule({
