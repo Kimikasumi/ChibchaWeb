@@ -7,6 +7,10 @@ import { NavPrincipalComponent } from "./nav-principal/nav-principal.component";
 import {RegistroDialog} from "./nav-principal/nav-principal.component";
 import {LoginDialog} from "./nav-principal/nav-principal.component";
 import {ModalTarjeta} from "./ModCliente/perfil-cliente/perfil-cliente.component";
+
+import {RegClienteService} from './service/reg-cliente.service';
+import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 /*
 * Angular Material
 */
@@ -40,7 +44,7 @@ import { PqrClienteComponent } from './ModCliente/pqr-cliente/pqr-cliente.compon
     RegistroDialog,
     LoginDialog,
     PqrClienteComponent,
-    ModalTarjeta
+    ModalTarjeta,
   ],
   imports: [
     BrowserModule,
@@ -55,9 +59,11 @@ import { PqrClienteComponent } from './ModCliente/pqr-cliente/pqr-cliente.compon
     MatInputModule,
     MatSelectModule,
     MatDialogModule,
+    FormsModule,
+    HttpClientModule
     
   ],
-  providers: [],
+  providers: [RegClienteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
