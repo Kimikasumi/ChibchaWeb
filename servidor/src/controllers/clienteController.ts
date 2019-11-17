@@ -2,6 +2,13 @@ import {Request, Response} from 'express';
 import db from '../database';
 class AdminController{
 
+    public async crearCliente(req:Request, res:Response): Promise<void>{
+        console.log("("+parseInt(req.body.cedula)+",'"+req.body.correo+ "','"+ req.body.nombre+ "','"+ req.body.contrasenia+ "',"+ parseInt(req.body.cod_t_usuario)+")");
+        await db.query('INSERT INTO USUARIO VALUES ('+(+parseInt(req.body.cedula)+",'"+req.body.correo+ "','"+ req.body.nombre+ "','"+ req.body.contrasenia+ "',"+ parseInt(req.body.cod_t_usuario)+")"));
+        res.json({text: 'Cliente creado'});
+        
+    }
+
     public async obtenerCliente (req: Request,res: Response): Promise<any> {
         const {cedula} = req.params;
         const cliente = await db.query('SELECT EMPLEADO.cedula, USUARIO.nombre, USUARIO.correo, T_EMPLEADO.nom_t_empleado FROM EMPLEADO, T_EMPLEADO, USUARIO WHERE EMPLEADO.cedula=USUARIO.cedula AND EMPLEADO.cod_t_empleado=T_EMPLEADO.cod_t_empleado AND USUARIO.cedula=?',cedula);
