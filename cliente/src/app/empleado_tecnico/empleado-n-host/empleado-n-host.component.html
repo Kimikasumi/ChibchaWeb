@@ -1,3 +1,83 @@
-<p>
-  empleado-n-host works!
-</p>
+<!--TIENES QUE CAMBIAR COSAS-->
+<div class="example-container">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <h1 class="example-app-name">ChibchaWeb</h1>
+  </mat-toolbar>
+</div>
+
+<br>
+<mat-grid-list cols="3" rowHeight="16%">
+  <mat-grid-tile [colspan]="1" [rowspan]="2">
+    <label class="hoverable" for="fileInput">
+      <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'">
+      <div class="hover-text">Choose file</div>
+      <div class="background"></div>
+    </label>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2">
+    <h1>
+      Nuevo Host
+    </h1>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1">
+    <h3>
+      Nombre página
+    </h3>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1">
+    <h3>
+      pajarito
+    </h3>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="4">
+<!-- Cambiar como se muestra la info -->
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias corporis cupiditate delectus dolorem ea expedita
+      explicabo itaque modi natus numquam, officia quae quod rem, saepe tempora ullam! Dolore, voluptatibus!
+    </p>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1">
+    <h3>
+      Modo de pago
+    </h3>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1">
+    <h3>
+      Anual
+    </h3>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1">
+    <h3>
+      Plan de hosting
+    </h3>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1">
+    <h3>
+      Platino
+    </h3>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2">
+    <mat-form-field>
+      <mat-label>Host</mat-label>
+      <mat-select>
+        <!-- ##### Cambiar para poder funcionar con backend #####-->
+        <mat-option value="Host A">Host A</mat-option>
+        <mat-option value="Host B">Host B</mat-option>
+        <mat-option value="Host C">Host C</mat-option>
+        <mat-option value="Host D">Host D</mat-option>
+        <mat-option value="Host E">Host E</mat-option>
+        <mat-option value="Host F">Host F</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1">
+    <button>
+      <mat-icon>done</mat-icon>
+    </button>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1">
+    <button>
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-grid-tile>
+</mat-grid-list>

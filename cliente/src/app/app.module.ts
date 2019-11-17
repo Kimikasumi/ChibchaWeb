@@ -25,6 +25,8 @@ import { ModalLoginComponent } from './modal-login/modal-login.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PqrClienteComponent } from './ModCliente/pqr-cliente/pqr-cliente.component';
 import { EmpleadoNHostComponent } from './empleado_tecnico/empleado-n-host/empleado-n-host.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 
@@ -57,6 +59,8 @@ import { EmpleadoNHostComponent } from './empleado_tecnico/empleado-n-host/emple
     MatInputModule,
     MatSelectModule,
     MatDialogModule,
+    MatGridListModule,
+    MatChipsModule,
 
   ],
   providers: [],
