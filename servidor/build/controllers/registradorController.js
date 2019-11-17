@@ -17,34 +17,41 @@ class RegistradorController {
     /** DOMINIOS */
     listarDominios(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const dominios = yield database_1.default.query('SELECT EMPLEADO.cedula, USUARIO.nombre, USUARIO.correo, T_EMPLEADO.nom_t_empleado FROM EMPLEADO, T_EMPLEADO, USUARIO WHERE EMPLEADO.cedula=USUARIO.cedula AND EMPLEADO.cod_t_empleado=T_EMPLEADO.cod_t_empleado');
+            const cod_registrador = req.body.cod_registrador;
+            const dominios = yield database_1.default.query('SELECT DOMINIO.cod_dominio, DOMINIO.nom_dominio, DOMINIO.cedula FROM DOMINIO WHERE DOMINIO.cod_registrador=?', parseInt(cod_registrador));
             res.json(dominios);
         });
     }
     obtenerDominio(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { cedula } = req.params;
-            const empleado = yield database_1.default.query('SELECT EMPLEADO.cedula, USUARIO.nombre, USUARIO.correo, T_EMPLEADO.nom_t_empleado FROM EMPLEADO, T_EMPLEADO, USUARIO WHERE EMPLEADO.cedula=USUARIO.cedula AND EMPLEADO.cod_t_empleado=T_EMPLEADO.cod_t_empleado AND USUARIO.cedula=?', [cedula]);
-            if (empleado.length > 0) {
-                return res.json(empleado[0]);
+            const aux = parseInt(req.body.cod_dominio);
+            const dominio = yield database_1.default.query('SELECT DOMINIO.cod_dominio, DOMINIO.nom_dominio, DOMINIO.cedula FROM DOMINIO WHERE DOMINIO.cod_dominio=' + aux);
+            if (dominio.length > 0) {
+                return res.json(dominio[0]);
             }
-            return res.status(404).json({ text: 'No existe el empleado' });
+            return res.status(404).json({ text: 'No existe el dominio' });
         });
     }
-    crearDominio(req, res) {
+    aceptarDominio(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("(" + parseInt(req.body.cedula) + ",'" + req.body.correo + "','" + req.body.nombre + "','" + req.body.contrasenia + "'," + parseInt(req.body.cod_t_usuario) + ")");
-            yield database_1.default.query('INSERT INTO USUARIO VALUES (' + (+parseInt(req.body.cedula) + ",'" + req.body.correo + "','" + req.body.nombre + "','" + req.body.contrasenia + "'," + parseInt(req.body.cod_t_usuario) + ")"));
-            yield database_1.default.query('UPDATE EMPLEADO SET cod_t_empleado=' + req.body.cod_t_empleado + ' WHERE cedula=' + req.body.cedula);
-            res.json({ text: 'Empleado creado' });
+            yield database_1.default.query('UPDATE DOMINIO SET cod_registrador=' + req.body.cod_registrador + ' WHERE cod_dominio=' + req.body.cod_dominio);
+            res.json({ text: 'Dominio aceptado' });
         });
     }
     eliminarDominio(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { cedula } = req.params;
-            yield database_1.default.query('DELETE FROM EMPLEADO WHERE cedula= ?', [cedula]);
-            yield database_1.default.query('DELETE FROM USUARIO WHERE cedula= ?', [cedula]);
-            res.json({ text: 'Borrando empleado ' + req.params.cedula });
+            yield database_1.default.query('UPDATE DOMINIO SET cod_registrador=NULL WHERE cod_dominio=' + req.body.cod_dominio);
+            res.json({ text: 'Borrando dominio del Registrador ' });
+        });
+    }
+    /** PERFIL REGISTRADOR*/
+    editarRegistrador(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const aux = parseInt(req.body.cod_registrador);
+            console.log(req.body);
+            yield database_1.default.query("UPDATE USUARIO SET nombre='" + req.body.nombre + "', correo= '" + req.body.correo + "' WHERE cedula=" + parseInt(req.body.cod_registrador));
+            yield database_1.default.query("UPDATE REGISTRADOR SET cod_pais=" + req.body.cod_pais + " WHERE cod_registrador=" + aux);
+            res.json({ text: 'Actualizando registrador ' + aux });
         });
     }
 }
