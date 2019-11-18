@@ -7,12 +7,12 @@ import {IRegistrarCliente} from '../models/IRegistrarCliente'
 })
 export class RegClienteService {
   
-  API_URI = 'http://localhost:5000'
+  API_URI = 'http://localhost:4000'
 
   constructor(private http: HttpClient) { }
 
 
   saveCliente(cliente: IRegistrarCliente){
-    return this.http.post(`${this.API_URI}/Cliente`, cliente);
+    return this.http.post(`${this.API_URI}/cliente/crear`, cliente);
   }
 }

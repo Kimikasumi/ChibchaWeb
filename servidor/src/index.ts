@@ -4,6 +4,8 @@ import cors from 'cors';
 import adminRoutes from './routes/adminRoutes';
 import registradorRoutes from './routes/registradorRoutes';
 import distribuidorRoutes from './routes/distribuidorRoutes';
+import clienteRoutes from './routes/clienteRoutes';
+import empleadoRoutes from './routes/empleadoRoutes';
 class Server{
 
     public app: Application;
@@ -25,6 +27,8 @@ class Server{
         this.app.use('/admin',adminRoutes);
         this.app.use('/regDominio', registradorRoutes);
         this.app.use('/distribuidor', distribuidorRoutes);
+        this.app.use('/cliente', clienteRoutes);
+        this.app.use('/empleado', empleadoRoutes);
     }
 
     start():void{

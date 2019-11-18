@@ -1,16 +1,19 @@
 <form>
   <div class="form-group">
 
+    <label for="validationCustom01">Cédula</label>
+      <input type="number" class="form-control" name="cedula" id="validationCustom01"  [(ngModel)]="cliente.cedula" placeholder="Cedula" required>
+
     <label for="validationCustom01">Nombre</label>
-      <input type="text" class="form-control" id="validationCustom01"  [(ngModel)]="cliente.nombre" placeholder="Nombre" required>
+      <input type="text" class="form-control" name="nombre" id="validationCustom01"  [(ngModel)]="cliente.nombre" placeholder="Nombre" required>
 
     <label for="exampleInputEmail1">Dirección Email</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" [(ngModel)]="cliente.correo" aria-describedby="emailHelp" placeholder="nombre@ejemplo.com">
+      <input type="email" class="form-control" name="correo" id="exampleInputEmail1" [(ngModel)]="cliente.correo" aria-describedby="emailHelp" placeholder="nombre@ejemplo.com">
       <small id="emailHelp" class="form-text text-muted">¡Asegurate de escribirlo correctamente!</small>
 
     <label for="exampleInputPassword1">Contraseña</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="cliente.contrasenia" placeholder="Contraseña">
+      <input type="password" class="form-control" name="constrasenia" id="exampleInputPassword1" [(ngModel)]="cliente.contrasenia" placeholder="Contraseña">
 
   </div>
-  <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+  <button type="submit"  (click)="nuevaPersona()" class="btn btn-primary">Registrarse</button>
 </form>
