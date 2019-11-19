@@ -1,6 +1,6 @@
 import {Router} from 'express';
 import clienteController from '../controllers/clienteController'
-class AdminRoutes{
+class ClienteRoutes{
 
     public router: Router = Router();
 
@@ -9,11 +9,9 @@ class AdminRoutes{
     }
 
     config():void{
-        this.router.post('/cliente',clienteController.crearCliente);
-
-
+        this.router.post('/crear',clienteController.crearCliente);
     }
 }
 
-const adminRoutes = new AdminRoutes();
-export default adminRoutes.router;
+const clienteRoutes = new ClienteRoutes();
+export default clienteRoutes.router;

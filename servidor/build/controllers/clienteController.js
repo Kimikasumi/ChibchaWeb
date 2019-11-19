@@ -14,6 +14,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
 class AdminController {
+    crearCliente(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log("(" + parseInt(req.body.cedula) + ",'" + req.body.correo + "','" + req.body.nombre + "','" + req.body.contrasenia + "'," + parseInt(req.body.cod_t_usuario) + ")");
+            yield database_1.default.query('INSERT INTO USUARIO VALUES (' + (+parseInt(req.body.cedula) + ",'" + req.body.correo + "','" + req.body.nombre + "','" + req.body.contrasenia + "'," + parseInt(req.body.cod_t_usuario) + ")"));
+            res.json({ text: 'Cliente creado' });
+        });
+    }
     obtenerCliente(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { cedula } = req.params;
