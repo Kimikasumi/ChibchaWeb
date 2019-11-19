@@ -15,13 +15,18 @@ class EmpleadoController{
     } 
 
     public async editarEmpleado(req:Request, res:Response): Promise<void>{
-        const respuesta = req.body.respuesta;
-        const cod_ticket = req.body.cod_ticket;
+        const cedula = req.body.cedula;
         console.log(req.body)
-        await db.query("UPDATE TICKET SET respuesta='"+respuesta+"' WHERE cod_ticket="+cod_ticket);
-        res.json({text: 'Actualizando ticket '+ cod_ticket});
+        await db.query("UPDATE USUARIO SET correo='"+req.body.correo+"', nombre='"+req.body.nombre+"' WHERE cedula="+parseInt(cedula));
+        res.json({text: 'Actualizando empleado '+ req.params.cedula});
     }
 
+    public async responderTicket(req:Request, res:Response): Promise<void>{
+        const cod_ticket= req.body.cod_ticket
+        console.log(req.body)
+        await db.query("UPDATE TICKET SET respuesta='"+req.body.respuesta+"' WHERE cod_ticket=?",parseInt(cod_ticket));
+        res.json({text: 'Respondiendo Ticket '+ req.body.cod_ticket});
+    }
 }
 const empleadoController = new EmpleadoController();
 export default empleadoController;
