@@ -1,12 +1,12 @@
 <form>
   <div class="form-group">
     <label for="exampleInputEmail1">Dirección Email</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nombre@ejemplo.com">
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="correo" [(ngModel)]="usuario.correo" placeholder="nombre@ejemplo.com">
     <small id="emailHelp" class="form-text text-muted">¡Asegurate de escribirlo correctamente!</small>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Contraseña</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <input type="password" class="form-control" id="exampleInputPassword1" name="contrasenia" [(ngModel)]="usuario.contrasenia" placeholder="Password">
   </div>
-  <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+  <button type="submit" (click)="nuevaSesion()" class="btn btn-primary">Iniciar sesión</button>
 </form>

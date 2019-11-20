@@ -29,11 +29,18 @@ class EmpleadoController {
     }
     editarEmpleado(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const respuesta = req.body.respuesta;
+            const cedula = req.body.cedula;
+            console.log(req.body);
+            yield database_1.default.query("UPDATE USUARIO SET correo='" + req.body.correo + "', nombre='" + req.body.nombre + "' WHERE cedula=" + parseInt(cedula));
+            res.json({ text: 'Actualizando empleado ' + req.params.cedula });
+        });
+    }
+    responderTicket(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
             const cod_ticket = req.body.cod_ticket;
             console.log(req.body);
-            yield database_1.default.query("UPDATE TICKET SET respuesta='" + respuesta + "' WHERE cod_ticket=" + cod_ticket);
-            res.json({ text: 'Actualizando ticket ' + cod_ticket });
+            yield database_1.default.query("UPDATE TICKET SET respuesta='" + req.body.respuesta + "' WHERE cod_ticket=?", parseInt(cod_ticket));
+            res.json({ text: 'Respondiendo Ticket ' + req.body.cod_ticket });
         });
     }
 }

@@ -11,6 +11,7 @@ const registradorRoutes_1 = __importDefault(require("./routes/registradorRoutes"
 const distribuidorRoutes_1 = __importDefault(require("./routes/distribuidorRoutes"));
 const clienteRoutes_1 = __importDefault(require("./routes/clienteRoutes"));
 const empleadoRoutes_1 = __importDefault(require("./routes/empleadoRoutes"));
+const usuarioRoutes_1 = __importDefault(require("./routes/usuarioRoutes"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -30,6 +31,7 @@ class Server {
         this.app.use('/distribuidor', distribuidorRoutes_1.default);
         this.app.use('/cliente', clienteRoutes_1.default);
         this.app.use('/empleado', empleadoRoutes_1.default);
+        this.app.use('/usuario', usuarioRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'));

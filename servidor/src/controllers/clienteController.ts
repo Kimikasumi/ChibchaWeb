@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 import db from '../database';
-class AdminController{
+class ClienteController{
 
     public async crearCliente(req:Request, res:Response): Promise<void>{
         console.log("("+parseInt(req.body.cedula)+",'"+req.body.correo+ "','"+ req.body.nombre+ "','"+ req.body.contrasenia+ "',"+ parseInt(req.body.cod_t_usuario)+")");
@@ -61,5 +61,5 @@ class AdminController{
 
 }
 
-const adminController = new AdminController();
-export default adminController;
+const clienteController = new ClienteController();
+export default clienteController;

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IRegistrarCliente } from '../models/IRegistrarCliente';
 import { RegClienteService } from '../service/reg-cliente.service';
+import {UsuarioService} from '../service/usuario.service';
+import { ISesionUsuario } from '../models/ISesionUsuario';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -69,7 +72,35 @@ export class RegistroDialog implements OnInit{
   selector: 'login-dialog',
   templateUrl: './login-dialog.component.html',
 })
-export class LoginDialog {
-  
+export class LoginDialog implements OnInit{
+
+  constructor(private usuarioService:UsuarioService, private router: Router){
+
+    
+  }
+
+  usuario: ISesionUsuario={
+    correo:"",
+    contrasenia:""
+  };
+
+  ngOnInit(){
+  }
+
+  nuevaSesion(){
+
+    let usuar: ISesionUsuario={
+      correo:this.usuario.correo,
+      contrasenia:this.usuario.contrasenia,
+    }
+    console.log(usuar);
+    this.usuarioService.identificarUsuario(usuar).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => console.error(err)
+    )
+
+  }
 }
 

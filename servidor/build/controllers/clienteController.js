@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class AdminController {
+class ClienteController {
     crearCliente(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log("(" + parseInt(req.body.cedula) + ",'" + req.body.correo + "','" + req.body.nombre + "','" + req.body.contrasenia + "'," + parseInt(req.body.cod_t_usuario) + ")");
@@ -74,5 +74,5 @@ class AdminController {
         });
     }
 }
-const adminController = new AdminController();
-exports.default = adminController;
+const clienteController = new ClienteController();
+exports.default = clienteController;

@@ -6,6 +6,7 @@ import registradorRoutes from './routes/registradorRoutes';
 import distribuidorRoutes from './routes/distribuidorRoutes';
 import clienteRoutes from './routes/clienteRoutes';
 import empleadoRoutes from './routes/empleadoRoutes';
+import usuarioRoutes from './routes/usuarioRoutes';
 class Server{
 
     public app: Application;
@@ -29,6 +30,7 @@ class Server{
         this.app.use('/distribuidor', distribuidorRoutes);
         this.app.use('/cliente', clienteRoutes);
         this.app.use('/empleado', empleadoRoutes);
+        this.app.use('/usuario', usuarioRoutes);
     }
 
     start():void{
