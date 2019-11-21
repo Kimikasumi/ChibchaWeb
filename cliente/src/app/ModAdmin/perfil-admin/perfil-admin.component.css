@@ -1,0 +1,21 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .imgResponsive{
+    max-width: 100%;
+    height: auto;
+  }
+
+  .modal-backdrop {
+    /* bug fix - no overlay */    
+    display: none;    
+}
+  
+  
