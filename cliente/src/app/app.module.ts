@@ -30,6 +30,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {PqrClienteComponent} from './ModCliente/pqr-cliente/pqr-cliente.component';
 import {EmpleadoTablaComponent} from './empleados/empleado-tabla/empleado-tabla.component';
 import {MatTableModule} from '@angular/material/table';
+import { EmpleadoSideComponent } from './empleados/empleado-side/empleado-side.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import {MatTableModule} from '@angular/material/table';
     PqrClienteComponent,
     ModalTarjeta,
     EmpleadoTablaComponent,
+    EmpleadoSideComponent,
   ],
   imports: [
     BrowserModule,

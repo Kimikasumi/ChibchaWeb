@@ -1,7 +1,7 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
-import { BreakpointObserver, Breakpoints, MediaMatcher } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {Component, ChangeDetectorRef} from '@angular/core';
+import {BreakpointObserver, Breakpoints, MediaMatcher} from '@angular/cdk/layout';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-side-cliente',
@@ -11,15 +11,15 @@ import { map } from 'rxjs/operators';
 export class SideClienteComponent {
   mobileQuery: MediaQueryList;
 
-  //fillerNav = Array(5).fill(0).map((_, i) => `Nav Item ${i + 1}`);
-  fillerNav=[
-    {name:"inicio", route:"inicio", icon: "home"},
-    {name:"perfil", route:"perfil", icon:"account_circle"},
-    {name:"PQR", route:"pqr", icon:"build"}
-  ]
+  // fillerNav = Array(5).fill(0).map((_, i) => `Nav Item ${i + 1}`);
+  fillerNav = [
+    {name: 'inicio', route: 'inicio', icon: 'home'},
+    {name: 'perfil', route: 'perfil', icon: 'account_circle'},
+    {name: 'PQR', route: 'pqr', icon: 'build'}
+  ];
 
   fillerContent = Array(2).fill(0).map(() =>
-      `Open side nav, and click on any navigation to close the opened side nav.`);
+    `Open side nav, and click on any navigation to close the opened side nav.`);
 
   private _mobileQueryListener: () => void;
 

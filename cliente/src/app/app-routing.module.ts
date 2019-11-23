@@ -8,6 +8,7 @@ import {PqrClienteComponent} from './ModCliente/pqr-cliente/pqr-cliente.componen
 
 /*Empleado*/
 import {EmpleadoTablaComponent} from './empleados/empleado-tabla/empleado-tabla.component';
+import {EmpleadoSideComponent} from './empleados/empleado-side/empleado-side.component';
 
 const routes: Routes = [
   {path: '', component: PagInicioComponent},
@@ -19,7 +20,12 @@ const routes: Routes = [
         {path: 'pqr', component: PqrClienteComponent}
       ]
   },
-  {path: 'empleado', component: EmpleadoTablaComponent}
+  {
+    path: 'empleado', component: EmpleadoSideComponent, children:
+      [
+        {path: 'solicitudes', component: EmpleadoTablaComponent}
+      ]
+  }
 ];
 
 @NgModule({
