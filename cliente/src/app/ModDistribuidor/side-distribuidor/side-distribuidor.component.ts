@@ -16,7 +16,9 @@ export class SideDistribuidorComponent {
     {name:"inicio", route:"inicio", icon: "home"},
     {name:"perfil", route:"perfil", icon:"account_circle"},
     {name:"PQR", route:"pqr", icon:"build"},
-    {name:"Nuevo Dominio", route:"host", icon:"build"}
+    {name:"Nuevo Dominio", route:"host", icon:"add_to_queue"},
+    {name:"Nuevo Cliente", route:"nCliente", icon:"person_add"},
+    {name:"Cerrar Sesión", route:"", icon:"perm_identity"}
   ]
 
   fillerContent = Array(2).fill(0).map(() =>

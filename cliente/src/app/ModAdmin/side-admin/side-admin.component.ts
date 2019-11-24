@@ -15,9 +15,11 @@ export class SideAdminComponent {
   fillerNav=[
     {name:"inicio", route:"inicio", icon: "home"},
     {name:"perfil", route:"perfil", icon:"account_circle"},
-    {name:"Nuevo Empleado", route:"nempleados", icon:"build"},
-    {name:"Listado Empleados", route:"lempleados", icon:"account_circle"},
-    {name:"Listado Clientes", route:"lclientes", icon:"build"}
+    {name:"Nuevo Empleado", route:"nempleados", icon:"person_add"},
+    {name:"Listado Empleados", route:"lempleados", icon:"headset_mic"},
+    {name:"Listado Distribuidores", route:"ldistribuidores", icon:"how_to_reg"},
+    {name:"Listado Registradores", route:"lregistradores", icon:"group"},
+    {name:"Cerrar Sesión", route:"", icon:"perm_identity"}
   ]
 
   fillerContent = Array(2).fill(0).map(() =>

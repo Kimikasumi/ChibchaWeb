@@ -1,0 +1,127 @@
+<br/>
+<br/>
+<br/>
+<div class="row">
+  <div class="col-12">
+    <h1 align="center"><span class="badge badge-warning">Listado de Registradores</span></h1>
+    <h1 align="center">Aquí podrás ver la información de todos los registradores que estan con ChibchaWeb</h1>
+  </div>
+</div>
+
+<input type="text" id="myInput1" onkeyup="BuscarCodigo()" placeholder="Buscar por codigo">
+<input type="text" id="myInput2" onkeyup="BuscarNombre()" placeholder="Buscar por nombre">
+<input type="text" id="myInput3" onkeyup="BuscaCorreo()" placeholder="Buscar por correo">
+<input type="text" id="myInput4" onkeyup="BuscaPais()" placeholder="Buscar por pais">
+
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:20%;">Codigo</th>
+    <th style="width:20%;">Nombre</th>
+    <th style="width:30%;">Correo</th>
+    <th style="width:15%;">Pais</th>
+    <th style="width:15%;"></th>
+  </tr>
+
+
+  <tr>
+    <th style="width:20%;">232323233</th>
+    <th style="width:20%;">Josefino</th>
+    <th style="width:30%;">josefino@gmail.com</th>
+    <th style="width:15%;">Colombia</th>
+    <th style="width:15%;"><button type="submit" class="btn btn-primary">Ver Mas Info</button></th>
+  </tr>
+</table> 
+<script>
+  function BuscarCodigo() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput1");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  </script>
+  <script>
+    function BuscarNombre() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput2");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+    
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+    </script>
+    <script>
+      function BuscarPais() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput4");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+      
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+      </script>
+      <script>
+        function BuscaCorreo() {
+          // Declare variables
+          var input, filter, table, tr, td, i, txtValue;
+          input = document.getElementById("myInput3");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+        
+          // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }
+          }
+        }
+        </script>
+  

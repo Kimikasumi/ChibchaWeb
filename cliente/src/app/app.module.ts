@@ -1,15 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NavPrincipalComponent } from "./nav-principal/nav-principal.component";
-import {RegistroDialog} from "./nav-principal/nav-principal.component";
-import {LoginDialog} from "./nav-principal/nav-principal.component";
-import {ModalTarjeta} from "./ModCliente/perfil-cliente/perfil-cliente.component";
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {NavPrincipalComponent} from './nav-principal/nav-principal.component';
+import {RegistroDialog} from './nav-principal/nav-principal.component';
+import {LoginDialog} from './nav-principal/nav-principal.component';
+import {ModalTarjeta} from './ModCliente/perfil-cliente/perfil-cliente.component';
 
 import {RegClienteService} from './service/reg-cliente.service';
-import { FormsModule } from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 /*
 * Angular Material
@@ -17,16 +17,16 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
-import { SideClienteComponent } from './ModCliente/side-cliente/side-cliente.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PagInicioComponent } from './pag-inicio/pag-inicio.component';
-import { PerfilClienteComponent } from './ModCliente/perfil-cliente/perfil-cliente.component';
+import {SideClienteComponent} from './ModCliente/side-cliente/side-cliente.component';
+import {LayoutModule} from '@angular/cdk/layout';
+import {MatToolbarModule, MatButtonModule, MatIconModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {PagInicioComponent} from './pag-inicio/pag-inicio.component';
+import {PerfilClienteComponent} from './ModCliente/perfil-cliente/perfil-cliente.component';
 import {MatInputModule} from '@angular/material/input';
-import { InicioClienteComponent } from './ModCliente/inicio-cliente/inicio-cliente.component';
+import {InicioClienteComponent} from './ModCliente/inicio-cliente/inicio-cliente.component';
 import {MatSelectModule} from '@angular/material/select';
-import { ModalLoginComponent } from './modal-login/modal-login.component';
+import {ModalLoginComponent} from './modal-login/modal-login.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PqrClienteComponent } from './ModCliente/pqr-cliente/pqr-cliente.component';
 
@@ -44,8 +44,11 @@ import { PerfilAdminComponent } from './ModAdmin/perfil-admin/perfil-admin.compo
 import { InicioAdminComponent } from './ModAdmin/inicio-admin/inicio-admin.component';
 import { EmpleadoAdminComponent } from './ModAdmin/empleado-admin/empleado-admin.component';
 import { ListadoEmpleadosAdminComponent } from './ModAdmin/listadoEmpleados-admin/listadoEmpleados-admin.component';
-import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/listadoClientes-admin.component';
-
+//import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/listadoClientes-admin.component';
+import {EmpleadoTablaComponent} from './empleados/empleado-tabla/empleado-tabla.component';
+import { ClienteDistribuidorComponent } from './ModDistribuidor/cliente-distribuidor/cliente-distribuidor.component';
+import { ListadoDistribuidoresAdminComponent } from './ModAdmin/listadoDistribuidores-admin/listadoDistribuidores-admin.component';
+import { ListadoRegistradoresAdminComponent } from './ModAdmin/listadoRegistradores-admin/listadoRegistradores-admin.component';
 
 @NgModule({
   declarations: [
@@ -66,12 +69,16 @@ import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/
     InicioDistribuidorComponent,
     HostDistribuidorComponent,
     PqrDistribuidorComponent,
-    ListadoClientesAdminComponent,
+    //ListadoClientesAdminComponent,
     ListadoEmpleadosAdminComponent,
     EmpleadoAdminComponent,
     InicioAdminComponent,
     PerfilAdminComponent,
-    SideAdminComponent
+    SideAdminComponent,
+    EmpleadoTablaComponent,
+    ClienteDistribuidorComponent,
+    ListadoDistribuidoresAdminComponent,
+    ListadoRegistradoresAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -84,6 +91,7 @@ import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/
     MatIconModule,
     BrowserAnimationsModule,
     MatInputModule,
+    MatTableModule,
     MatSelectModule,
     MatDialogModule,
     FormsModule,
@@ -94,4 +102,5 @@ import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/
   providers: [RegClienteService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

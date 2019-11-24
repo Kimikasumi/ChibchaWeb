@@ -13,10 +13,11 @@ export class SideClienteComponent {
 
   //fillerNav = Array(5).fill(0).map((_, i) => `Nav Item ${i + 1}`);
   fillerNav=[
-    {name:"inicio", route:"inicio", icon: "home"},
-    {name:"perfil", route:"perfil", icon:"account_circle"},
+    {name:"Inicio", route:"inicio", icon: "home"},
+    {name:"Perfil", route:"perfil", icon:"account_circle"},
     {name:"PQR", route:"pqr", icon:"build"},
-    {name:"Solicitar Dominio", route:"host", icon:"add_to_queue"}
+    {name:"Solicitar Dominio", route:"host", icon:"add_to_queue"},
+    {name:"Cerrar Sesión", route:"", icon:"perm_identity"}
   ]
 
   fillerContent = Array(2).fill(0).map(() =>
