@@ -1,3 +1,53 @@
-<p>
-  empleado-pqr works!
-</p>
+<div class="n-dom-parte">
+  <mat-grid-list cols="3" rowHeight="2.5:1">
+
+    <mat-grid-tile colspan="3">
+      <div class="titulo-page">
+        <h1>PQR</h1>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile rowspan="3">
+      <div class="titulo-desc"><h3>Descripción</h3></div>
+      <div class="texto-desc">
+        <p>
+          {{pqr[0].descrip}}
+        </p>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <p><b>Nombre del cliente:</b> {{nombreCliente}}</p>
+    </mat-grid-tile>
+
+    <mat-grid-tile rowspan="3">
+      <div class="titulo-desc"><h3>Respuesta</h3></div>
+      <div>
+        <textarea matInput placeholder="Y la respuesta es..."></textarea>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <p><b>Nombre del dominio:</b> {{nomDom}}</p>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <p><b>Plan de pago:</b> {{planPago}}</p>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <p><b>Paquete:</b> {{paquete}}</p>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <button mat-button (click)="enviar()">
+        Enviar
+      </button>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>
+
