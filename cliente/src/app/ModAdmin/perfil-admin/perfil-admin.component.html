@@ -1,9 +1,14 @@
+<br/>
+<br/>
 <div class="row">
   <div class="col-3">
-    <img class="imgResponsive rounded mx-auto d-block" src="../../../assets/images/LogoCW.jpg">
+    <img class="imgResponsive rounded-circle mx-auto d-block" src="../../../assets/images/admin.png">
   </div>
   <div class="col-3">
       <br/>
+  </div>
+  <div class="col-6">
+    <h1 align="center">Administrador <br/>ChibchaWeb</h1>
   </div>
 
 </div>
@@ -18,10 +23,13 @@
       <mat-form-field class="example-full-width">
           <input matInput placeholder="Correo">
       </mat-form-field>
-      <label>Modo de pago</label>
-      <input class="form-control" type="text" value="Crédito" readonly>
-      <label>Plan de pago</label>
-      <input class="form-control" type="text" value="" readonly>
+
+      <label for="exampleFormControlTextarea1">Contraseña Actual</label>
+      <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="1"/>
+      <label for="exampleFormControlTextarea2">Nueva Contraseña</label>
+      <input type="text" class="form-control" id="exampleFormControlTextarea2" rows="1"/>
+      <br/>
+      <button mat-raised-button onclick="">Cambiar Información</button>
 
       <!--mat-select placeholder="Tipo de pago">
           <mat-option *ngFor="let food of foods" [value]="food.value" >
@@ -31,6 +39,9 @@
 
       
       </form>
+  </div>
+  <div class="col-6">
+      <img class="imgResponsive rounded-circle mx-auto d-block" src="../../../assets/images/CW1.png">
   </div>
   
 </div>
