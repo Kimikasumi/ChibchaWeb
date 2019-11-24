@@ -14,6 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 /*
 * Angular Material
 */
+import {MatTableModule} from '@angular/material/table';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {SideClienteComponent} from './ModCliente/side-cliente/side-cliente.component';
@@ -42,6 +43,22 @@ import { EmpleadoPqrComponent } from './empleados/solicitudes/empleado-pqr/emple
 import { InicioEmpleadoComponent } from './empleados/inicio-empleado/inicio-empleado.component';
 
 
+import { HostClienteComponent } from './ModCliente/host-cliente/host-cliente.component';
+import { HostDistribuidorComponent } from './ModDistribuidor/host-distribuidor/host-distribuidor.component';
+import { PqrDistribuidorComponent } from './ModDistribuidor/pqr-distribuidor/pqr-distribuidor.component';
+import { InicioDistribuidorComponent } from './ModDistribuidor/inicio-distribuidor/inicio-distribuidor.component';
+import { SideDistribuidorComponent } from './ModDistribuidor/side-distribuidor/side-distribuidor.component';
+import { PerfilDistribuidorComponent } from './ModDistribuidor/perfil-distribuidor/perfil-distribuidor.component';
+
+
+import { SideAdminComponent } from './ModAdmin/side-admin/side-admin.component';
+import { PerfilAdminComponent } from './ModAdmin/perfil-admin/perfil-admin.component';
+import { InicioAdminComponent } from './ModAdmin/inicio-admin/inicio-admin.component';
+import { EmpleadoAdminComponent } from './ModAdmin/empleado-admin/empleado-admin.component';
+import { ListadoEmpleadosAdminComponent } from './ModAdmin/listadoEmpleados-admin/listadoEmpleados-admin.component';
+import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/listadoClientes-admin.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +80,18 @@ import { InicioEmpleadoComponent } from './empleados/inicio-empleado/inicio-empl
     SolicitudCpaqueteComponent,
     EmpleadoPqrComponent,
     InicioEmpleadoComponent,
+    HostClienteComponent,
+    SideDistribuidorComponent,
+    PerfilDistribuidorComponent,
+    InicioDistribuidorComponent,
+    HostDistribuidorComponent,
+    PqrDistribuidorComponent,
+    ListadoClientesAdminComponent,
+    ListadoEmpleadosAdminComponent,
+    EmpleadoAdminComponent,
+    InicioAdminComponent,
+    PerfilAdminComponent,
+    SideAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -80,8 +109,9 @@ import { InicioEmpleadoComponent } from './empleados/inicio-empleado/inicio-empl
     MatDialogModule,
     FormsModule,
     HttpClientModule,
+    MatTableModule
+    HttpClientModule,
     MatGridListModule
-
   ],
   providers: [RegClienteService],
   bootstrap: [AppComponent]

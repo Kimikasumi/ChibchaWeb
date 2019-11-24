@@ -1,14 +1,14 @@
-import {Component, ChangeDetectorRef} from '@angular/core';
-import {BreakpointObserver, Breakpoints, MediaMatcher} from '@angular/cdk/layout';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { BreakpointObserver, Breakpoints, MediaMatcher } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-side-cliente',
-  templateUrl: './side-cliente.component.html',
-  styleUrls: ['./side-cliente.component.css']
+  selector: 'app-side-distribuidor',
+  templateUrl: './side-distribuidor.component.html',
+  styleUrls: ['./side-distribuidor.component.css']
 })
-export class SideClienteComponent {
+export class SideDistribuidorComponent {
   mobileQuery: MediaQueryList;
 
   //fillerNav = Array(5).fill(0).map((_, i) => `Nav Item ${i + 1}`);
@@ -16,11 +16,11 @@ export class SideClienteComponent {
     {name:"inicio", route:"inicio", icon: "home"},
     {name:"perfil", route:"perfil", icon:"account_circle"},
     {name:"PQR", route:"pqr", icon:"build"},
-    {name:"Solicitar Dominio", route:"host", icon:"add_to_queue"}
-  ];
+    {name:"Nuevo Dominio", route:"host", icon:"build"}
+  ]
 
   fillerContent = Array(2).fill(0).map(() =>
-    `Open side nav, and click on any navigation to close the opened side nav.`);
+      `Open side nav, and click on any navigation to close the opened side nav.`);
 
   private _mobileQueryListener: () => void;
 
