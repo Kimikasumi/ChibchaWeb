@@ -1,0 +1,18 @@
+.titulo-page {
+  position: absolute;
+  top: 5px;
+}
+.titulo-desc {
+  alignment: top;
+  position: absolute;
+  top: 5px;
+}
+.texto-desc {
+  border: solid 1px #000000;
+  position: absolute;
+  top: 10%;
+}
+
+.mat-button {
+  background-color: lightgray;
+}

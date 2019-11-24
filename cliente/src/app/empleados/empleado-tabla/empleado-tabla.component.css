@@ -4,3 +4,8 @@ table {
 nav {
   width: 100%;
 }
+
+.mat-button {
+  alignment: center;
+  background-color: lightgrey;
+}

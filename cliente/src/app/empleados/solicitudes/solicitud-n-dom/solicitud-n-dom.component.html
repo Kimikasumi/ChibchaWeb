@@ -1,0 +1,65 @@
+<mat-grid-list cols="4" rowHeight="2:1">
+
+  <mat-grid-tile colspan="4">
+    <div class="titulo-page">
+      <h1>Nuevo Dominio</h1>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile rowspan="3">
+    <div class="titulo-desc"><h3>Descripción</h3></div>
+    <div class="texto-desc">
+      <p>
+        {{descripcion}}
+      </p>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <label>Nombre del cliente:</label>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <label>
+      {{nombreCliente}}
+    </label>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-form-field>
+      <mat-label>Host destino</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let host of hosts" [value]="host.cod_host">
+          {{host.nom_host}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <p>Plan de pago:</p>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <p>{{planPago}}</p>
+  </mat-grid-tile>
+
+  <mat-grid-tile></mat-grid-tile>
+
+  <mat-grid-tile>
+    <p>Paquete:</p>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <p>
+      {{paquete}}
+    </p>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <button mat-button >
+      Enviar
+    </button>
+  </mat-grid-tile>
+
+</mat-grid-list>

@@ -16,7 +16,7 @@
     <ng-container matColumnDef="abrir">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <button mat-button>Abrir</button>
+        <button mat-button (click)="navegar(element)">Abrir</button>
       </td>
     </ng-container>
 

@@ -28,9 +28,14 @@ import {MatSelectModule} from '@angular/material/select';
 import {ModalLoginComponent} from './modal-login/modal-login.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {PqrClienteComponent} from './ModCliente/pqr-cliente/pqr-cliente.component';
-import {EmpleadoTablaComponent} from './empleados/empleado-tabla/empleado-tabla.component';
 import {MatTableModule} from '@angular/material/table';
+/*Empleados*/
 import { EmpleadoSideComponent } from './empleados/empleado-side/empleado-side.component';
+import {EmpleadoTablaComponent} from './empleados/empleado-tabla/empleado-tabla.component';
+/*Solicitudes*/
+import { SolicitudChostComponent } from './empleados/solicitudes/solicitud-chost/solicitud-chost.component';
+import { SolicitudNDomComponent } from './empleados/solicitudes/solicitud-n-dom/solicitud-n-dom.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -48,6 +53,8 @@ import { EmpleadoSideComponent } from './empleados/empleado-side/empleado-side.c
     ModalTarjeta,
     EmpleadoTablaComponent,
     EmpleadoSideComponent,
+    SolicitudChostComponent,
+    SolicitudNDomComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +71,8 @@ import { EmpleadoSideComponent } from './empleados/empleado-side/empleado-side.c
     MatSelectModule,
     MatDialogModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule
 
   ],
   providers: [RegClienteService],

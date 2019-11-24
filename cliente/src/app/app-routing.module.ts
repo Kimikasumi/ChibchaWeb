@@ -7,8 +7,11 @@ import {InicioClienteComponent} from './ModCliente/inicio-cliente/inicio-cliente
 import {PqrClienteComponent} from './ModCliente/pqr-cliente/pqr-cliente.component';
 
 /*Empleado*/
-import {EmpleadoTablaComponent} from './empleados/empleado-tabla/empleado-tabla.component';
+import {EmpleadoTablaComponent, Solicitud} from './empleados/empleado-tabla/empleado-tabla.component';
 import {EmpleadoSideComponent} from './empleados/empleado-side/empleado-side.component';
+/*Solicitudes*/
+import {SolicitudNDomComponent} from './empleados/solicitudes/solicitud-n-dom/solicitud-n-dom.component';
+import {SolicitudChostComponent} from './empleados/solicitudes/solicitud-chost/solicitud-chost.component';
 
 const routes: Routes = [
   {path: '', component: PagInicioComponent},
@@ -23,7 +26,9 @@ const routes: Routes = [
   {
     path: 'empleado', component: EmpleadoSideComponent, children:
       [
-        {path: 'solicitudes', component: EmpleadoTablaComponent}
+        {path: 'solicitudes', component: EmpleadoTablaComponent},
+        {path: 'ndom', component: SolicitudNDomComponent},
+        {path: 'chost', component: SolicitudChostComponent},
       ]
   }
 ];
