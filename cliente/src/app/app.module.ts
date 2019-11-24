@@ -14,7 +14,6 @@ import {HttpClientModule} from '@angular/common/http';
 /*
 * Angular Material
 */
-import {MatTableModule} from '@angular/material/table';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {SideClienteComponent} from './ModCliente/side-cliente/side-cliente.component';
@@ -109,7 +108,7 @@ import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/
     MatDialogModule,
     FormsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
     HttpClientModule,
     MatGridListModule
   ],
