@@ -11,6 +11,8 @@ const ELEMENT_DATA: Solicitud[] = [
   {Tipo: 'Nuevo Dominio', Cliente: 'Carlos', direc: 'ndom'},
   {Tipo: 'Cambio host', Cliente: 'Maria', direc: 'chost'},
   {Tipo: 'Cambio plan de pago', Cliente: 'Rekkles', direc: 'cplan'},
+  {Tipo: 'Cambio paquete', Cliente: 'Mauricio', direc: 'cpaquete'},
+  {Tipo: 'PQR', Cliente: 'Mariana', direc: 'pqr'}
 ];
 
 @Component({

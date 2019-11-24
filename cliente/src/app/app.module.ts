@@ -36,6 +36,10 @@ import {EmpleadoTablaComponent} from './empleados/empleado-tabla/empleado-tabla.
 import { SolicitudChostComponent } from './empleados/solicitudes/solicitud-chost/solicitud-chost.component';
 import { SolicitudNDomComponent } from './empleados/solicitudes/solicitud-n-dom/solicitud-n-dom.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { SolicitudCplanComponent } from './empleados/solicitudes/solicitud-cplan/solicitud-cplan.component';
+import { SolicitudCpaqueteComponent } from './empleados/solicitudes/solicitud-cpaquete/solicitud-cpaquete.component';
+import { EmpleadoPqrComponent } from './empleados/solicitudes/empleado-pqr/empleado-pqr.component';
+import { InicioEmpleadoComponent } from './empleados/inicio-empleado/inicio-empleado.component';
 
 
 @NgModule({
@@ -55,6 +59,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
     EmpleadoSideComponent,
     SolicitudChostComponent,
     SolicitudNDomComponent,
+    SolicitudCplanComponent,
+    SolicitudCpaqueteComponent,
+    EmpleadoPqrComponent,
+    InicioEmpleadoComponent,
   ],
   imports: [
     BrowserModule,
