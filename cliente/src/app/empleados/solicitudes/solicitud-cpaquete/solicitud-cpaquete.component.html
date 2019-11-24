@@ -1,0 +1,46 @@
+<div class="n-dom-parte">
+  <mat-grid-list cols="3" rowHeight="2:1">
+
+    <mat-grid-tile colspan="3">
+      <div class="titulo-page">
+        <h1>Cambio paquete</h1>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile rowspan="3">
+      <div class="titulo-desc"><h3>Descripción</h3></div>
+      <div class="texto-desc">
+        <p>
+          {{descripcion}}
+        </p>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <p><b>Nombre del cliente:</b> {{nombreCliente}}</p>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <p><b>Paquete actual:</b> {{planPago}}</p>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Nuevo paquete</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let paquete of paquetes" [value]="paquete.cod_paquete">
+            pago {{paquete.nom_paquete}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile>
+      <button mat-button (click)="enviar()">
+        Enviar
+      </button>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>

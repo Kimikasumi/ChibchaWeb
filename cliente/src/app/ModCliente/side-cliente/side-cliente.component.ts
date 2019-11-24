@@ -1,7 +1,7 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
-import { BreakpointObserver, Breakpoints, MediaMatcher } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {Component, ChangeDetectorRef} from '@angular/core';
+import {BreakpointObserver, Breakpoints, MediaMatcher} from '@angular/cdk/layout';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-side-cliente',
@@ -17,10 +17,10 @@ export class SideClienteComponent {
     {name:"perfil", route:"perfil", icon:"account_circle"},
     {name:"PQR", route:"pqr", icon:"build"},
     {name:"Solicitar Dominio", route:"host", icon:"add_to_queue"}
-  ]
+  ];
 
   fillerContent = Array(2).fill(0).map(() =>
-      `Open side nav, and click on any navigation to close the opened side nav.`);
+    `Open side nav, and click on any navigation to close the opened side nav.`);
 
   private _mobileQueryListener: () => void;
 

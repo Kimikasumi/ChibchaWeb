@@ -1,15 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NavPrincipalComponent } from "./nav-principal/nav-principal.component";
-import {RegistroDialog} from "./nav-principal/nav-principal.component";
-import {LoginDialog} from "./nav-principal/nav-principal.component";
-import {ModalTarjeta} from "./ModCliente/perfil-cliente/perfil-cliente.component";
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {NavPrincipalComponent} from './nav-principal/nav-principal.component';
+import {RegistroDialog} from './nav-principal/nav-principal.component';
+import {LoginDialog} from './nav-principal/nav-principal.component';
+import {ModalTarjeta} from './ModCliente/perfil-cliente/perfil-cliente.component';
 
 import {RegClienteService} from './service/reg-cliente.service';
-import { FormsModule } from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 /*
 * Angular Material
@@ -17,26 +17,38 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
-import { SideClienteComponent } from './ModCliente/side-cliente/side-cliente.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PagInicioComponent } from './pag-inicio/pag-inicio.component';
-import { PerfilClienteComponent } from './ModCliente/perfil-cliente/perfil-cliente.component';
+import {SideClienteComponent} from './ModCliente/side-cliente/side-cliente.component';
+import {LayoutModule} from '@angular/cdk/layout';
+import {MatToolbarModule, MatButtonModule, MatIconModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {PagInicioComponent} from './pag-inicio/pag-inicio.component';
+import {PerfilClienteComponent} from './ModCliente/perfil-cliente/perfil-cliente.component';
 import {MatInputModule} from '@angular/material/input';
-import { InicioClienteComponent } from './ModCliente/inicio-cliente/inicio-cliente.component';
+import {InicioClienteComponent} from './ModCliente/inicio-cliente/inicio-cliente.component';
 import {MatSelectModule} from '@angular/material/select';
-import { ModalLoginComponent } from './modal-login/modal-login.component';
+import {ModalLoginComponent} from './modal-login/modal-login.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { PqrClienteComponent } from './ModCliente/pqr-cliente/pqr-cliente.component';
+import {PqrClienteComponent} from './ModCliente/pqr-cliente/pqr-cliente.component';
+import {MatTableModule} from '@angular/material/table';
+/*Empleados*/
+import { EmpleadoSideComponent } from './empleados/empleado-side/empleado-side.component';
+import {EmpleadoTablaComponent} from './empleados/empleado-tabla/empleado-tabla.component';
+/*Solicitudes*/
+import { SolicitudChostComponent } from './empleados/solicitudes/solicitud-chost/solicitud-chost.component';
+import { SolicitudNDomComponent } from './empleados/solicitudes/solicitud-n-dom/solicitud-n-dom.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { SolicitudCplanComponent } from './empleados/solicitudes/solicitud-cplan/solicitud-cplan.component';
+import { SolicitudCpaqueteComponent } from './empleados/solicitudes/solicitud-cpaquete/solicitud-cpaquete.component';
+import { EmpleadoPqrComponent } from './empleados/solicitudes/empleado-pqr/empleado-pqr.component';
+import { InicioEmpleadoComponent } from './empleados/inicio-empleado/inicio-empleado.component';
 
 
 import { HostClienteComponent } from './ModCliente/host-cliente/host-cliente.component';
-import { PqrDistribuidorComponent } from './ModDistribuidor/pqr-distribuidor/pqr-distribuidor.component';
 import { HostDistribuidorComponent } from './ModDistribuidor/host-distribuidor/host-distribuidor.component';
+import { PqrDistribuidorComponent } from './ModDistribuidor/pqr-distribuidor/pqr-distribuidor.component';
 import { InicioDistribuidorComponent } from './ModDistribuidor/inicio-distribuidor/inicio-distribuidor.component';
-import { PerfilDistribuidorComponent } from './ModDistribuidor/perfil-distribuidor/perfil-distribuidor.component';
 import { SideDistribuidorComponent } from './ModDistribuidor/side-distribuidor/side-distribuidor.component';
+import { PerfilDistribuidorComponent } from './ModDistribuidor/perfil-distribuidor/perfil-distribuidor.component';
 
 
 import { SideAdminComponent } from './ModAdmin/side-admin/side-admin.component';
@@ -60,6 +72,14 @@ import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/
     LoginDialog,
     PqrClienteComponent,
     ModalTarjeta,
+    EmpleadoTablaComponent,
+    EmpleadoSideComponent,
+    SolicitudChostComponent,
+    SolicitudNDomComponent,
+    SolicitudCplanComponent,
+    SolicitudCpaqueteComponent,
+    EmpleadoPqrComponent,
+    InicioEmpleadoComponent,
     HostClienteComponent,
     SideDistribuidorComponent,
     PerfilDistribuidorComponent,
@@ -84,14 +104,17 @@ import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/
     MatIconModule,
     BrowserAnimationsModule,
     MatInputModule,
+    MatTableModule,
     MatSelectModule,
     MatDialogModule,
     FormsModule,
     HttpClientModule,
     MatTableModule
-    
+    HttpClientModule,
+    MatGridListModule
   ],
   providers: [RegClienteService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
