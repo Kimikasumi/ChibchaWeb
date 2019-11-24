@@ -12,7 +12,7 @@ import { PerfilAdminComponent } from './ModAdmin/perfil-admin/perfil-admin.compo
 import { InicioAdminComponent } from './ModAdmin/inicio-admin/inicio-admin.component';
 import { EmpleadoAdminComponent } from './ModAdmin/empleado-admin/empleado-admin.component';
 import { ListadoEmpleadosAdminComponent } from './ModAdmin/listadoEmpleados-admin/listadoEmpleados-admin.component';
-//import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/listadoClientes-admin.component';
+// import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/listadoClientes-admin.component';
 import { HostClienteComponent } from './ModCliente/host-cliente/host-cliente.component';
 import { SideDistribuidorComponent } from './ModDistribuidor/side-distribuidor/side-distribuidor.component';
 import { PerfilDistribuidorComponent } from './ModDistribuidor/perfil-distribuidor/perfil-distribuidor.component';
@@ -33,14 +33,6 @@ import {SolicitudChostComponent} from './empleados/solicitudes/solicitud-chost/s
 import {SolicitudCplanComponent} from './empleados/solicitudes/solicitud-cplan/solicitud-cplan.component';
 import {SolicitudCpaqueteComponent} from './empleados/solicitudes/solicitud-cpaquete/solicitud-cpaquete.component';
 import {EmpleadoPqrComponent} from './empleados/solicitudes/empleado-pqr/empleado-pqr.component';
-import {PerfilDistribuidorComponent} from './ModDistribuidor/perfil-distribuidor/perfil-distribuidor.component';
-import {PqrDistribuidorComponent} from './ModDistribuidor/pqr-distribuidor/pqr-distribuidor.component';
-import {HostDistribuidorComponent} from './ModDistribuidor/host-distribuidor/host-distribuidor.component';
-import {SideAdminComponent} from './ModAdmin/side-admin/side-admin.component';
-import {InicioAdminComponent} from './ModAdmin/inicio-admin/inicio-admin.component';
-import {PerfilAdminComponent} from './ModAdmin/perfil-admin/perfil-admin.component';
-import {ListadoClientesAdminComponent} from './ModAdmin/listadoClientes-admin/listadoClientes-admin.component';
-import {EmpleadoAdminComponent} from './ModAdmin/empleado-admin/empleado-admin.component';
 
 const routes: Routes = [
   {path: '', component: PagInicioComponent},
@@ -63,7 +55,7 @@ const routes: Routes = [
         {path: 'host', component: HostDistribuidorComponent},
         {path: 'nCliente', component: ClienteDistribuidorComponent}
 
-      ] 
+      ]
     },
     {path: 'admin', component: SideAdminComponent, children:
     [
@@ -73,9 +65,9 @@ const routes: Routes = [
       {path: 'lempleados', component: ListadoEmpleadosAdminComponent},
       {path: 'ldistribuidores', component: ListadoDistribuidoresAdminComponent},
       {path: 'lregistradores', component: ListadoRegistradoresAdminComponent},
-      
 
-    ] 
+
+    ]
   },
   {
     path: 'empleado', component: EmpleadoSideComponent, children:

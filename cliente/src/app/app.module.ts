@@ -55,8 +55,7 @@ import { PerfilAdminComponent } from './ModAdmin/perfil-admin/perfil-admin.compo
 import { InicioAdminComponent } from './ModAdmin/inicio-admin/inicio-admin.component';
 import { EmpleadoAdminComponent } from './ModAdmin/empleado-admin/empleado-admin.component';
 import { ListadoEmpleadosAdminComponent } from './ModAdmin/listadoEmpleados-admin/listadoEmpleados-admin.component';
-//import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/listadoClientes-admin.component';
-import {EmpleadoTablaComponent} from './empleados/empleado-tabla/empleado-tabla.component';
+// import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/listadoClientes-admin.component';
 import { ClienteDistribuidorComponent } from './ModDistribuidor/cliente-distribuidor/cliente-distribuidor.component';
 import { ListadoDistribuidoresAdminComponent } from './ModAdmin/listadoDistribuidores-admin/listadoDistribuidores-admin.component';
 import { ListadoRegistradoresAdminComponent } from './ModAdmin/listadoRegistradores-admin/listadoRegistradores-admin.component';
@@ -88,7 +87,7 @@ import { ListadoRegistradoresAdminComponent } from './ModAdmin/listadoRegistrado
     InicioDistribuidorComponent,
     HostDistribuidorComponent,
     PqrDistribuidorComponent,
-    //ListadoClientesAdminComponent,
+    // ListadoClientesAdminComponent,
     ListadoEmpleadosAdminComponent,
     EmpleadoAdminComponent,
     InicioAdminComponent,
