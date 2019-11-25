@@ -1,30 +1,32 @@
+<br/>
+<br/>
   <div class="row">
     <div class="col-3">
-      <img class="imgResponsive rounded mx-auto d-block" src="../../../assets/images/LogoCW.jpg">
+      <img class="imgResponsive rounded-circle mx-auto d-block" src="../../../assets/images/perfil.png">
     </div>
     <div class="col-3">
         <br/>
     </div>
     <div class="col-6" >
       <div class="row">
-        <h1 >Perfil</h1>
+        <h1 >Dominios registrados</h1>
       </div>
       <div class="row">
-          <table class="table table-sm table-dark">
-              <thead>
-                <tr >
+          <table class="table table-sm ">
+              <thead class="table-warning">
+                <tr>
                   <th scope="col">Nombre del dominio</th>
                   <th scope="col">Cliente</th>
                   <th scope="col">Estado</th>
-                  <th scope="col">Plan</th>
+                  <th scope="col">Host</th>
                 </tr>
               </thead>
-              <tbody class="bg-danger"> 
-                <tr>
-                  <th scope="row">ElMenWeb</th>
-                  <th scope="row">Yoprro</th>
+              <tbody class="table-light"> 
+                <tr >
+                  <td >ElMenWeb</td>
+                  <td >Yoprro</td>
                   <td>Aceptado</td>
-                  <td>ChibchaOro</td>
+                  <td>Arroba</td>
                 </tr>
               </tbody>
             </table>
@@ -43,11 +45,13 @@
         <mat-form-field class="example-full-width">
             <input matInput placeholder="Correo">
         </mat-form-field>
-        <label>Modo de pago</label>
-        <input class="form-control" type="text" value="Crédito" readonly>
-        <label>Plan de pago</label>
-        <input class="form-control" type="text" value="" readonly>
-
+        <label for="exampleFormControlTextarea1">Contraseña Actual</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="1"/>
+        <label for="exampleFormControlTextarea2">Nueva Contraseña</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea2" rows="1"/>
+        <br/>
+        <button mat-raised-button onclick="">Cambiar Información</button>
+        
         <!--mat-select placeholder="Tipo de pago">
             <mat-option *ngFor="let food of foods" [value]="food.value" >
               {{food.viewValue}}
@@ -57,20 +61,5 @@
         
         </form>
     </div>
-    <div class="col-6">
-      <!-- Modal Tarjeta-->
-      <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Añadir tarjeta</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <modal-tarjeta></modal-tarjeta>
-            </div>
-          </div>
-        </div>
-    </div>
+
   </div>

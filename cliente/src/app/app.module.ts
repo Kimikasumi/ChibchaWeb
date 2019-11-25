@@ -14,7 +14,6 @@ import {HttpClientModule} from '@angular/common/http';
 /*
 * Angular Material
 */
-import {MatTableModule} from '@angular/material/table';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {SideClienteComponent} from './ModCliente/side-cliente/side-cliente.component';
@@ -56,8 +55,10 @@ import { PerfilAdminComponent } from './ModAdmin/perfil-admin/perfil-admin.compo
 import { InicioAdminComponent } from './ModAdmin/inicio-admin/inicio-admin.component';
 import { EmpleadoAdminComponent } from './ModAdmin/empleado-admin/empleado-admin.component';
 import { ListadoEmpleadosAdminComponent } from './ModAdmin/listadoEmpleados-admin/listadoEmpleados-admin.component';
-import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/listadoClientes-admin.component';
-
+// import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/listadoClientes-admin.component';
+import { ClienteDistribuidorComponent } from './ModDistribuidor/cliente-distribuidor/cliente-distribuidor.component';
+import { ListadoDistribuidoresAdminComponent } from './ModAdmin/listadoDistribuidores-admin/listadoDistribuidores-admin.component';
+import { ListadoRegistradoresAdminComponent } from './ModAdmin/listadoRegistradores-admin/listadoRegistradores-admin.component';
 
 @NgModule({
   declarations: [
@@ -86,12 +87,16 @@ import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/
     InicioDistribuidorComponent,
     HostDistribuidorComponent,
     PqrDistribuidorComponent,
-    ListadoClientesAdminComponent,
+    // ListadoClientesAdminComponent,
     ListadoEmpleadosAdminComponent,
     EmpleadoAdminComponent,
     InicioAdminComponent,
     PerfilAdminComponent,
-    SideAdminComponent
+    SideAdminComponent,
+    EmpleadoTablaComponent,
+    ClienteDistribuidorComponent,
+    ListadoDistribuidoresAdminComponent,
+    ListadoRegistradoresAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +114,7 @@ import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/
     MatDialogModule,
     FormsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
     HttpClientModule,
     MatGridListModule
   ],
