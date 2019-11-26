@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ClienteService} from '../../service/cliente.service';
 
 export interface Opcion {
   cod_op: number;
@@ -27,7 +28,13 @@ export class RegistradorSolicitudComponent implements OnInit {
     '        consequatur debitis, dolor esse nobis officiis, provident quasi rem similique tempore voluptatibus? Nisi\n' +
     '        provident quidem quos.\n';
 
-  constructor(private router: Router) {
+  constructor(private clienteService: ClienteService, private router: Router, private activateRoute: ActivatedRoute) {
+  }
+
+  ngOnInit() {
+    if (localStorage.getItem('codRegistrador') == null) {
+      this.router.navigate(['']);
+    }
   }
 
   enviar() {
@@ -36,9 +43,6 @@ export class RegistradorSolicitudComponent implements OnInit {
 
   regresar() {
     this.router.navigate(['registrador/tabla']);
-  }
-
-  ngOnInit() {
   }
 
 }

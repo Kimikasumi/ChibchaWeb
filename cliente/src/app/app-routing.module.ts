@@ -91,9 +91,9 @@ const routes: Routes = [
   {
     path: 'registrador', component: RegistradorSideComponent, children:
     [
-      {path: 'inicio', component: RegistradorInicioComponent},
-      {path: 'tabla', component: RegistradorTablaComponent},
-      {path: 'solicitud', component: RegistradorSolicitudComponent}
+      {path: 'inicio/:cod_registrador', component: RegistradorInicioComponent},
+      {path: 'tabla/:cod_registrador', component: RegistradorTablaComponent},
+      {path: 'solicitud/:cod_registrador', component: RegistradorSolicitudComponent}
     ]
   },
   {path: '**', component: PagInicioComponent}

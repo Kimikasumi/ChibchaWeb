@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ClienteService} from '../../service/cliente.service';
 
 export interface Solicitud {
   nombreDom: string;
@@ -22,14 +23,17 @@ export class RegistradorTablaComponent implements OnInit {
   displayedColumns: string[] = ['nomDom', 'abrir'];
   dataSource = ELEMENT_DATA;
 
-  constructor(private router: Router) {
+  navegar() {
+    this.router.navigate(['registrador/solicitud/' + localStorage.getItem('codRegistrador')]);
   }
 
-  navegar() {
-    this.router.navigate(['registrador/solicitud']);
+  constructor(private clienteService: ClienteService, private router: Router, private activateRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
+    if (localStorage.getItem('codRegistrador') == null) {
+      this.router.navigate(['']);
+    }
   }
 
 }

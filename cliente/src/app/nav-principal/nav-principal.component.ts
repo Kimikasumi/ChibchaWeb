@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 
 export class NavPrincipalComponent {
   constructor() { }
-  
+
 
   ngOnInit() {
   }
@@ -61,7 +61,7 @@ export class RegistroDialog implements OnInit{
         console.log(res);
       },
       err => console.error(err)
-      
+
     )
   }
 }
@@ -98,31 +98,36 @@ export class LoginDialog implements OnInit{
 
     this.usuarioService.identificarUsuario(usuar).subscribe(
       res => {
-        
+
         this.sesionCreada = res;
         if (this.sesionCreada.cod_t_usuario == 1){
           let cedula:string = this.sesionCreada.cedula;
           localStorage.setItem("cedulaAdmin", cedula);
           this.router.navigate(['admin/inicio']);
-          
+
         }
         else if (this.sesionCreada.cod_t_usuario == 2){
 
           let cedula:string = this.sesionCreada.cedula;
-          
+
           localStorage.setItem("cedulaCliente", cedula);
           this.router.navigate(['cliente/inicio/'+cedula]);
         }
+
+        /*Registrador*/
         else if (this.sesionCreada.cod_t_usuario == 3){
-          this.router.navigate(['regDominio/inicio']);
+          let codRegistrador:string = this.sesionCreada.cod_registrador;
+          localStorage.setItem('codRegistrador', codRegistrador);
+          this.router.navigate(['registrador/inicio/' + codRegistrador]);
         }
+
         else if (this.sesionCreada.cod_t_usuario == 4){
           this.router.navigate(['empleado/inicio']);
         }
         else if (this.sesionCreada.cod_t_usuario == 5){
           this.router.navigate(['distribuidor/inicio']);
         }
-        
+
         console.log(res);
       },
       err => console.error(err)
