@@ -2,25 +2,25 @@
 <br/>
 <div class="row">
   <div class="col-3">
-    <img class="imgResponsive rounded-circle mx-auto d-block" src="../../../assets/images/perfil.png">
+    <img class="imgResponsive rounded-circle mx-auto d-block" src="../../../assets/images/cliente.png">
   </div>
   <div class="col-3">
       <br/>
   </div>
   <div class="col-6" >
     <div class="row">
-      <h1 >Perfil</h1>
+      <h1 >Perfil {{clienteGrafico.nombre}}</h1>
     </div>
     <div class="row">
-        <table class="table table-sm table-dark">
-            <thead>
+        <table class="table table-sm" >
+            <thead class="table-warning">
               <tr >
                 <th scope="col">Nombre del dominio</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Host</th>
               </tr>
             </thead>
-            <tbody class="bg-danger"> 
+            <tbody class="bg-light"> 
               <tr>
                 <th scope="row">ElMenWeb</th>
                 <td>Aceptado</td>
@@ -37,24 +37,24 @@
     <form class="example-form">
 
       <mat-form-field class="example-full-width">
-          <input matInput placeholder="Nombre">
+          <input matInput placeholder="Nombre" value="{{clienteGrafico.nombre}}">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-          <input matInput placeholder="Correo">
+          <input matInput placeholder="Correo" value="{{clienteGrafico.correo}}">
       </mat-form-field>
       <label>Modo de pago</label>
       <input class="form-control" type="text" value="Crédito" readonly>
       <label>Plan de pago</label>
-      <input class="form-control" type="text" value="Trimestral" readonly>
+      <input class="form-control" type="text" value="{{clienteGrafico.nom_p_pago}}" readonly>
       <label>Chibcha Plan</label>
-      <input class="form-control" type="text" value="ChibchaOro" readonly>
+      <input class="form-control" type="text" value="{{clienteGrafico.nom_paquete}}" readonly>
       <label> </label>
       <label for="exampleFormControlTextarea1">Contraseña Actual</label>
       <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="1"/>
       <label for="exampleFormControlTextarea2">Nueva Contraseña</label>
       <input type="text" class="form-control" id="exampleFormControlTextarea2" rows="1"/>
-
+      <br/>
       <button mat-raised-button onclick="">Cambiar Información</button>
       
       <!--mat-select placeholder="Tipo de pago">

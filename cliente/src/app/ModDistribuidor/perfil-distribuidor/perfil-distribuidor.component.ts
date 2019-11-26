@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
+import { Router } from '@angular/router';
 
 /**
  * @title Bottom Sheet Overview
@@ -48,10 +49,15 @@ export class PerfilDistribuidorComponent implements OnInit {
     {value: '1', viewValue: 'Transacciones'},
   ];
 
-  constructor() { }
-  
+  constructor(private router:Router) { }
 
+
+  
   ngOnInit() {
+    if(localStorage.getItem("cedulaCliente")==null)
+    {
+      this.router.navigate([''])
+    }
   }
 
 }

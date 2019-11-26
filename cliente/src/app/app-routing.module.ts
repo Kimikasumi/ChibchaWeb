@@ -27,14 +27,15 @@ import { ListadoRegistradoresAdminComponent } from './ModAdmin/listadoRegistrado
 import {EmpleadoTablaComponent} from './empleados/empleado-tabla/empleado-tabla.component';
 
 const routes: Routes = [
+  
   {path: '', component: PagInicioComponent},
   {
     path: 'cliente', component: SideClienteComponent, children:
       [
-        {path: 'inicio', component: InicioClienteComponent},
-        {path: 'perfil', component: PerfilClienteComponent },
-        {path: 'pqr', component: PqrClienteComponent},
-        {path: 'host', component: HostClienteComponent}
+        {path: 'inicio/:cedula', component: InicioClienteComponent},
+        {path: 'perfil/:cedula', component: PerfilClienteComponent },
+        {path: 'pqr/:cedula', component: PqrClienteComponent},
+        {path: 'host/:cedula', component: HostClienteComponent}
 
       ] 
     },
@@ -61,10 +62,12 @@ const routes: Routes = [
     ] 
   },
 
-  {path: 'empleado', component: EmpleadoTablaComponent}
+  {path: 'empleado', component: EmpleadoTablaComponent},
+  {path: '**', component: PagInicioComponent}
 ];
 
 @NgModule({
+  
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

@@ -10,6 +10,9 @@ export class PagInicioComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    localStorage.removeItem("cedulaCliente");
   }
+
+
 
 }
