@@ -30,6 +30,10 @@ export class EmpleadoPqrComponent implements OnInit {
     this.router.navigate(['empleado/solicitudes']);
   }
 
+  regresar() {
+    this.router.navigate(['empleado/solicitudes']);
+  }
+
   ngOnInit() {
   }
 
