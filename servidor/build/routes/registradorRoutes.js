@@ -17,7 +17,7 @@ class RegistradorRoutes {
         this.router.put('/dominio/rechazar', registradorController_1.default.rechazarDominio);
         this.router.put('/dominio/delete', registradorController_1.default.eliminarDominio);
         this.router.put('/dominio/perfil', registradorController_1.default.editarRegistrador);
-        this.router.get('/solicitudes', registradorController_1.default.listarSolicitudes);
+        this.router.get('/solicitudes/:cod_registrador', registradorController_1.default.listarSolicitudes);
         this.router.get('/solicitudes/get', registradorController_1.default.obtenerSolicitud);
     }
 }

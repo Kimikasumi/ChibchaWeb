@@ -1,16 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-
-export interface Solicitud {
-  nombreDom: string;
-}
-
-const ELEMENT_DATA: Solicitud[] = [
-  {nombreDom: 'Pajarito'},
-  {nombreDom: 'CascadasBlue'},
-  {nombreDom: 'RojelioMorelo'},
-  {nombreDom: 'GuinsoGiso'}
-];
+import {ActivatedRoute, Router} from '@angular/router';
+import {ITicketC} from '../../models/ITicket';
+import {RegistradorService} from '../../service/registrador.service';
+import {parseLine} from 'tslint/lib/verify/lines';
 
 @Component({
   selector: 'app-registrador-tabla',
@@ -19,17 +11,39 @@ const ELEMENT_DATA: Solicitud[] = [
 })
 export class RegistradorTablaComponent implements OnInit {
 
-  displayedColumns: string[] = ['nomDom', 'abrir'];
-  dataSource = ELEMENT_DATA;
+  ticketsRegistrador: any = [];
 
-  constructor(private router: Router) {
+  ejemplo: any = [
+    {hola: 'hola', chao: 'chao'},
+    {hola: 'hola2', chao: 'chao2'},
+    {hola: 'hola3', chao: 'chao3'}
+  ];
+
+  displayedColumns: string[] = ['nomDom', 'abrir'];
+  dataSource = this.ejemplo;
+
+  constructor(private registradorService: RegistradorService, private router: Router, private activateRoute: ActivatedRoute) {
   }
 
   navegar() {
-    this.router.navigate(['registrador/solicitud']);
+    this.router.navigate(['registrador/solicitud/' + localStorage.getItem('codRegistrador')]);
   }
 
   ngOnInit() {
+    if (localStorage.getItem('codRegistrador') == null) {
+      this.router.navigate(['']);
+    }
+    this.cargarSolicitud();
+  }
+
+  cargarSolicitud() {
+    const codigo: number = parseInt(localStorage.getItem('codRegistrador'), 10);
+    this.registradorService.cargarSolicitudes(codigo).subscribe(
+      res => {
+        this.ticketsRegistrador = res;
+        console.log(this.ticketsRegistrador);
+      }
+    );
   }
 
 }

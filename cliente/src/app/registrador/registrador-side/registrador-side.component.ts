@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class RegistradorSideComponent implements OnInit {
 
   fillerNav = [
-    {name: 'inicio', route: 'inicio', icon: 'home'},
-    {name: 'solicitudes', route: 'tabla', icon: 'dashboard'},
+    {name: 'inicio', route: 'inicio/' + localStorage.getItem('codRegistrador'), icon: 'home'},
+    {name: 'solicitudes', route: 'tabla/' + localStorage.getItem('codRegistrador'), icon: 'dashboard'},
     {name: 'cerrar sesión', route: 'salir', icon: 'exit_to_app'}
   ];
 
