@@ -49,6 +49,10 @@ export class SolicitudChostComponent implements OnInit {
     this.router.navigate(['empleado/solicitudes']);
   }
 
+  regresar() {
+    this.router.navigate(['empleado/solicitudes']);
+  }
+
   ngOnInit() {
   }
 

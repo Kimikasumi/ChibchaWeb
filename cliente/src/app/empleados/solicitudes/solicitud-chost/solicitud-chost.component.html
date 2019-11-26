@@ -1,61 +1,97 @@
-<div class="n-dom-parte">
-  <mat-grid-list cols="3" rowHeight="2.5:1">
+<br>
 
-    <mat-grid-tile colspan="3">
-      <div class="titulo-page">
-        <h1>Cambio host</h1>
-      </div>
-    </mat-grid-tile>
+<div class="row">
+  <div align="center" class="col-12">
+    <h1><span class="badge badge-success">Cambio de host</span></h1>
+  </div>
+</div>
 
-    <mat-grid-tile rowspan="3">
-      <div class="titulo-desc"><h3>Descripción</h3></div>
-      <div class="texto-desc">
-        <p>
-          {{cliente[0].descripcion}}
-        </p>
-      </div>
-    </mat-grid-tile>
+<br>
 
-    <mat-grid-tile>
-      <p><b>Nombre del cliente:</b> {{cliente[0].nombreCliente}}</p>
-    </mat-grid-tile>
+<div class="row">
+  <div class="col-12" align="left">
+    <label><span class="badge">Información del cliente</span></label>
+  </div>
+</div>
+<div class="info-cliente">
+  <div class="row">
+    <div class="col-4" align="center">
+      <label><b>Nombre del cliente:</b> {{cliente[0].nombreCliente}}</label>
+    </div>
 
-    <mat-grid-tile>
-      <p><b>Nombre del dominio:</b> {{cliente[0].nomDom}}</p>
-    </mat-grid-tile>
+    <div class="col-4" align="center">
+      <label><b>Plan de pago:</b> {{cliente[0].planPago}}</label>
+    </div>
 
-    <mat-grid-tile>
-      <p><b>Plan de pago:</b> {{cliente[0].planPago}}</p>
-    </mat-grid-tile>
+    <div class="col-4" align="center">
+      <label><b>Paquete:</b> {{cliente[0].paquete}}</label>
+    </div>
+  </div>
 
-    <mat-grid-tile>
-      <p><b>Paquete:</b> {{cliente[0].paquete}}</p>
-    </mat-grid-tile>
+  <br>
 
-    <mat-grid-tile>
-      <p><b>Host anterior:</b> {{cliente[0].lastHost}} </p>
-    </mat-grid-tile>
+  <div class="row">
+    <div class="col-6" align="center">
+      <label><b>Nombre del dominio:</b> {{cliente[0].nomDom}}</label>
+    </div>
 
-    <mat-grid-tile>
+    <div class="col-6" align="center">
+      <label><b>Host anterior:</b>{{cliente[0].lastHost}}</label>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="row" style="border: solid 1px lightgray">
+  <div class="col-12">
+    <label><b>Descripción:</b></label>
+    <p class="descrip">{{cliente[0].descripcion}}</p>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<div class="listHost">
+  <div class="row">
+    <div class="col-6" align="right">
       <mat-form-field>
-        <mat-label>Cambio Host</mat-label>
+        <mat-label>Host disponibles</mat-label>
         <mat-select>
           <mat-option *ngFor="let host of hosts" [value]="host.cod_host">
             {{host.nom_host}}
           </mat-option>
         </mat-select>
       </mat-form-field>
-    </mat-grid-tile>}
+    </div>
 
-    <mat-grid-tile>
-    </mat-grid-tile>
-
-
-    <mat-grid-tile>
+    <div class="col-6" align="left">
       <button mat-button (click)="enviar()">
         Enviar
       </button>
-    </mat-grid-tile>
+    </div>
+  </div>
+</div>
 
-  </mat-grid-list>
+<br>
+<div class="row">
+  <div align="left" class="col-2">
+    <button mat-button (click)="regresar()">
+      Regresar
+    </button>
+  </div>
+</div>
+<br>
+<br>
+
+<div class="row">
+  <div class="col-3" align="center">
+    <img class="imgResponsive" align="center" src="../../../../assets/images/chiblogo.png">
+  </div>
+
+  <div class="col-9">
+    <h1 align="center"><span class="badge">Somos el mejor servicio!</span></h1>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 export interface PlanPago {
@@ -25,9 +25,14 @@ export class SolicitudCplanComponent implements OnInit {
     '        consequatur debitis, dolor esse nobis officiis, provident quasi rem similique tempore voluptatibus? Nisi\n' +
     '        provident quidem quos.\n';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   enviar() {
+    this.router.navigate(['empleado/solicitudes']);
+  }
+
+  regresar() {
     this.router.navigate(['empleado/solicitudes']);
   }
 

@@ -1,28 +1,22 @@
-.n-dom-parte {
-  background-color: #f5f5f5;
+.info-cliente {
+  border: solid 1px lightgrey;
 }
 
-.titulo-page {
-  position: absolute;
-  top: 25%;
+.listHost {
+  border: solid 1px lightgrey;
 }
 
-.titulo-desc {
-  alignment: top;
-  position: absolute;
-  top: 5px;
+.imgResponsive {
+  max-width: 90%;
+  height: auto;
 }
 
-.texto-desc {
-  text-align: justify;
-  border: solid 1px #000000;
-  position: absolute;
-  top: 10%;
-  left: 6%;
-  width: 92%;
-  height: 87%;
+.col-9 {
+  top: 60px;
 }
 
 .mat-button {
-  background-color: lightgray;
+  position: absolute;
+  top: 20%;
+  background-color: lightgrey;
 }
