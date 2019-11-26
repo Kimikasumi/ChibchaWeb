@@ -1,54 +1,76 @@
-<div class="n-dom-parte">
-  <mat-grid-list cols="3" rowHeight="2:1">
+<br>
+<br>
+<br>
+<div class="row">
+  <div align="center" class="col-12">
+    <h1><span class="badge badge-success">Nuevo dominio</span></h1>
+  </div>
+</div>
 
-    <mat-grid-tile colspan="3">
-      <div class="titulo-page">
-        <h1>Nuevo Dominio</h1>
-      </div>
-    </mat-grid-tile>
+<br>
+<br>
 
-    <mat-grid-tile rowspan="3">
-      <div class="titulo-desc"><h3>Descripción</h3></div>
-      <div class="texto-desc">
-        <p>
-          {{descripcion}}
-        </p>
-      </div>
-    </mat-grid-tile>
+<div class="row">
+  <div class="col-3" align="center">
+    <label><b>Nombre del cliente:</b> {{nombreCliente}}</label>
+  </div>
 
-    <mat-grid-tile>
-      <p><b>Nombre del cliente:</b> {{nombreCliente}}</p>
-    </mat-grid-tile>
+  <div class="col-3" align="center">
+    <label><b>Plan de pago:</b> {{planPago}}</label>
+  </div>
 
-    <mat-grid-tile>
-      <p><b>Nombre del dominio:</b> {{nomDom}}</p>
-    </mat-grid-tile>
+  <div class="col-3" align="center">
+    <label><b>Paquete:</b> {{paquete}}</label>
+  </div>
 
-    <mat-grid-tile>
-      <p><b>Plan de pago:</b> {{planPago}}</p>
-    </mat-grid-tile>
+  <div class="col-3" align="center">
+    <label><b>Nombre del dominio:</b> {{nomDom}}</label>
+  </div>
+</div>
 
-    <mat-grid-tile>
-      <p><b>Paquete:</b> {{paquete}}</p>
-    </mat-grid-tile>
+<br>
 
-    <mat-grid-tile>
-      <mat-form-field>
-        <mat-label>Host destino</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let host of hosts" [value]="host.cod_host">
-            {{host.nom_host}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </mat-grid-tile>
+<div class="row">
+  <div class="col-12">
+    <label><b>Descripción:</b></label>
+    <p class="descrip">{{descripcion}}</p>
+  </div>
+</div>
 
+<br>
+<br>
+<br>
 
-    <mat-grid-tile>
-      <button mat-button (click)="enviar()">
-        Enviar
-      </button>
-    </mat-grid-tile>
+<div class="row">
+  <div class="col-6" align="center">
+    <mat-form-field>
+      <mat-label>Host disponibles</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let host of hosts" [value]="host.cod_host">
+          {{host.nom_host}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 
-  </mat-grid-list>
+  <div class="col-6" align="center">
+    <button mat-button (click)="enviar()">
+      Enviar
+    </button>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="row">
+  <div class="col-3" align="center">
+    <img class="imgResponsive" align="center" src="../../../../assets/images/chiblogo.png">
+  </div>
+
+  <div class="col-9">
+    <h1 align="center"><span class="badge">Somos el mejor servicio!</span></h1>
+  </div>
 </div>
