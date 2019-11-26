@@ -9,7 +9,7 @@ export class RegistradorSideComponent implements OnInit {
 
   fillerNav = [
     {name: 'inicio', route: 'inicio', icon: 'home'},
-    {name: 'solicitudes', route: 'solicitudes', icon: 'dashboard'},
+    {name: 'solicitudes', route: 'tabla', icon: 'dashboard'},
     {name: 'cerrar sesión', route: 'salir', icon: 'exit_to_app'}
   ];
 

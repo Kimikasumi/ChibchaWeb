@@ -26,7 +26,7 @@ export class RegistradorTablaComponent implements OnInit {
   }
 
   navegar() {
-    this.router.navigate([]);
+    this.router.navigate(['registrador/solicitud']);
   }
 
   ngOnInit() {
