@@ -93,7 +93,7 @@ const routes: Routes = [
     [
       {path: 'inicio/:cod_registrador', component: RegistradorInicioComponent},
       {path: 'tabla/:cod_registrador', component: RegistradorTablaComponent},
-      {path: 'solicitud/:cod_registrador', component: RegistradorSolicitudComponent}
+      {path: 'solicitud/:cod_registrador/:cod_ticket', component: RegistradorSolicitudComponent}
     ]
   },
   {path: '**', component: PagInicioComponent}

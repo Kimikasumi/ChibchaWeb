@@ -31,8 +31,8 @@ class RegistradorController {
     }
     obtenerSolicitud(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const cod_ticket = parseInt(req.body.cod_ticket);
-            const cod_registrador = req.body.cod_registrador;
+            const { cod_ticket, cod_registrador } = req.params;
+            console.log(req.params);
             const solicitud = yield database_1.default.query("SELECT DOMINIO.cod_dominio, DOMINIO.nom_dominio," +
                 "USUARIO.nombre, TICKET.descripcion, ESTADO.nom_estado FROM  TICKET, DOMINIO, USUARIO, " +
                 "ESTADO, CLIENTE, REGISTRADOR WHERE DOMINIO.cedula=CLIENTE.cedula AND " +

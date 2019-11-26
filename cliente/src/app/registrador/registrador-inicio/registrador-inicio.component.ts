@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ClienteService} from '../../service/cliente.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {RegistradorService} from '../../service/registrador.service';
 
 @Component({
   selector: 'app-registrador-inicio',
@@ -11,7 +11,7 @@ export class RegistradorInicioComponent implements OnInit {
 
   nombreRegistrador = 'Caps';
 
-  constructor(private clienteService: ClienteService, private router: Router, private activateRoute: ActivatedRoute) {
+  constructor(private registradorService: RegistradorService, private router: Router, private activateRoute: ActivatedRoute) {
   }
 
   ngOnInit() {

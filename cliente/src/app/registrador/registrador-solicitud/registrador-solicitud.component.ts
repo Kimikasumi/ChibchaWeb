@@ -1,11 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ClienteService} from '../../service/cliente.service';
-
-export interface Opcion {
-  cod_op: number;
-  nomOp: string;
-}
+import {RegistradorService} from '../../service/registrador.service';
 
 @Component({
   selector: 'app-registrador-solicitud',
@@ -14,27 +9,21 @@ export interface Opcion {
 })
 export class RegistradorSolicitudComponent implements OnInit {
 
-  opciones: Opcion[] = [
-    {cod_op: 1, nomOp: 'Aceptar'},
-    {cod_op: 2, nomOp: 'Denegar'}
+  ticketsRegistrador: any = [];
+
+  opciones: any = [
+    {valor: 1, nom: 'Aceptar'},
+    {valor: 2, nom: 'Denegar'}
   ];
 
-  nomDom = 'Pajarito';
-  nomCliente = 'Carlos';
-  descDom = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci animi architecto atque consectetur\n' +
-    '        consequatur debitis, dolor esse nobis officiis, provident quasi rem similique tempore voluptatibus? Nisi\n' +
-    '        provident quidem quos.\n';
-  descSolicitud = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci animi architecto atque consectetur\n' +
-    '        consequatur debitis, dolor esse nobis officiis, provident quasi rem similique tempore voluptatibus? Nisi\n' +
-    '        provident quidem quos.\n';
-
-  constructor(private clienteService: ClienteService, private router: Router, private activateRoute: ActivatedRoute) {
+  constructor(private registradorService: RegistradorService, private router: Router, private activateRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
     if (localStorage.getItem('codRegistrador') == null) {
       this.router.navigate(['']);
     }
+    this.cargarSolicitud();
   }
 
   enviar() {
@@ -42,7 +31,18 @@ export class RegistradorSolicitudComponent implements OnInit {
   }
 
   regresar() {
-    this.router.navigate(['registrador/tabla']);
+    this.router.navigate(['registrador/tabla/' + localStorage.getItem('codRegistrador')]);
+  }
+
+  cargarSolicitud() {
+    const codRegistrador: number = parseInt(localStorage.getItem('codRegistrador'), 10);
+    const codTicket: number = parseInt(localStorage.getItem('codTicket'), 10);
+    this.registradorService.obtenerUno(codRegistrador, codTicket).subscribe(
+      res => {
+       this.ticketsRegistrador = res;
+       console.log(this.ticketsRegistrador);
+      }
+    );
   }
 
 }

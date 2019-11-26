@@ -15,4 +15,9 @@ export class RegistradorService {
     return this.http.get(`${this.API_URI}/regDominio/solicitudes/${codRegistrador}`);
   }
 
+  obtenerUno(codRegistrador: number, codTicket: number) {
+    console.log(codRegistrador + ' ' + codTicket);
+    return this.http.get(`${this.API_URI}/regDominio/solicitudes/${codRegistrador}/${codTicket}`);
+  }
+
 }

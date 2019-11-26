@@ -2,7 +2,7 @@ export interface ITicketC {
     cod_dominio?: number;
     nom_dominio?: string;
 
-    nommbre?: string;
+    nombre?: string;
 
     DomDescrip?: string;
     descripcion?: string;
