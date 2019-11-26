@@ -1,46 +1,86 @@
-<div class="n-dom-parte">
-  <mat-grid-list cols="3" rowHeight="2:1">
+<br>
 
-    <mat-grid-tile colspan="3">
-      <div class="titulo-page">
-        <h1>Cambio paquete</h1>
-      </div>
-    </mat-grid-tile>
+<div class="row">
+  <div align="center" class="col-12">
 
-    <mat-grid-tile rowspan="3">
-      <div class="titulo-desc"><h3>Descripción</h3></div>
-      <div class="texto-desc">
-        <p>
-          {{descripcion}}
-        </p>
-      </div>
-    </mat-grid-tile>
+    <h1>
+      <span class="badge badge-success">Cambio de paquete</span>
+    </h1>
 
-    <mat-grid-tile>
-      <p><b>Nombre del cliente:</b> {{nombreCliente}}</p>
-    </mat-grid-tile>
+  </div>
+</div>
 
-    <mat-grid-tile>
-      <p><b>Paquete actual:</b> {{planPago}}</p>
-    </mat-grid-tile>
+<br>
 
-    <mat-grid-tile>
+<div class="row">
+  <div class="col-12" align="left">
+    <label><span class="badge">Información del cliente</span></label>
+  </div>
+</div>
+
+<div class="row" style="border: solid 1px lightgray">
+  <div class="col-6" align="center">
+    <label><b>Nombre del cliente:</b> {{nombreCliente}}</label>
+  </div>
+
+  <div class="col-6" align="center">
+    <label><b>Paquete actual:</b> {{paquete}}</label>
+  </div>
+</div>
+
+<br>
+
+<div class="row" style="border: solid 1px lightgray">
+  <div class="col-12">
+    <label><b>Descripción:</b></label>
+    <p class="descrip">{{descripcion}}</p>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<div class="listHost">
+  <div class="row">
+    <div class="col-6" align="right">
       <mat-form-field>
-        <mat-label>Nuevo paquete</mat-label>
+        <mat-label>Paquetes disponibles</mat-label>
         <mat-select>
           <mat-option *ngFor="let paquete of paquetes" [value]="paquete.cod_paquete">
-            pago {{paquete.nom_paquete}}
+            {{paquete.nom_paquete}}
           </mat-option>
         </mat-select>
       </mat-form-field>
-    </mat-grid-tile>
+    </div>
 
-
-    <mat-grid-tile>
+    <div class="col-6" align="left">
       <button mat-button (click)="enviar()">
         Enviar
       </button>
-    </mat-grid-tile>
+    </div>
+  </div>
+</div>
 
-  </mat-grid-list>
+<br>
+
+<div class="row">
+  <div align="left" class="col-2">
+    <button mat-button (click)="regresar()">
+      Regresar
+    </button>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="row">
+  <div class="col-3" align="center">
+    <img class="imgResponsive" align="center" src="../../../../assets/images/chiblogo.png">
+  </div>
+
+  <div class="col-9">
+    <h1 align="center"><span class="badge">Somos el mejor servicio!</span></h1>
+  </div>
 </div>

@@ -1,53 +1,95 @@
-<div class="n-dom-parte">
-  <mat-grid-list cols="3" rowHeight="2.5:1">
+<br>
 
-    <mat-grid-tile colspan="3">
-      <div class="titulo-page">
-        <h1>PQR</h1>
-      </div>
-    </mat-grid-tile>
-
-    <mat-grid-tile rowspan="3">
-      <div class="titulo-desc"><h3>Descripción</h3></div>
-      <div class="texto-desc">
-        <p>
-          {{pqr[0].descrip}}
-        </p>
-      </div>
-    </mat-grid-tile>
-
-    <mat-grid-tile>
-      <p><b>Nombre del cliente:</b> {{nombreCliente}}</p>
-    </mat-grid-tile>
-
-    <mat-grid-tile rowspan="3">
-      <div class="titulo-desc"><h3>Respuesta</h3></div>
-      <div>
-        <textarea matInput placeholder="Y la respuesta es..."></textarea>
-      </div>
-    </mat-grid-tile>
-
-    <mat-grid-tile>
-      <p><b>Nombre del dominio:</b> {{nomDom}}</p>
-    </mat-grid-tile>
-
-    <mat-grid-tile>
-      <p><b>Plan de pago:</b> {{planPago}}</p>
-    </mat-grid-tile>
-
-    <mat-grid-tile>
-    </mat-grid-tile>
-
-    <mat-grid-tile>
-      <p><b>Paquete:</b> {{paquete}}</p>
-    </mat-grid-tile>
-
-    <mat-grid-tile>
-      <button mat-button (click)="enviar()">
-        Enviar
-      </button>
-    </mat-grid-tile>
-
-  </mat-grid-list>
+<div class="row">
+  <div align="center" class="col-12">
+    <h1><span class="badge badge-success">PQR</span></h1>
+  </div>
 </div>
 
+<br>
+
+<div class="row">
+  <div class="col-12" align="left">
+    <label><span class="badge">Información del cliente</span></label>
+  </div>
+</div>
+
+<div class="row" style="border: solid 1px lightgray">
+  <div class="col-3" align="center">
+    <label><b>Nombre del cliente:</b> {{nombreCliente}}</label>
+  </div>
+
+  <div class="col-3" align="center">
+    <label><b>Plan de pago:</b> {{planPago}}</label>
+  </div>
+
+  <div class="col-3" align="center">
+    <label><b>Paquete:</b> {{paquete}}</label>
+  </div>
+
+  <div class="col-3" align="center">
+    <label><b>Nombre del dominio:</b> {{nomDom}}</label>
+  </div>
+</div>
+
+<br>
+
+<div class="row" style="border: solid 1px lightgray">
+  <div class="col-12">
+    <label><b>Descripción:</b></label>
+    <p class="descrip">{{pqr[0].descrip}}</p>
+  </div>
+</div>
+
+<br>
+
+<div class="listHost">
+
+  <div class="row">
+    <div class="col-12" align="left">
+      <label><b>Respuesta</b></label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12" align="center">
+      <form class="respuesta">
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Respuesta para el cliente"></textarea>
+        </mat-form-field>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<br>
+
+<div class="row">
+  <div align="left" class="col-2">
+    <button mat-button (click)="regresar()">
+      Regresar
+    </button>
+  </div>
+
+  <div class="col-2" align="left">
+    <button mat-button (click)="enviar()">
+      Enviar
+    </button>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="row">
+  <div class="col-3" align="center">
+    <img class="imgResponsive" align="center" src="../../../../assets/images/chiblogo.png">
+  </div>
+
+  <div class="col-9">
+    <h1 align="center"><span class="badge">Somos el mejor servicio!</span></h1>
+  </div>
+</div>

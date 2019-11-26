@@ -20,7 +20,7 @@ export class SolicitudCpaqueteComponent implements OnInit {
   ];
 
   nombreCliente = 'pedro';
-  planPago = 'Anual';
+  paquete = 'Chibcha-plata';
   descripcion = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci animi architecto atque consectetur\n' +
     '        consequatur debitis, dolor esse nobis officiis, provident quasi rem similique tempore voluptatibus? Nisi\n' +
     '        provident quidem quos.\n';
@@ -29,6 +29,10 @@ export class SolicitudCpaqueteComponent implements OnInit {
   }
 
   enviar() {
+    this.router.navigate(['empleado/solicitudes']);
+  }
+
+  regresar() {
     this.router.navigate(['empleado/solicitudes']);
   }
 
