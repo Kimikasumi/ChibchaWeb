@@ -16,6 +16,11 @@ class EmpleadoRoutes {
         this.router.put('/ticket/responderND', empleadoController_1.default.responderTicketND);
         this.router.put('/ticket/responderCH', empleadoController_1.default.responderTicketCH);
         this.router.put('/ticket/responderCPP', empleadoController_1.default.responderTicketCPP);
+        this.router.put('/ticket/responderCP', empleadoController_1.default.responderTicketCP);
+        this.router.put('/ticket/responderPQR', empleadoController_1.default.responderTicketPQR);
+        this.router.get('/opciones/PlanesPago', empleadoController_1.default.obtenerPlanesPago);
+        this.router.get('/opciones/Registradores', empleadoController_1.default.obtenerRegistradores);
+        this.router.get('/opciones/Paquetes', empleadoController_1.default.obtenerPaquetes);
     }
 }
 const empleadoRoutes = new EmpleadoRoutes();

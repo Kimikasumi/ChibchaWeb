@@ -51,10 +51,10 @@ class ClienteController {
             return res.status(404).json({ text: 'Historial de cliente obtenido ' });
         });
     }
-    crearPQR(req, res) {
+    crearSolicitud(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO USUARIO VALUES (' + (+parseInt(req.body.cod_ticket) + "','" + req.body.cod_dominio + "','" + req.body.descripcion + ")"));
-            res.json({ text: 'PQR creado' });
+            yield database_1.default.query("INSERT INTO TICKET(cod_ticket,cod_t_ticket,cod_dominio,cod_estado,descripcion) VALUES (" + 0 + "," + req.body.cod_t_ticket + "," + req.body.cod_dominio + ",1," + req.body.descripcion + ")");
+            res.json({ text: 'Solicitud creada' });
         });
     }
     agregarTarjeta(req, res) {

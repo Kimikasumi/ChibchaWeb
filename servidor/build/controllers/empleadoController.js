@@ -59,6 +59,12 @@ class EmpleadoController {
             res.json({ text: 'Respondiendo Ticket ' + req.body.cod_ticket });
         });
     }
+    obtenerRegistradores(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const registradores = yield database_1.default.query("SELECT cod_registrador, nombre FROM REGISTRADOR, USUARIO WHERE USUARIO.cedula=REGISTRADOR.cod_registrador");
+            res.json(registradores);
+        });
+    }
     responderTicketCH(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const cod_ticket = req.body.cod_ticket;
@@ -72,6 +78,35 @@ class EmpleadoController {
             const cod_ticket = req.body.cod_ticket;
             console.log(req.body);
             yield database_1.default.query("UPDATE CLIENTE SET cod_p_pago=" + req.body.cod_p_pago + " WHERE cedula=" + req.body.cedula);
+            yield database_1.default.query("UPDATE TICKET SET respuesta='" + req.body.respuesta + "', cod_estado=4, cod_empleado=" + req.body.cod_empleado + ", WHERE cod_ticket=?", parseInt(cod_ticket));
+            res.json({ text: 'Respondiendo Ticket ' + req.body.cod_ticket });
+        });
+    }
+    obtenerPlanesPago(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const planesPago = yield database_1.default.query("SELECT cod_p_pago, nom_p_pago FROM PLANPAGO");
+            res.json(planesPago);
+        });
+    }
+    responderTicketCP(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const cod_ticket = req.body.cod_ticket;
+            console.log(req.body);
+            yield database_1.default.query("UPDATE CLIENTE SET cod_paquete=" + req.body.cod_paquete + " WHERE cedula=" + req.body.cedula);
+            yield database_1.default.query("UPDATE TICKET SET respuesta='" + req.body.respuesta + "', cod_estado=4, cod_empleado=" + req.body.cod_empleado + ", WHERE cod_ticket=?", parseInt(cod_ticket));
+            res.json({ text: 'Respondiendo Ticket ' + req.body.cod_ticket });
+        });
+    }
+    obtenerPaquetes(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const paquetes = yield database_1.default.query("SELECT cod_paquete, nom_paquete FROM PAQUETE");
+            res.json(paquetes);
+        });
+    }
+    responderTicketPQR(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const cod_ticket = req.body.cod_ticket;
+            console.log(req.body);
             yield database_1.default.query("UPDATE TICKET SET respuesta='" + req.body.respuesta + "', cod_estado=4, cod_empleado=" + req.body.cod_empleado + ", WHERE cod_ticket=?", parseInt(cod_ticket));
             res.json({ text: 'Respondiendo Ticket ' + req.body.cod_ticket });
         });

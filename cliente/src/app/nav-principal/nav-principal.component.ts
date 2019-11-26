@@ -101,7 +101,8 @@ export class LoginDialog implements OnInit{
         
         this.sesionCreada = res;
         if (this.sesionCreada.cod_t_usuario == 1){
-          
+          let cedula:string = this.sesionCreada.cedula;
+          localStorage.setItem("cedulaAdmin", cedula);
           this.router.navigate(['admin/inicio']);
           
         }

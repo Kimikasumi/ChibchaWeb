@@ -37,9 +37,9 @@ class ClienteController{
         return res.status(404).json({text: 'Historial de cliente obtenido '});
     } 
 
-    public async crearPQR(req:Request, res:Response): Promise<void>{
-        await db.query('INSERT INTO USUARIO VALUES ('+(+parseInt(req.body.cod_ticket)+"','"+req.body.cod_dominio+ "','"+ req.body.descripcion+ ")"));
-        res.json({text: 'PQR creado'});
+    public async crearSolicitud(req:Request, res:Response): Promise<void>{
+        await db.query("INSERT INTO TICKET(cod_ticket,cod_t_ticket,cod_dominio,cod_estado,descripcion) VALUES ("+0+","+req.body.cod_t_ticket+","+ req.body.cod_dominio+",1,"+req.body.descripcion+")");
+        res.json({text: 'Solicitud creada'});
         
     }
 

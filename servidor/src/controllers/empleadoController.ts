@@ -36,13 +36,16 @@ class EmpleadoController{
         res.json({text: 'Actualizando empleado '+ req.params.cedula});
     }
 
-
-
     public async responderTicketND(req:Request, res:Response): Promise<void>{
         const cod_ticket= req.body.cod_ticket
         console.log(req.body)
         await db.query("UPDATE TICKET SET respuesta='"+req.body.respuesta+"', cod_estado=3, cod_empleado="+req.body.cod_empleado+" WHERE cod_ticket=?",parseInt(cod_ticket));
         res.json({text: 'Respondiendo Ticket '+ req.body.cod_ticket});
+    }
+
+    public async obtenerRegistradores(req:Request, res:Response): Promise<void>{
+        const registradores = await db.query("SELECT cod_registrador, nombre FROM REGISTRADOR, USUARIO WHERE USUARIO.cedula=REGISTRADOR.cod_registrador");
+        res.json(registradores);
     }
 
     public async responderTicketCH(req:Request, res:Response): Promise<void>{
@@ -56,6 +59,32 @@ class EmpleadoController{
         const cod_ticket= req.body.cod_ticket
         console.log(req.body)
         await db.query("UPDATE CLIENTE SET cod_p_pago="+req.body.cod_p_pago +" WHERE cedula="+req.body.cedula);
+        await db.query("UPDATE TICKET SET respuesta='"+req.body.respuesta+"', cod_estado=4, cod_empleado="+req.body.cod_empleado+", WHERE cod_ticket=?",parseInt(cod_ticket));
+        res.json({text: 'Respondiendo Ticket '+ req.body.cod_ticket});
+    }
+
+    public async obtenerPlanesPago(req:Request, res:Response): Promise<void>{
+        const planesPago = await db.query("SELECT cod_p_pago, nom_p_pago FROM PLANPAGO");
+        res.json(planesPago);
+    }
+
+    public async responderTicketCP(req:Request, res:Response): Promise<void>{
+        const cod_ticket= req.body.cod_ticket
+        console.log(req.body)
+        await db.query("UPDATE CLIENTE SET cod_paquete="+req.body.cod_paquete +" WHERE cedula="+req.body.cedula);
+        await db.query("UPDATE TICKET SET respuesta='"+req.body.respuesta+"', cod_estado=4, cod_empleado="+req.body.cod_empleado+", WHERE cod_ticket=?",parseInt(cod_ticket));
+        res.json({text: 'Respondiendo Ticket '+ req.body.cod_ticket});
+    }
+
+    public async obtenerPaquetes(req:Request, res:Response): Promise<void>{
+        const paquetes = await db.query("SELECT cod_paquete, nom_paquete FROM PAQUETE");
+        res.json(paquetes);
+    }
+
+    
+    public async responderTicketPQR(req:Request, res:Response): Promise<void>{
+        const cod_ticket= req.body.cod_ticket
+        console.log(req.body)
         await db.query("UPDATE TICKET SET respuesta='"+req.body.respuesta+"', cod_estado=4, cod_empleado="+req.body.cod_empleado+", WHERE cod_ticket=?",parseInt(cod_ticket));
         res.json({text: 'Respondiendo Ticket '+ req.body.cod_ticket});
     }

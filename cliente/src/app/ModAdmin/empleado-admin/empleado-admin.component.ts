@@ -13,7 +13,7 @@ export class EmpleadoAdminComponent implements OnInit {
 
   
   ngOnInit() {
-    if(localStorage.getItem("cedulaCliente")==null)
+    if(localStorage.getItem("cedulaAdmin")==null)
     {
       this.router.navigate([''])
     }

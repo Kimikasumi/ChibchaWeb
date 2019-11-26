@@ -8,8 +8,8 @@ class AdminController{
         res.json(empleados);
     } 
     public async obtenerEmpleado (req: Request,res: Response): Promise<any> {
-        const {cedula} = req.params;
-        const empleado = await db.query('SELECT EMPLEADO.cedula, USUARIO.nombre, USUARIO.correo, T_EMPLEADO.nom_t_empleado FROM EMPLEADO, T_EMPLEADO, USUARIO WHERE EMPLEADO.cedula=USUARIO.cedula AND EMPLEADO.cod_t_empleado=T_EMPLEADO.cod_t_empleado AND USUARIO.cedula=?',[cedula]);
+        const {cedula_empleado} = req.params;
+        const empleado = await db.query('SELECT EMPLEADO.cedula, USUARIO.nombre, USUARIO.correo, T_EMPLEADO.nom_t_empleado FROM EMPLEADO, T_EMPLEADO, USUARIO WHERE EMPLEADO.cedula=USUARIO.cedula AND EMPLEADO.cod_t_empleado=T_EMPLEADO.cod_t_empleado AND USUARIO.cedula=?',[cedula_empleado]);
         if(empleado. length > 0){
             return res.json(empleado[0]);
         }
@@ -25,18 +25,18 @@ class AdminController{
     }
 
     public async editarEmpleado(req:Request, res:Response): Promise<void>{
-        const {cedula} = req.params;
+        const {cedula_empleado} = req.params;
         console.log(req.body)
-        await db.query('UPDATE EMPLEADO SET cod_t_empleado='+req.body.cod_t_empleado+' WHERE cedula=?',[cedula]);
-        await db.query("UPDATE USUARIO SET correo='"+req.body.correo+"', nombre='"+req.body.nombre+"' WHERE cedula=?",parseInt(req.body.cedula));
-        res.json({text: 'Actualizando empleado '+ req.params.cedula});
+        await db.query('UPDATE EMPLEADO SET cod_t_empleado='+req.body.cod_t_empleado+' WHERE cedula=?',[cedula_empleado]);
+        await db.query("UPDATE USUARIO SET correo='"+req.body.correo+"', nombre='"+req.body.nombre+"' WHERE cedula=?",parseInt(req.body.ceducedula_empleadola));
+        res.json({text: 'Actualizando empleado '+ req.params.cedula_empleado});
     }
 
     public async eliminarEmpleado(req:Request, res:Response): Promise<void>{
-        const {cedula} = req.params;
-        await db.query('DELETE FROM EMPLEADO WHERE cedula= ?', [cedula]);
-        await db.query('DELETE FROM USUARIO WHERE cedula= ?', [cedula]);
-        res.json({text: 'Borrando empleado '+ req.params.cedula});
+        const {cedula_empleado} = req.params;
+        await db.query('DELETE FROM EMPLEADO WHERE cedula= ?', [cedula_empleado]);
+        await db.query('DELETE FROM USUARIO WHERE cedula= ?', [cedula_empleado]);
+        res.json({text: 'Borrando empleado '+ req.params.cedula_empleado});
     }
 
     /** DISTRIBUIDOR */
@@ -45,8 +45,8 @@ class AdminController{
         res.json(distribuidores);
     } 
     public async obtenerDistribuidor (req: Request,res: Response): Promise<any> {
-        const {cedula} = req.params;
-        const distribuidor = await db.query('SELECT DISTRIBUIDOR.cedula, USUARIO.nombre, USUARIO.correo, T_DISTRIBUIDOR.nom_t_distribuidor FROM DISTRIBUIDOR, T_DISTRIBUIDOR, USUARIO WHERE DISTRIBUIDOR.cedula=USUARIO.cedula AND DISTRIBUIDOR.cod_t_distribuidor=T_DISTRIBUIDOR.cod_t_distribuidor AND USUARIO.cedula=?',[cedula]);
+        const {cedula_distribuidor} = req.params;
+        const distribuidor = await db.query('SELECT DISTRIBUIDOR.cedula, USUARIO.nombre, USUARIO.correo, T_DISTRIBUIDOR.nom_t_distribuidor FROM DISTRIBUIDOR, T_DISTRIBUIDOR, USUARIO WHERE DISTRIBUIDOR.cedula=USUARIO.cedula AND DISTRIBUIDOR.cod_t_distribuidor=T_DISTRIBUIDOR.cod_t_distribuidor AND USUARIO.cedula=?',[cedula_distribuidor]);
         if(distribuidor. length > 0){
             return res.json(distribuidor[0]);
         }
@@ -62,18 +62,18 @@ class AdminController{
     }
 
     public async editarDistribuidor(req:Request, res:Response): Promise<void>{
-        const {cedula} = req.params;
-        console.log(cedula)
-        await db.query('UPDATE DISTRIBUIDOR SET cod_t_distribuidor='+req.body.cod_t_distribuidor+' WHERE cedula=?',cedula);
-        await db.query("UPDATE USUARIO SET correo='"+req.body.correo+"', nombre='"+req.body.nombre+"' WHERE cedula=?",parseInt(req.body.cedula));
+        const {cedula_distribuidor} = req.params;
+        console.log(cedula_distribuidor)
+        await db.query('UPDATE DISTRIBUIDOR SET cod_t_distribuidor='+req.body.cod_t_distribuidor+' WHERE cedula=?',cedula_distribuidor);
+        await db.query("UPDATE USUARIO SET correo='"+req.body.correo+"', nombre='"+req.body.nombre+"' WHERE cedula=?",parseInt(req.body.cedula_distribuidor));
         res.json({text: 'Actualizando distribuidor '+ req.params.cedula});
     }
 
     public async eliminarDistribuidor(req:Request, res:Response): Promise<void>{
-        const {cedula} = req.params;
-        await db.query('DELETE FROM DISTRIBUIDOR WHERE cedula= ?', [cedula]);
-        await db.query('DELETE FROM USUARIO WHERE cedula= ?', [cedula]);
-        res.json({text: 'Borrando distribuidor '+ req.params.cedula});
+        const {cedula_distribuidor} = req.params;
+        await db.query('DELETE FROM DISTRIBUIDOR WHERE cedula= ?', [cedula_distribuidor]);
+        await db.query('DELETE FROM USUARIO WHERE cedula= ?', [cedula_distribuidor]);
+        res.json({text: 'Borrando distribuidor '+ req.params.cedula_distribuidor});
     }
     
     

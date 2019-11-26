@@ -69,6 +69,13 @@ class RegistradorController {
             res.json({ text: 'Dominio aceptado' });
         });
     }
+    rechazarDominio(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const cod_ticket = req.body.cod_ticket;
+            yield database_1.default.query("UPDATE TICKET SET cod_estado=5 WHERE cod_ticket=?", parseInt(cod_ticket));
+            res.json({ text: 'Dominio Rechazado' });
+        });
+    }
     eliminarDominio(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             yield database_1.default.query('UPDATE DOMINIO SET cod_registrador=NULL WHERE cod_dominio=' + req.body.cod_dominio);

@@ -22,7 +22,7 @@ export class PerfilAdminComponent implements OnInit {
   constructor(private router:Router) { }
   
   ngOnInit() {
-    if(localStorage.getItem("cedulaCliente")==null)
+    if(localStorage.getItem("cedulaAdmin")==null)
     {
       this.router.navigate([''])
     }

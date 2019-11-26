@@ -51,7 +51,12 @@ class RegistradorController{
         await db.query('UPDATE DOMINIO SET cod_registrador='+req.body.cod_registrador+' WHERE cod_dominio='+req.body.cod_dominio);
         await db.query("UPDATE TICKET SET cod_estado=4 WHERE cod_ticket=?",parseInt(cod_ticket));
         res.json({text: 'Dominio aceptado'});
-        
+    }
+
+    public async rechazarDominio(req:Request, res:Response): Promise<void>{
+        const cod_ticket= req.body.cod_ticket
+        await db.query("UPDATE TICKET SET cod_estado=5 WHERE cod_ticket=?",parseInt(cod_ticket));
+        res.json({text: 'Dominio Rechazado'});
     }
 
     public async eliminarDominio(req:Request, res:Response): Promise<void>{

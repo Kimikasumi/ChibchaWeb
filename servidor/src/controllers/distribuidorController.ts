@@ -13,6 +13,12 @@ class DistribuidorController{
         res.json({text: 'Cliente creado'});
     }
 
+    public async eliminarCliente(req:Request, res:Response): Promise<void>{
+        await db.query("DELETE FROM CLIENTE WHERE cedula="+req.body.cedula);
+        await db.query("DELETE FROM USUARIO WHERE cedula="+req.body.cedula);
+        res.json({text: 'Cliente creado'});
+    }
+
 }
 const distribuidorController = new DistribuidorController();
 export default distribuidorController;
