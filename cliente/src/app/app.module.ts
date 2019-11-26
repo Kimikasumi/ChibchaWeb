@@ -60,6 +60,7 @@ import { ListadoDistribuidoresAdminComponent } from './ModAdmin/listadoDistribui
 import { ListadoRegistradoresAdminComponent } from './ModAdmin/listadoRegistradores-admin/listadoRegistradores-admin.component';
 import { RegistradorSideComponent } from './registrador/registrador-side/registrador-side.component';
 import { RegistradorInicioComponent } from './registrador/registrador-inicio/registrador-inicio.component';
+import { RegistradorTablaComponent } from './registrador/registrador-tabla/registrador-tabla.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import { RegistradorInicioComponent } from './registrador/registrador-inicio/reg
     ListadoDistribuidoresAdminComponent,
     ListadoRegistradoresAdminComponent,
     RegistradorSideComponent,
-    RegistradorInicioComponent
+    RegistradorInicioComponent,
+    RegistradorTablaComponent
   ],
   imports: [
     BrowserModule,

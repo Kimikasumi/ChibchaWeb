@@ -36,6 +36,7 @@ import {EmpleadoPqrComponent} from './empleados/solicitudes/empleado-pqr/emplead
 /*Registrador*/
 import {RegistradorSideComponent} from './registrador/registrador-side/registrador-side.component';
 import {RegistradorInicioComponent} from './registrador/registrador-inicio/registrador-inicio.component';
+import {RegistradorTablaComponent} from './registrador/registrador-tabla/registrador-tabla.component';
 
 const routes: Routes = [
 
@@ -90,6 +91,7 @@ const routes: Routes = [
     path: 'registrador', component: RegistradorSideComponent, children:
     [
       {path: 'inicio', component: RegistradorInicioComponent},
+      {path: 'solicitudes', component: RegistradorTablaComponent}
     ]
   },
   {path: '**', component: PagInicioComponent}
