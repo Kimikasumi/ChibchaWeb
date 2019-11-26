@@ -76,13 +76,15 @@ export class LoginDialog implements OnInit{
 
   constructor(private usuarioService:UsuarioService, private router: Router){
 
-    
+    this.nuevaSesion();
   }
 
   usuario: ISesionUsuario={
     correo:"",
     contrasenia:""
   };
+
+  sesionCreada: any = [];
 
   ngOnInit(){
   }
@@ -93,9 +95,33 @@ export class LoginDialog implements OnInit{
       correo:this.usuario.correo,
       contrasenia:this.usuario.contrasenia,
     }
-    console.log(usuar);
+
     this.usuarioService.identificarUsuario(usuar).subscribe(
       res => {
+        
+        this.sesionCreada = res;
+        if (this.sesionCreada.cod_t_usuario == 1){
+          
+          this.router.navigate(['admin/inicio']);
+          
+        }
+        else if (this.sesionCreada.cod_t_usuario == 2){
+
+          let cedula:string = this.sesionCreada.cedula;
+          
+          localStorage.setItem("cedulaCliente", cedula);
+          this.router.navigate(['cliente/inicio/'+cedula]);
+        }
+        else if (this.sesionCreada.cod_t_usuario == 3){
+          this.router.navigate(['regDominio/inicio']);
+        }
+        else if (this.sesionCreada.cod_t_usuario == 4){
+          this.router.navigate(['empleado/inicio']);
+        }
+        else if (this.sesionCreada.cod_t_usuario == 5){
+          this.router.navigate(['distribuidor/inicio']);
+        }
+        
         console.log(res);
       },
       err => console.error(err)

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 export interface Food {
@@ -18,10 +19,13 @@ export class PerfilAdminComponent implements OnInit {
     {value: '1', viewValue: 'Transacciones'},
   ];
 
-  constructor() { }
+  constructor(private router:Router) { }
   
-
   ngOnInit() {
+    if(localStorage.getItem("cedulaCliente")==null)
+    {
+      this.router.navigate([''])
+    }
   }
 
 }
