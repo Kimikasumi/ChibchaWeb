@@ -3,6 +3,35 @@ import db from '../database';
 class RegistradorController{
 
     /** DOMINIOS */
+
+    public async listarSolicitudes (req: Request,res: Response) {
+        const cod_registrador= req.body.cod_registrador
+        const cod_ticket= req.body.cod_ticket
+        const solicitudes= await db.query("SELECT TICKET.cod_ticket, DOMINIO.cod_dominio, DOMINIO.nom_dominio,"+
+        "DOMINIO.descripcion as DomDescrip, USUARIO.nombre, TICKET.descripcion, ESTADO.nom_estado FROM  TICKET, DOMINIO, USUARIO,"+
+        "ESTADO, CLIENTE WHERE DOMINIO.cedula=CLIENTE.cedula AND "+
+        "TICKET.cod_dominio=DOMINIO.cod_dominio "+
+        "AND TICKET.cod_estado=ESTADO.cod_estado AND USUARIO.cedula=CLIENTE.cedula AND "+
+        "ESTADO.cod_estado=3 AND TICKET.cod_registrador="+cod_registrador+" AND TICKET.cod_ticket="+cod_ticket);
+        res.json(solicitudes);
+    } 
+
+    
+    public async obtenerSolicitud (req: Request,res: Response): Promise<any> {
+        const cod_ticket = parseInt(req.body.cod_ticket)
+        const cod_registrador= req.body.cod_registrador
+        const solicitud = await db.query("SELECT DOMINIO.cod_dominio, DOMINIO.nom_dominio,"+
+        "USUARIO.nombre, TICKET.descripcion, ESTADO.nom_estado FROM  TICKET, DOMINIO, USUARIO, "+
+        "ESTADO, CLIENTE, REGISTRADOR WHERE DOMINIO.cedula=CLIENTE.cedula AND "+
+        "DOMINIO.cod_registrador=REGISTRADOR.cod_registrador AND TICKET.cod_dominio=DOMINIO.cod_dominio "+
+        "AND TICKET.cod_estado=ESTADO.cod_estado AND USUARIO.cedula=CLIENTE.cedula AND "+
+        "ESTADO.cod_estado=3 AND TICKET.cod_registrador="+cod_registrador+" AND TICKET.cod_ticket="+cod_ticket);
+        if(solicitud. length > 0){
+            return res.json(solicitud[0]);
+        }
+        return res.status(404).json({text: 'No existe la solicitud'});
+    } 
+
     public async listarDominios (req: Request,res: Response) {
         const cod_registrador= req.body.cod_registrador
         const dominios= await db.query('SELECT DOMINIO.cod_dominio, DOMINIO.nom_dominio, DOMINIO.cedula FROM DOMINIO WHERE DOMINIO.cod_registrador=?',parseInt(cod_registrador));
@@ -18,7 +47,9 @@ class RegistradorController{
     } 
     
     public async aceptarDominio(req:Request, res:Response): Promise<void>{
+        const cod_ticket= req.body.cod_ticket
         await db.query('UPDATE DOMINIO SET cod_registrador='+req.body.cod_registrador+' WHERE cod_dominio='+req.body.cod_dominio);
+        await db.query("UPDATE TICKET SET cod_estado=4 WHERE cod_ticket=?",parseInt(cod_ticket));
         res.json({text: 'Dominio aceptado'});
         
     }

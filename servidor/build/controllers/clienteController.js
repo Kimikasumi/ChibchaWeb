@@ -44,7 +44,7 @@ class ClienteController {
     historialPQRCliente(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { cedula } = req.params;
-            const cliente = yield database_1.default.query('SELECT TICKET.cod_t_ticket, TICKET.cod_estado, TICKET.descripcion FROM USUARIO, CLIENTE, DOMINIO, TICKET, T_TICKET WHERE CLIENTE.cedula = DOMINIO.cedula AND DOMINIO.cod_dominio = TICKET.cod_dominio AND T_TICKET.cod_t_ticket = TICKET.cod_t_ticket  AND USUARIO.cedula = CLIENTE.cedula AND USUARIO.cedula=?', cedula);
+            const cliente = yield database_1.default.query('SELECT TICKET.cod_t_ticket, TICKET.cod_estado, TICKET.descripcion, TICKET.respuesta FROM USUARIO, CLIENTE, DOMINIO, TICKET, T_TICKET WHERE CLIENTE.cedula = DOMINIO.cedula AND DOMINIO.cod_dominio = TICKET.cod_dominio AND T_TICKET.cod_t_ticket = TICKET.cod_t_ticket  AND USUARIO.cedula = CLIENTE.cedula AND USUARIO.cedula=?', cedula);
             if (cliente.length > 0) {
                 return res.json(cliente[0]);
             }
