@@ -37,7 +37,7 @@ export class SideClienteComponent {
   ]
 
   fillerContent = Array(2).fill(0).map(() =>
-      `Open side nav, and click on any navigation to close the opened side nav.`);
+    `Open side nav, and click on any navigation to close the opened side nav.`);
 
   private _mobileQueryListener: () => void;
 

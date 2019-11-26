@@ -12,7 +12,7 @@ import { PerfilAdminComponent } from './ModAdmin/perfil-admin/perfil-admin.compo
 import { InicioAdminComponent } from './ModAdmin/inicio-admin/inicio-admin.component';
 import { EmpleadoAdminComponent } from './ModAdmin/empleado-admin/empleado-admin.component';
 import { ListadoEmpleadosAdminComponent } from './ModAdmin/listadoEmpleados-admin/listadoEmpleados-admin.component';
-//import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/listadoClientes-admin.component';
+// import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/listadoClientes-admin.component';
 import { HostClienteComponent } from './ModCliente/host-cliente/host-cliente.component';
 import { SideDistribuidorComponent } from './ModDistribuidor/side-distribuidor/side-distribuidor.component';
 import { PerfilDistribuidorComponent } from './ModDistribuidor/perfil-distribuidor/perfil-distribuidor.component';
@@ -24,7 +24,15 @@ import { ListadoDistribuidoresAdminComponent } from './ModAdmin/listadoDistribui
 import { ListadoRegistradoresAdminComponent } from './ModAdmin/listadoRegistradores-admin/listadoRegistradores-admin.component';
 
 /*Empleado*/
-import {EmpleadoTablaComponent} from './empleados/empleado-tabla/empleado-tabla.component';
+import {EmpleadoTablaComponent, Solicitud} from './empleados/empleado-tabla/empleado-tabla.component';
+import {EmpleadoSideComponent} from './empleados/empleado-side/empleado-side.component';
+import {InicioEmpleadoComponent} from './empleados/inicio-empleado/inicio-empleado.component';
+/*Solicitudes*/
+import {SolicitudNDomComponent} from './empleados/solicitudes/solicitud-n-dom/solicitud-n-dom.component';
+import {SolicitudChostComponent} from './empleados/solicitudes/solicitud-chost/solicitud-chost.component';
+import {SolicitudCplanComponent} from './empleados/solicitudes/solicitud-cplan/solicitud-cplan.component';
+import {SolicitudCpaqueteComponent} from './empleados/solicitudes/solicitud-cpaquete/solicitud-cpaquete.component';
+import {EmpleadoPqrComponent} from './empleados/solicitudes/empleado-pqr/empleado-pqr.component';
 
 const routes: Routes = [
   
@@ -37,17 +45,18 @@ const routes: Routes = [
         {path: 'pqr/:cedula', component: PqrClienteComponent},
         {path: 'host/:cedula', component: HostClienteComponent}
 
-      ] 
-    },
-    {path: 'distribuidor', component: SideDistribuidorComponent, children:
+      ]
+  },
+  {
+    path: 'distribuidor', component: SideDistribuidorComponent, children:
       [
         {path: 'inicio', component: InicioDistribuidorComponent},
-        {path: 'perfil', component: PerfilDistribuidorComponent },
+        {path: 'perfil', component: PerfilDistribuidorComponent},
         {path: 'pqr', component: PqrDistribuidorComponent},
         {path: 'host', component: HostDistribuidorComponent},
         {path: 'nCliente', component: ClienteDistribuidorComponent}
 
-      ] 
+      ]
     },
     {path: 'admin', component: SideAdminComponent, children:
     [
@@ -57,12 +66,23 @@ const routes: Routes = [
       {path: 'lempleados', component: ListadoEmpleadosAdminComponent},
       {path: 'ldistribuidores', component: ListadoDistribuidoresAdminComponent},
       {path: 'lregistradores', component: ListadoRegistradoresAdminComponent},
-      
 
-    ] 
+
+    ]
   },
-
-  {path: 'empleado', component: EmpleadoTablaComponent},
+  {
+    path: 'empleado', component: EmpleadoSideComponent, children:
+      [
+        {path: 'solicitudes', component: EmpleadoTablaComponent},
+        {path: 'inicio', component: InicioEmpleadoComponent},
+        /*Solicitudes*/
+        {path: 'ndom', component: SolicitudNDomComponent},
+        {path: 'chost', component: SolicitudChostComponent},
+        {path: 'cplan', component: SolicitudCplanComponent},
+        {path: 'cpaquete', component: SolicitudCpaqueteComponent},
+        {path: 'pqr', component: EmpleadoPqrComponent}
+      ]
+  },
   {path: '**', component: PagInicioComponent}
 ];
 

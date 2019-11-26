@@ -14,7 +14,6 @@ import {HttpClientModule} from '@angular/common/http';
 /*
 * Angular Material
 */
-import {MatTableModule} from '@angular/material/table';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {SideClienteComponent} from './ModCliente/side-cliente/side-cliente.component';
@@ -27,15 +26,27 @@ import {MatInputModule} from '@angular/material/input';
 import {InicioClienteComponent} from './ModCliente/inicio-cliente/inicio-cliente.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
-import { PqrClienteComponent } from './ModCliente/pqr-cliente/pqr-cliente.component';
+import {PqrClienteComponent} from './ModCliente/pqr-cliente/pqr-cliente.component';
+import {MatTableModule} from '@angular/material/table';
+/*Empleados*/
+import { EmpleadoSideComponent } from './empleados/empleado-side/empleado-side.component';
+import {EmpleadoTablaComponent} from './empleados/empleado-tabla/empleado-tabla.component';
+/*Solicitudes*/
+import { SolicitudChostComponent } from './empleados/solicitudes/solicitud-chost/solicitud-chost.component';
+import { SolicitudNDomComponent } from './empleados/solicitudes/solicitud-n-dom/solicitud-n-dom.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { SolicitudCplanComponent } from './empleados/solicitudes/solicitud-cplan/solicitud-cplan.component';
+import { SolicitudCpaqueteComponent } from './empleados/solicitudes/solicitud-cpaquete/solicitud-cpaquete.component';
+import { EmpleadoPqrComponent } from './empleados/solicitudes/empleado-pqr/empleado-pqr.component';
+import { InicioEmpleadoComponent } from './empleados/inicio-empleado/inicio-empleado.component';
 
 
 import { HostClienteComponent } from './ModCliente/host-cliente/host-cliente.component';
-import { PqrDistribuidorComponent } from './ModDistribuidor/pqr-distribuidor/pqr-distribuidor.component';
 import { HostDistribuidorComponent } from './ModDistribuidor/host-distribuidor/host-distribuidor.component';
+import { PqrDistribuidorComponent } from './ModDistribuidor/pqr-distribuidor/pqr-distribuidor.component';
 import { InicioDistribuidorComponent } from './ModDistribuidor/inicio-distribuidor/inicio-distribuidor.component';
-import { PerfilDistribuidorComponent } from './ModDistribuidor/perfil-distribuidor/perfil-distribuidor.component';
 import { SideDistribuidorComponent } from './ModDistribuidor/side-distribuidor/side-distribuidor.component';
+import { PerfilDistribuidorComponent } from './ModDistribuidor/perfil-distribuidor/perfil-distribuidor.component';
 
 
 import { SideAdminComponent } from './ModAdmin/side-admin/side-admin.component';
@@ -43,8 +54,7 @@ import { PerfilAdminComponent } from './ModAdmin/perfil-admin/perfil-admin.compo
 import { InicioAdminComponent } from './ModAdmin/inicio-admin/inicio-admin.component';
 import { EmpleadoAdminComponent } from './ModAdmin/empleado-admin/empleado-admin.component';
 import { ListadoEmpleadosAdminComponent } from './ModAdmin/listadoEmpleados-admin/listadoEmpleados-admin.component';
-//import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/listadoClientes-admin.component';
-import {EmpleadoTablaComponent} from './empleados/empleado-tabla/empleado-tabla.component';
+// import { ListadoClientesAdminComponent } from './ModAdmin/listadoClientes-admin/listadoClientes-admin.component';
 import { ClienteDistribuidorComponent } from './ModDistribuidor/cliente-distribuidor/cliente-distribuidor.component';
 import { ListadoDistribuidoresAdminComponent } from './ModAdmin/listadoDistribuidores-admin/listadoDistribuidores-admin.component';
 import { ListadoRegistradoresAdminComponent } from './ModAdmin/listadoRegistradores-admin/listadoRegistradores-admin.component';
@@ -61,13 +71,21 @@ import { ListadoRegistradoresAdminComponent } from './ModAdmin/listadoRegistrado
     LoginDialog,
     PqrClienteComponent,
     ModalTarjeta,
+    EmpleadoTablaComponent,
+    EmpleadoSideComponent,
+    SolicitudChostComponent,
+    SolicitudNDomComponent,
+    SolicitudCplanComponent,
+    SolicitudCpaqueteComponent,
+    EmpleadoPqrComponent,
+    InicioEmpleadoComponent,
     HostClienteComponent,
     SideDistribuidorComponent,
     PerfilDistribuidorComponent,
     InicioDistribuidorComponent,
     HostDistribuidorComponent,
     PqrDistribuidorComponent,
-    //ListadoClientesAdminComponent,
+    // ListadoClientesAdminComponent,
     ListadoEmpleadosAdminComponent,
     EmpleadoAdminComponent,
     InicioAdminComponent,
@@ -94,8 +112,9 @@ import { ListadoRegistradoresAdminComponent } from './ModAdmin/listadoRegistrado
     MatDialogModule,
     FormsModule,
     HttpClientModule,
-    MatTableModule
-    
+    MatTableModule,
+    HttpClientModule,
+    MatGridListModule
   ],
   providers: [RegClienteService],
   bootstrap: [AppComponent]
