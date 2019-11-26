@@ -28,6 +28,13 @@ class DistribuidorController {
             res.json({ text: 'Cliente creado' });
         });
     }
+    eliminarCliente(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield database_1.default.query("DELETE FROM CLIENTE WHERE cedula=" + req.body.cedula);
+            yield database_1.default.query("DELETE FROM USUARIO WHERE cedula=" + req.body.cedula);
+            res.json({ text: 'Cliente creado' });
+        });
+    }
 }
 const distribuidorController = new DistribuidorController();
 exports.default = distribuidorController;

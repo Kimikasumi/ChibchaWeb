@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 
 
 /**
@@ -11,11 +12,15 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ListadoEmpleadosAdminComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
 
   
   ngOnInit() {
+    if(localStorage.getItem("cedulaAdmin")==null)
+    {
+      this.router.navigate([''])
+    }
   }
 
 }

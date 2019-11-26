@@ -25,7 +25,6 @@ import {PerfilClienteComponent} from './ModCliente/perfil-cliente/perfil-cliente
 import {MatInputModule} from '@angular/material/input';
 import {InicioClienteComponent} from './ModCliente/inicio-cliente/inicio-cliente.component';
 import {MatSelectModule} from '@angular/material/select';
-import {ModalLoginComponent} from './modal-login/modal-login.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {PqrClienteComponent} from './ModCliente/pqr-cliente/pqr-cliente.component';
 import {MatTableModule} from '@angular/material/table';
@@ -68,7 +67,6 @@ import { ListadoRegistradoresAdminComponent } from './ModAdmin/listadoRegistrado
     PagInicioComponent,
     PerfilClienteComponent,
     InicioClienteComponent,
-    ModalLoginComponent,
     RegistroDialog,
     LoginDialog,
     PqrClienteComponent,

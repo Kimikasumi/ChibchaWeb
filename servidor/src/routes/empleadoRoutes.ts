@@ -10,7 +10,15 @@ class EmpleadoRoutes{
 
     config():void{
         this.router.get('/ticket', empleadoController.listarSolicitudes);
-        this.router.put('/ticket/responder', empleadoController.editarEmpleado);
+        this.router.get('/ticket/get', empleadoController.obtenerSolicitud);
+        this.router.put('/ticket/responderND', empleadoController.responderTicketND);
+        this.router.put('/ticket/responderCH', empleadoController.responderTicketCH);
+        this.router.put('/ticket/responderCPP', empleadoController.responderTicketCPP);
+        this.router.put('/ticket/responderCP', empleadoController.responderTicketCP);
+        this.router.put('/ticket/responderPQR', empleadoController.responderTicketPQR);
+        this.router.get('/opciones/PlanesPago', empleadoController.obtenerPlanesPago);
+        this.router.get('/opciones/Registradores', empleadoController.obtenerRegistradores);
+        this.router.get('/opciones/Paquetes', empleadoController.obtenerPaquetes);
     }
 }
 

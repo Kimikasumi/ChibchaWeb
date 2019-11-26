@@ -35,14 +35,15 @@ import {SolicitudCpaqueteComponent} from './empleados/solicitudes/solicitud-cpaq
 import {EmpleadoPqrComponent} from './empleados/solicitudes/empleado-pqr/empleado-pqr.component';
 
 const routes: Routes = [
+  
   {path: '', component: PagInicioComponent},
   {
     path: 'cliente', component: SideClienteComponent, children:
       [
-        {path: 'inicio', component: InicioClienteComponent},
-        {path: 'perfil', component: PerfilClienteComponent},
-        {path: 'pqr', component: PqrClienteComponent},
-        {path: 'host', component: HostClienteComponent}
+        {path: 'inicio/:cedula', component: InicioClienteComponent},
+        {path: 'perfil/:cedula', component: PerfilClienteComponent },
+        {path: 'pqr/:cedula', component: PqrClienteComponent},
+        {path: 'host/:cedula', component: HostClienteComponent}
 
       ]
   },
@@ -81,10 +82,12 @@ const routes: Routes = [
         {path: 'cpaquete', component: SolicitudCpaqueteComponent},
         {path: 'pqr', component: EmpleadoPqrComponent}
       ]
-  }
+  },
+  {path: '**', component: PagInicioComponent}
 ];
 
 @NgModule({
+  
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

@@ -1,23 +1,33 @@
 <form>
         <div class="form-group">
           <label for="validationCustom01">Tarjeta de crédito</label>
-          <select class="form-control form-control-lg" name="tarjeta" required>
-                <option value="0">Selecciona</option>
+          <div *ngIf="mostrarSelect; else elseBlock">
+          <select class="form-control form-control-lg"  name="tarjeta" required>
+                <option value="0" selected>{{clienteGrafico.nom_t_tarjeta}}</option>
                 <option value="1">MasterCard</option>
                 <option value="2">Visa</option>
                 <option value="3">American Express</option>
           </select>
+          </div>
+          <ng-template #elseBlock>
+              <select class="form-control form-control-lg"  name="tarjeta" required>
+                  <option value="0"  selected>--Selecciona--</option>
+                  <option value="1">MasterCard</option>
+                  <option value="2">Visa</option>
+                  <option value="3">American Express</option>
+            </select>
+          </ng-template>
           <label for="validationCustom02">Número</label>
-            <input type="number" class="form-control" id="validationCustom02" placeholder="Número de tarjeta" required>
+            <input type="number" class="form-control" id="validationCustom02" placeholder="Número de tarjeta" value="{{clienteGrafico.numero}}" required>
 
             <label for="validationCustom02">Fecha de vencimiento </label>
-            <input type="date" class="form-control" id="validationCustom02" required>
+            <input type="date" class="form-control" id="validationCustom02" value="{{clienteGrafico.fecha_vencimiento}}" required>
 
             <label for="validationCustom02">Nombre completo</label>
-            <input type="text" class="form-control" id="validationCustom02" placeholder="Nombre completo" required>
+            <input type="text" class="form-control" id="validationCustom02" placeholder="Nombre completo" value="{{clienteGrafico.nombre}}" required>
 
             <label for="validationCustom02">CCV</label>
-            <input type="number" class="form-control" id="validationCustom02" placeholder="CCV" required>
+            <input type="number" class="form-control" id="validationCustom02" placeholder="CCV" value="{{clienteGrafico.cod_seguridad}}" required>
       
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>

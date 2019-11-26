@@ -11,7 +11,7 @@ class ClienteController{
 
     public async obtenerCliente (req: Request,res: Response): Promise<any> {
         const {cedula} = req.params;
-        const cliente = await db.query('SELECT EMPLEADO.cedula, USUARIO.nombre, USUARIO.correo, T_EMPLEADO.nom_t_empleado FROM EMPLEADO, T_EMPLEADO, USUARIO WHERE EMPLEADO.cedula=USUARIO.cedula AND EMPLEADO.cod_t_empleado=T_EMPLEADO.cod_t_empleado AND USUARIO.cedula=?',cedula);
+        const cliente = await db.query("SELECT CLIENTE.cedula, planpago.nom_p_pago, PAQUETE.nom_paquete, USUARIO.correo, USUARIO.nombre, TARJETA.numero, date_format(tarjeta.fecha_vencimiento,'%Y-%m-%d') as fecha_vencimiento, TARJETA.cod_seguridad, T_TARJETA.nom_t_tarjeta FROM T_TARJETA, TARJETA, CLIENTE, PLANPAGO, PAQUETE, USUARIO WHERE T_TARJETA.cod_t_tarjeta = TARJETA.cod_t_tarjeta AND TARJETA.cod_tarjeta = CLIENTE.cod_tarjeta AND CLIENTE.cod_paquete = PAQUETE.cod_paquete AND CLIENTE.cod_p_pago = PLANPAGO.cod_p_pago AND USUARIO.cedula = CLIENTE.cedula AND CLIENTE.cedula = ?", cedula);
         if(cliente. length > 0){
             return res.json(cliente[0]);
         }
@@ -37,9 +37,9 @@ class ClienteController{
         return res.status(404).json({text: 'Historial de cliente obtenido '});
     } 
 
-    public async crearPQR(req:Request, res:Response): Promise<void>{
-        await db.query('INSERT INTO USUARIO VALUES ('+(+parseInt(req.body.cod_ticket)+"','"+req.body.cod_dominio+ "','"+ req.body.descripcion+ ")"));
-        res.json({text: 'PQR creado'});
+    public async crearSolicitud(req:Request, res:Response): Promise<void>{
+        await db.query("INSERT INTO TICKET(cod_ticket,cod_t_ticket,cod_dominio,cod_estado,descripcion) VALUES ("+0+","+req.body.cod_t_ticket+","+ req.body.cod_dominio+",1,"+req.body.descripcion+")");
+        res.json({text: 'Solicitud creada'});
         
     }
 
