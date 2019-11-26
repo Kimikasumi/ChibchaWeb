@@ -33,9 +33,12 @@ import {SolicitudChostComponent} from './empleados/solicitudes/solicitud-chost/s
 import {SolicitudCplanComponent} from './empleados/solicitudes/solicitud-cplan/solicitud-cplan.component';
 import {SolicitudCpaqueteComponent} from './empleados/solicitudes/solicitud-cpaquete/solicitud-cpaquete.component';
 import {EmpleadoPqrComponent} from './empleados/solicitudes/empleado-pqr/empleado-pqr.component';
+/*Registrador*/
+import {RegistradorSideComponent} from './registrador/registrador-side/registrador-side.component';
+import {RegistradorInicioComponent} from './registrador/registrador-inicio/registrador-inicio.component';
 
 const routes: Routes = [
-  
+
   {path: '', component: PagInicioComponent},
   {
     path: 'cliente', component: SideClienteComponent, children:
@@ -83,11 +86,17 @@ const routes: Routes = [
         {path: 'pqr', component: EmpleadoPqrComponent}
       ]
   },
+  {
+    path: 'registrador', component: RegistradorSideComponent, children:
+    [
+      {path: 'inicio', component: RegistradorInicioComponent},
+    ]
+  },
   {path: '**', component: PagInicioComponent}
 ];
 
 @NgModule({
-  
+
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
