@@ -58,6 +58,10 @@ import { ListadoEmpleadosAdminComponent } from './ModAdmin/listadoEmpleados-admi
 import { ClienteDistribuidorComponent } from './ModDistribuidor/cliente-distribuidor/cliente-distribuidor.component';
 import { ListadoDistribuidoresAdminComponent } from './ModAdmin/listadoDistribuidores-admin/listadoDistribuidores-admin.component';
 import { ListadoRegistradoresAdminComponent } from './ModAdmin/listadoRegistradores-admin/listadoRegistradores-admin.component';
+import { RegistradorSideComponent } from './registrador/registrador-side/registrador-side.component';
+import { RegistradorInicioComponent } from './registrador/registrador-inicio/registrador-inicio.component';
+import { RegistradorTablaComponent } from './registrador/registrador-tabla/registrador-tabla.component';
+import { RegistradorSolicitudComponent } from './registrador/registrador-solicitud/registrador-solicitud.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +98,11 @@ import { ListadoRegistradoresAdminComponent } from './ModAdmin/listadoRegistrado
     EmpleadoTablaComponent,
     ClienteDistribuidorComponent,
     ListadoDistribuidoresAdminComponent,
-    ListadoRegistradoresAdminComponent
+    ListadoRegistradoresAdminComponent,
+    RegistradorSideComponent,
+    RegistradorInicioComponent,
+    RegistradorTablaComponent,
+    RegistradorSolicitudComponent
   ],
   imports: [
     BrowserModule,

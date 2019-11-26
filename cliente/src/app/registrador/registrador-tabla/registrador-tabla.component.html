@@ -1,0 +1,20 @@
+<div class="Table" align="center">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="nomDom">
+      <th mat-header-cell *matHeaderCellDef> Nombre del dominio</th>
+      <td mat-cell *matCellDef="let element"> {{element.nombreDom}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="abrir">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button (click)="navegar()">Abrir</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
