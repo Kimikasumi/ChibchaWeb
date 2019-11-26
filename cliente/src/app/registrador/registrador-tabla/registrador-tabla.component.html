@@ -4,23 +4,22 @@
 <h2 align="center">Con amor desde chibchaweb</h2>
 <h4>Solicitudes por evaluar:</h4>
 
-<div class="Table" align="center">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="nomDom">
-      <th mat-header-cell *matHeaderCellDef> Nombre del dominio</th>
-      <td mat-cell *matCellDef="let element"> {{element.nombreDom}}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="abrir">
-      <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let element">
-        <button mat-button (click)="navegar()">Abrir</button>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-</div>
+<table class="table table-sm" >
+  <thead class="table-warning">
+  <tr >
+    <th scope="col">Nombre dominio</th>
+    <th scope="col">Acciones</th>
+  </tr>
+  </thead>
+  <tbody class="bg-light" *ngFor="let ticket of ticketsRegistrador">
+  <tr>
+    <td>
+      {{ticket.nom_dominio}}
+    </td>
+    <td>
+      <button mat-button (click)="navegar()">Abrir</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
