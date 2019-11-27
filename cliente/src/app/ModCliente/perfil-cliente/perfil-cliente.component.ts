@@ -30,12 +30,11 @@ export class PerfilClienteComponent implements OnInit {
     paquete: "",
     correo: "",
     nombre: "",
-    fecha_tarjeta: null,
-    nom_t_tarjeta: "SELECCIONA",
+    fecha_vencimiento: null,
+    nom_t_tarjeta: "",
     cod_seguridad: 0
     
   }
-  mostrarSelect:boolean = false;
 
   ngOnInit() {
     if(localStorage.getItem("cedulaCliente")==null)
@@ -44,6 +43,7 @@ export class PerfilClienteComponent implements OnInit {
     }
     else{
       this.cargarPerfil();
+      
     }
   }
 
@@ -52,16 +52,43 @@ export class PerfilClienteComponent implements OnInit {
     if(params.cedula){
       this.clienteService.cargarPerfilCliente(params.cedula).subscribe(
         res => {
-          console.log(res);
-          this.mostrarSelect = true;
           this.clienteGrafico = res;
         },
-        
         err => console.error(err)
-        
       )
     }
-    console.log(params);
+    this.cargarDominiosCliente();
+  }
+
+  clienteDominiosG: any = [];
+
+  cargarDominiosCliente(){
+    const params = this.activateRoute.snapshot.params;
+    if(params.cedula){
+      this.clienteService.cargarDominio(params.cedula).subscribe(
+        res => {
+          console.log(res);
+          this.clienteDominiosG = res;
+          console.log(this.clienteDominiosG);
+        },
+        err => console.error(err)
+      )
+    }
+    
+    console.log("AAAAAAAAA");
+  }
+
+
+  guardarInfoCliente(){
+    this.clienteService.editarCliente(this.clienteGrafico).
+    subscribe(
+      res=>{
+        console.log(res);
+        console.log(this.clienteGrafico);
+      },
+      err => console.error(err)
+      
+    )
   }
 
 }
@@ -82,7 +109,7 @@ export class ModalTarjeta implements OnInit {
     paquete: "",
     correo: "",
     nombre: "",
-    fecha_tarjeta: null,
+    fecha_vencimiento: null,
     cod_seguridad: 0
     
   }
@@ -98,12 +125,31 @@ export class ModalTarjeta implements OnInit {
       this.clienteService.cargarPerfilCliente(params.cedula).subscribe(
         res => {
           console.log(res);
-          this.mostrarSelect = true;
+          
           this.clienteGrafico = res;
+          if(this.clienteGrafico.numero!="0")
+          {
+            this.mostrarSelect = true;
+          }
         },
         err => console.error(err)
       )
     }
     console.log(params);
   }
+
+
+  guardarTarjetaCredito(){
+    this.clienteService.crearTarjeta(this.clienteGrafico).
+    subscribe(
+      res=>{
+        console.log(res);
+        console.log(this.clienteGrafico);
+      },
+      err => console.error(err)
+      
+    )
+  }
+
+  
 }

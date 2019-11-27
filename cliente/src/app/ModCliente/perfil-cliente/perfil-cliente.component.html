@@ -9,7 +9,7 @@
   </div>
   <div class="col-6" >
     <div class="row">
-      <h1 >Perfil {{clienteGrafico.nombre}}</h1>
+      <h2 >{{clienteGrafico.nombre}}</h2>
     </div>
     <div class="row">
         <table class="table table-sm" >
@@ -20,11 +20,11 @@
                 <th scope="col">Host</th>
               </tr>
             </thead>
-            <tbody class="bg-light"> 
+            <tbody class="bg-light" *ngFor="let dominios of clienteDominiosG"> 
               <tr>
-                <th scope="row">ElMenWeb</th>
-                <td>Aceptado</td>
-                <td>Arroba</td>
+                <th scope="row">{{dominios.nom_dominio}}</th>
+                <td>{{dominios.nom_estado}}</td>
+                <td>{{dominios.nombre}}</td>
               </tr>
             </tbody>
           </table>
@@ -37,11 +37,11 @@
     <form class="example-form">
 
       <mat-form-field class="example-full-width">
-          <input matInput placeholder="Nombre" value="{{clienteGrafico.nombre}}">
+          <input matInput  [(ngModel)]="clienteGrafico.nombre" placeholder="Nombre" value="{{clienteGrafico.nombre}}" name="nombre" >
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-          <input matInput placeholder="Correo" value="{{clienteGrafico.correo}}">
+          <input matInput name="correo" [(ngModel)]="clienteGrafico.correo" placeholder="Correo"  value="{{clienteGrafico.correo}}" >
       </mat-form-field>
       <label>Modo de pago</label>
       <input class="form-control" type="text" value="Crédito" readonly>
@@ -51,11 +51,11 @@
       <input class="form-control" type="text" value="{{clienteGrafico.nom_paquete}}" readonly>
       <label> </label>
       <label for="exampleFormControlTextarea1">Contraseña Actual</label>
-      <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="1"/>
+      <input type="password" class="form-control" name="contrasenia" [(ngModel)]="clienteGrafico.contrasenia" id="exampleFormControlTextarea1" value="{{clienteGrafico.contrasenia}}"  rows="1"/>
       <label for="exampleFormControlTextarea2">Nueva Contraseña</label>
       <input type="text" class="form-control" id="exampleFormControlTextarea2" rows="1"/>
       <br/>
-      <button mat-raised-button onclick="">Cambiar Información</button>
+      <button mat-raised-button (click)="guardarInfoCliente()">Cambiar Información</button>
       
       <!--mat-select placeholder="Tipo de pago">
           <mat-option *ngFor="let food of foods" [value]="food.value" >

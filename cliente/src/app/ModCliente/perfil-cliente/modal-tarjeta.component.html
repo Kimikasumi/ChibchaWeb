@@ -2,33 +2,29 @@
         <div class="form-group">
           <label for="validationCustom01">Tarjeta de crédito</label>
           <div *ngIf="mostrarSelect; else elseBlock">
-          <select class="form-control form-control-lg"  name="tarjeta" required>
-                <option value="0" selected>{{clienteGrafico.nom_t_tarjeta}}</option>
+          <select class="form-control form-control-lg"  name="tarjeta" disabled required>
+                <option value="0" >{{clienteGrafico.nom_t_tarjeta}}</option>
                 <option value="1">MasterCard</option>
                 <option value="2">Visa</option>
                 <option value="3">American Express</option>
           </select>
           </div>
           <ng-template #elseBlock>
-              <select class="form-control form-control-lg"  name="tarjeta" required>
-                  <option value="0"  selected>--Selecciona--</option>
+              <select class="form-control form-control-lg"  name="tarjeta" [(ngModel)]="clienteGrafico.nom_t_tarjeta" required>
+                  <option value="0">--Selecciona--</option>
                   <option value="1">MasterCard</option>
                   <option value="2">Visa</option>
                   <option value="3">American Express</option>
             </select>
           </ng-template>
           <label for="validationCustom02">Número</label>
-            <input type="number" class="form-control" id="validationCustom02" placeholder="Número de tarjeta" value="{{clienteGrafico.numero}}" required>
+            <input type="number" class="form-control" id="validationCustom02" placeholder="Número de tarjeta" value="{{clienteGrafico.numero}}" name="nom_t_tarjeta" [(ngModel)]="clienteGrafico.numero" required>
 
             <label for="validationCustom02">Fecha de vencimiento </label>
-            <input type="date" class="form-control" id="validationCustom02" value="{{clienteGrafico.fecha_vencimiento}}" required>
-
-            <label for="validationCustom02">Nombre completo</label>
-            <input type="text" class="form-control" id="validationCustom02" placeholder="Nombre completo" value="{{clienteGrafico.nombre}}" required>
-
+            <input type="date" class="form-control" id="validationCustom02" value="{{clienteGrafico.fecha_vencimiento}}" name="fecha_tarjeta" [(ngModel)]="clienteGrafico.fecha_vencimiento" required>
             <label for="validationCustom02">CCV</label>
-            <input type="number" class="form-control" id="validationCustom02" placeholder="CCV" value="{{clienteGrafico.cod_seguridad}}" required>
+            <input type="number" class="form-control" id="validationCustom02" placeholder="CCV" value="{{clienteGrafico.cod_seguridad}}" name="cod_seguridad" [(ngModel)]="clienteGrafico.cod_seguridad" required>
       
         </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" (click)="guardarTarjetaCredito()" class="btn btn-primary">Guardar</button>
 </form>
