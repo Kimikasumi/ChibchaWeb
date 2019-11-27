@@ -36,8 +36,6 @@
 </div>
 
 <br>
-<br>
-<br>
 
 <div class="row" style="border: solid 1px lightgray">
   <div class="col-12">
@@ -48,24 +46,22 @@
 
 <br>
 
-<div class="listHost">
-  <div class="row">
-    <div class="col-6" align="right">
-      <mat-form-field>
-        <mat-label>Acción a realizar</mat-label>
-        <mat-select [(value)]="opcionAc">
-          <mat-option *ngFor="let opcion of opciones" [value]="opcion.valor">
-            {{opcion.nom}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+<div class="row">
+  <div class="col-6" align="right">
+    <mat-form-field>
+      <mat-label>Acción a realizar</mat-label>
+      <mat-select [(value)]="opcionAc">
+        <mat-option *ngFor="let opcion of opciones" [value]="opcion.valor">
+          {{opcion.nom}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 
-    <div class="col-6" align="left">
-      <button mat-button (click)="enviar(ticketsRegistrador.cod_dominio, opcionAc)">
-        Enviar
-      </button>
-    </div>
+  <div class="col-6" align="left">
+    <button mat-button (click)="enviar(ticketsRegistrador.cod_dominio, opcionAc)">
+      Enviar
+    </button>
   </div>
 </div>
 
