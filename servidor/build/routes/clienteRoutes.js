@@ -13,6 +13,7 @@ class ClienteRoutes {
     config() {
         this.router.post('/crear', clienteController_1.default.crearCliente);
         this.router.get('/:cedula', clienteController_1.default.obtenerCliente);
+        this.router.post('/solicitud/:cedula', clienteController_1.default.crearSolicitud);
     }
 }
 const clienteRoutes = new ClienteRoutes();

@@ -13,11 +13,11 @@ export class SideDistribuidorComponent {
 
   //fillerNav = Array(5).fill(0).map((_, i) => `Nav Item ${i + 1}`);
   fillerNav=[
-    {name:"inicio", route:"inicio", icon: "home"},
-    {name:"perfil", route:"perfil", icon:"account_circle"},
-    {name:"PQR", route:"pqr", icon:"build"},
-    {name:"Nuevo Dominio", route:"host", icon:"add_to_queue"},
-    {name:"Nuevo Cliente", route:"nCliente", icon:"person_add"},
+    {name:"inicio", route:"inicio/"+localStorage.getItem('cedulaDistribuidor'), icon: "home"},
+    {name:"perfil", route:"perfil/"+localStorage.getItem('cedulaDistribuidor'), icon:"account_circle"},
+    {name:"PQR", route:"pqr/"+localStorage.getItem('cedulaDistribuidor'), icon:"build"},
+    {name:"Nuevo Dominio", route:"host/"+localStorage.getItem('cedulaDistribuidor'), icon:"add_to_queue"},
+    {name:"Nuevo Cliente", route:"nCliente/"+localStorage.getItem('cedulaDistribuidor'), icon:"person_add"},
     {name:"Cerrar Sesión", route:"", icon:"perm_identity"}
   ]
 

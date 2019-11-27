@@ -13,7 +13,7 @@ export class InicioDistribuidorComponent implements OnInit {
 
   
   ngOnInit() {
-    if(localStorage.getItem("cedulaCliente")==null)
+    if(localStorage.getItem("cedulaDistribuidor")==null)
     {
       this.router.navigate([''])
     }

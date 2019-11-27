@@ -11,8 +11,9 @@ class DistribuidorRoutes {
         this.config();
     }
     config() {
-        this.router.get('/clientes', distribuidorController_1.default.listarClientes);
+        this.router.get('/clientes/:cedula', distribuidorController_1.default.listarClientes);
         this.router.post('/clientes', distribuidorController_1.default.crearCliente);
+        this.router.delete('/clientes', distribuidorController_1.default.eliminarCliente);
     }
 }
 const distribuidorRoutes = new DistribuidorRoutes();

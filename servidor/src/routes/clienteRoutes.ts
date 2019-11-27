@@ -11,6 +11,7 @@ class ClienteRoutes{
     config():void{
         this.router.post('/crear',clienteController.crearCliente);
         this.router.get('/:cedula', clienteController.obtenerCliente);
+        this.router.post('/solicitud/:cedula', clienteController.crearSolicitud);
     }
 }
 

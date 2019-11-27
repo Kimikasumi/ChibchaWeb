@@ -55,11 +55,11 @@ const routes: Routes = [
   {
     path: 'distribuidor', component: SideDistribuidorComponent, children:
       [
-        {path: 'inicio', component: InicioDistribuidorComponent},
-        {path: 'perfil', component: PerfilDistribuidorComponent},
-        {path: 'pqr', component: PqrDistribuidorComponent},
-        {path: 'host', component: HostDistribuidorComponent},
-        {path: 'nCliente', component: ClienteDistribuidorComponent}
+        {path: 'inicio/:cedula', component: InicioDistribuidorComponent},
+        {path: 'perfil/:cedula', component: PerfilDistribuidorComponent},
+        {path: 'pqr/:cedula', component: PqrDistribuidorComponent},
+        {path: 'host/:cedula', component: HostDistribuidorComponent},
+        {path: 'nCliente/:cedula', component: ClienteDistribuidorComponent}
 
       ]
     },

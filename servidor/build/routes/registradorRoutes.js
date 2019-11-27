@@ -12,7 +12,7 @@ class RegistradorRoutes {
     }
     config() {
         this.router.get('/dominio', registradorController_1.default.listarDominios);
-        this.router.get('/dominio/get', registradorController_1.default.obtenerDominio);
+        this.router.post('/dominio/get', registradorController_1.default.obtenerDominio);
         this.router.put('/dominio/aceptar', registradorController_1.default.aceptarDominio);
         this.router.put('/dominio/rechazar', registradorController_1.default.rechazarDominio);
         this.router.put('/dominio/delete', registradorController_1.default.eliminarDominio);

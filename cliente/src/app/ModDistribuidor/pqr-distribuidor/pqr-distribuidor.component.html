@@ -7,20 +7,29 @@
     <span class="badge badge-success">Preguntas</span>
     <span class="badge badge-success">Quejas</span>
     <span class="badge badge-success">Reclamos</span>
-    <span class="badge badge-success">Cambios de Host</span>
-    <span class="badge badge-success">Cambios de plan</span>
-    <span class="badge badge-success">Cambios de paquetes</span>
-    <span class="badge badge-success">etc.</span>
+    <span class="badge badge-success">Trámites de Dominio</span>
+    <span class="badge badge-success">Reporte de Errores</span>
   </div>
 </div>
 <div class="row">
   <div class="col-6">
       <form>
           <div class="form-group">
-            <label for="exampleFormControlTextarea1">Petición, Queja o reclamo: </label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <select class="form-control"  [(ngModel)]="infoSolicitud.cod_t_ticket"  name="tarjeta" required>
+              <option value="0"  selected>--Selecciona--</option>
+              <option value="1">Peticiones/Quejas/Reclamos</option>
+              <option value="2">Trámites Dominio</option>
+              <option value="3">Reporte Errores</option>
+            </select>
+            <label for="exampleFormControlTextarea1">Seleccione Dominio: </label>
+            <select class="form-control"  [(ngModel)]="infoSolicitud.cod_dominio" name="opcionT" required>
+            <option selected>--Selecciona--</option>
+            <option *ngFor="let dominio of selDominios" value="{{dominio.cod_dominio}}">{{dominio.cedula}} - {{dominio.nombre}} - {{dominio.nom_dominio}}</option>
+          </select>
+        <label for="exampleFormControlTextarea1">Enviar Mensaje: </label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion" [(ngModel)]="infoSolicitud.descripcion"></textarea>
           </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="submit" class="btn btn-primary" (click)=enviarSolicitud()>Enviar</button>
       </form>
   </div>
   <div class="col-6">
@@ -28,7 +37,8 @@
       <table class="table table-sm table-danger">
           <thead>
             <tr >
-              <th scope="col">PQR</th>
+              <th scope="col">Solicitud</th>
+              <th scope="col">Estado</th>
               <th scope="col">Respuesta</th>
             </tr>
           </thead>
