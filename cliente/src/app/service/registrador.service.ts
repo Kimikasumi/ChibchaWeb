@@ -24,10 +24,10 @@ export class RegistradorService {
   accion(codRegistrador: number, codTicket: number, codDominio: number, opcion: number) {
     console.log(codTicket + ' ' + codRegistrador + ' ' + codDominio + ' ' + opcion);
 
-//    if (opcion === 1) {
-//    return this.http.put(`${this.API_URI}/regDominio/dominio/aceptar/${codRegistrador}/${codTicket}/${codDominio}`);
-//    } else if (opcion === 2) {
-//      return this.http.put(`${this.API_URI}/regDominio/dominio/rechazar/${codRegistrador}/${codTicket}/${codDominio}`);
-//    }
+    if (opcion === 1) {
+      return this.http.put(`${this.API_URI}/regDominio/dominio/aceptar/${codRegistrador}/${codTicket}/${codDominio}`, null);
+    } else if (opcion === 2) {
+      return this.http.put(`${this.API_URI}/regDominio/dominio/rechazar/${codRegistrador}/${codTicket}/${codDominio}`, null);
+    }
   }
 }
