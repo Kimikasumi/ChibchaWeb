@@ -2,10 +2,6 @@
   background-color: lightgrey;
 }
 
-.listHost {
-  border: solid 1px lightgrey;
-}
-
 .imgResponsive {
   max-width: 90%;
   height: auto;
