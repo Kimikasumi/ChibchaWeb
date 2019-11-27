@@ -116,7 +116,7 @@ export class LoginDialog implements OnInit{
 
         /*Registrador*/
         else if (this.sesionCreada.cod_t_usuario == 3){
-          let codRegistrador:string = this.sesionCreada.cod_registrador;
+          let codRegistrador: string = this.sesionCreada.cod_registrador;
           localStorage.setItem('codRegistrador', codRegistrador);
           this.router.navigate(['registrador/inicio/' + codRegistrador]);
         }
