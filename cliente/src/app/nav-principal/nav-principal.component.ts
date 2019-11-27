@@ -125,7 +125,10 @@ export class LoginDialog implements OnInit{
           this.router.navigate(['empleado/inicio']);
         }
         else if (this.sesionCreada.cod_t_usuario == 5){
-          this.router.navigate(['distribuidor/inicio']);
+          let cedula:string = this.sesionCreada.cedula;
+          
+          localStorage.setItem("cedulaDistribuidor", cedula);
+          this.router.navigate(['distribuidor/inicio/'+cedula]);
         }
 
         console.log(res);

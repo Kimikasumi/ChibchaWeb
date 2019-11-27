@@ -9,8 +9,9 @@ class DistribuidorRoutes{
     }
 
     config():void{
-        this.router.get('/clientes', distribuidorController.listarClientes);
+        this.router.get('/clientes/:cedula', distribuidorController.listarClientes);
         this.router.post('/clientes', distribuidorController.crearCliente);
+        this.router.delete('/clientes', distribuidorController.eliminarCliente);
     }
 }
 
