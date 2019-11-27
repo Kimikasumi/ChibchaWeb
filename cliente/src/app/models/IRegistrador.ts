@@ -1,4 +1,4 @@
-export interface IRegistrador{
+export interface IRegistrador {
     cod_registrador?: number;
     nombre?: string;
     correo?: Date;

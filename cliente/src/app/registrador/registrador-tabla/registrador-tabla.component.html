@@ -1,0 +1,25 @@
+<br/>
+<h1 align="center"><span class="badge badge-info">Solicitudes de domino</span></h1>
+<h1 align="center">¡Gracias por trabajar con nostros!</h1>
+<h2 align="center">Con amor desde chibchaweb</h2>
+<h4>Solicitudes por evaluar:</h4>
+
+
+<table class="table table-sm" >
+  <thead class="table-warning">
+  <tr >
+    <th scope="col">Nombre dominio</th>
+    <th scope="col">Acciones</th>
+  </tr>
+  </thead>
+  <tbody class="bg-light" *ngFor="let ticket of ticketsRegistrador">
+  <tr>
+    <td>
+      {{ticket.nom_dominio}}
+    </td>
+    <td>
+      <button mat-button (click)="navegar(ticket.cod_ticket)">Abrir</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

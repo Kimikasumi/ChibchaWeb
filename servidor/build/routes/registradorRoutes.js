@@ -13,12 +13,12 @@ class RegistradorRoutes {
     config() {
         this.router.get('/dominio', registradorController_1.default.listarDominios);
         this.router.get('/dominio/get', registradorController_1.default.obtenerDominio);
-        this.router.put('/dominio/aceptar', registradorController_1.default.aceptarDominio);
-        this.router.put('/dominio/rechazar', registradorController_1.default.rechazarDominio);
+        this.router.put('/dominio/aceptar/:cod_registrador/:cod_ticket/:cod_dominio', registradorController_1.default.aceptarDominio);
+        this.router.put('/dominio/rechazar/:cod_registrador/:cod_ticket/:cod_dominio', registradorController_1.default.rechazarDominio);
         this.router.put('/dominio/delete', registradorController_1.default.eliminarDominio);
         this.router.put('/dominio/perfil', registradorController_1.default.editarRegistrador);
-        this.router.get('/solicitudes', registradorController_1.default.listarSolicitudes);
-        this.router.get('/solicitudes/get', registradorController_1.default.obtenerSolicitud);
+        this.router.get('/solicitudes/:cod_registrador', registradorController_1.default.listarSolicitudes);
+        this.router.get('/solicitudes/:cod_registrador/:cod_ticket', registradorController_1.default.obtenerSolicitud);
     }
 }
 const registradorRoutes = new RegistradorRoutes();

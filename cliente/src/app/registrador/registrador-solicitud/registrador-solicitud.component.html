@@ -1,0 +1,87 @@
+<br>
+
+<div class="row">
+  <div align="center" class="col-12">
+    <h1><span class="badge badge-success">Nuevo dominio</span></h1>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-12" align="left">
+    <h3><span class="badge">Información del dominio</span></h3>
+  </div>
+</div>
+
+<br>
+
+<div class="row" style="border: solid 1px lightgray">
+  <div class="col-6" align="center">
+    <h4><b>Nombre del cliente:</b> {{ticketsRegistrador.nombre}}</h4>
+  </div>
+
+  <div class="col-6" align="center">
+    <h4><b>Nombre del dominio:</b> {{ticketsRegistrador.nom_dominio}}</h4>
+  </div>
+</div>
+
+<br>
+
+<div class="row" style="border: solid 1px lightgray">
+  <div class="col-12">
+    <h4><b>Descripción solicitud:</b></h4>
+    <p class="descrip">{{ticketsRegistrador.descripcion}}</p>
+  </div>
+</div>
+
+<br>
+
+<div class="row" style="border: solid 1px lightgray">
+  <div class="col-12">
+    <h4><b>Descripción solicitud:</b></h4>
+    <p class="descrip">{{ticketsRegistrador.DomDescrip}}</p>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-6" align="right">
+    <mat-form-field>
+      <mat-label>Acción a realizar</mat-label>
+      <mat-select [(value)]="opcionAc">
+        <mat-option *ngFor="let opcion of opciones" [value]="opcion.valor">
+          {{opcion.nom}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="col-6" align="left">
+    <button mat-button (click)="enviar(ticketsRegistrador.cod_dominio, opcionAc)">
+      Enviar
+    </button>
+  </div>
+</div>
+
+<br>
+<div class="row">
+  <div align="left" class="col-2">
+    <button mat-button (click)="regresar()">
+      Regresar
+    </button>
+  </div>
+</div>
+<br>
+<br>
+
+<div class="row">
+  <div class="col-3" align="center">
+    <img class="imgResponsive" align="center" src="../../../../assets/images/chiblogo.png">
+  </div>
+
+  <div class="col-9">
+    <h1 align="center"><span class="badge">¡Gracias por trabajar con nostros!</span></h1>
+  </div>
+</div>
