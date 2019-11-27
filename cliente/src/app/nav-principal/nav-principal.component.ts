@@ -121,12 +121,19 @@ export class LoginDialog implements OnInit{
           this.router.navigate(['registrador/inicio/' + codRegistrador]);
         }
 
-        else if (this.sesionCreada.cod_t_usuario == 4){
-          this.router.navigate(['empleado/inicio']);
+        /*Empleado*/
+        else if (this.sesionCreada.cod_t_usuario == 4) {
+          const cedula: string = this.sesionCreada.cedula;
+          const nombreEmpleado: string = this.sesionCreada.nombre;
+          const tEmpleado: string = this.sesionCreada.cod_t_empleado;
+          localStorage.setItem('cedula', cedula);
+          localStorage.setItem('nombre', nombreEmpleado);
+          localStorage.setItem('tEmpleado', tEmpleado);
+          this.router.navigate(['empleado/inicio/' + cedula]);
         }
         else if (this.sesionCreada.cod_t_usuario == 5){
           let cedula:string = this.sesionCreada.cedula;
-          
+
           localStorage.setItem("cedulaDistribuidor", cedula);
           this.router.navigate(['distribuidor/inicio/'+cedula]);
         }

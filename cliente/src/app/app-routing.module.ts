@@ -24,7 +24,7 @@ import { ListadoDistribuidoresAdminComponent } from './ModAdmin/listadoDistribui
 import { ListadoRegistradoresAdminComponent } from './ModAdmin/listadoRegistradores-admin/listadoRegistradores-admin.component';
 
 /*Empleado*/
-import {EmpleadoTablaComponent, Solicitud} from './empleados/empleado-tabla/empleado-tabla.component';
+import {EmpleadoTablaComponent} from './empleados/empleado-tabla/empleado-tabla.component';
 import {EmpleadoSideComponent} from './empleados/empleado-side/empleado-side.component';
 import {InicioEmpleadoComponent} from './empleados/inicio-empleado/inicio-empleado.component';
 /*Solicitudes*/
@@ -78,8 +78,8 @@ const routes: Routes = [
   {
     path: 'empleado', component: EmpleadoSideComponent, children:
       [
-        {path: 'solicitudes', component: EmpleadoTablaComponent},
-        {path: 'inicio', component: InicioEmpleadoComponent},
+        {path: 'solicitudes/:cedula', component: EmpleadoTablaComponent},
+        {path: 'inicio/:cedula', component: InicioEmpleadoComponent},
         /*Solicitudes*/
         {path: 'ndom', component: SolicitudNDomComponent},
         {path: 'chost', component: SolicitudChostComponent},

@@ -1,19 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-
-export interface Solicitud {
-  Tipo: string;
-  Cliente: string;
-  direc: string;
-}
-
-const ELEMENT_DATA: Solicitud[] = [
-  {Tipo: 'Nuevo Dominio', Cliente: 'Carlos', direc: 'ndom'},
-  {Tipo: 'Cambio host', Cliente: 'Maria', direc: 'chost'},
-  {Tipo: 'Cambio plan de pago', Cliente: 'Rekkles', direc: 'cplan'},
-  {Tipo: 'Cambio paquete', Cliente: 'Mauricio', direc: 'cpaquete'},
-  {Tipo: 'PQR', Cliente: 'Mariana', direc: 'pqr'}
-];
+import {ActivatedRoute, Router} from '@angular/router';
+import {EmpleadoService} from '../../service/empleado.service';
 
 @Component({
   selector: 'app-empleado-tabla',
@@ -22,17 +9,31 @@ const ELEMENT_DATA: Solicitud[] = [
 })
 export class EmpleadoTablaComponent implements OnInit {
 
-  displayedColumns: string[] = ['Tipo', 'Cliente', 'abrir'];
-  dataSource = ELEMENT_DATA;
+  ticketsEmpleado: any = [];
 
-  constructor(private router: Router) {
+  constructor(private empleadoService: EmpleadoService, private router: Router, private activateRoute: ActivatedRoute) {
   }
 
-  navegar(page: Solicitud) {
-    this.router.navigate(['empleado/' + page.direc]);
+  navegar(codTick: number) {
+    this.router.navigate(['empleado/ticket/get/' + localStorage.getItem('cedula') + '/' + codTick]);
+    localStorage.setItem('codTicket', String(codTick));
   }
 
   ngOnInit() {
+    if (localStorage.getItem('cedula') == null) {
+      this.router.navigate([' ']);
+    }
+    this.cargarSolicitud();
+  }
+
+  cargarSolicitud() {
+    const codigo: number = parseInt(localStorage.getItem('tEmpleado'), 10);
+    this.empleadoService.cargarSolicitudes(codigo).subscribe(
+      res => {
+        this.ticketsEmpleado = res;
+        console.log(this.ticketsEmpleado);
+      }
+    );
   }
 
 }

@@ -24,7 +24,7 @@ class UsuarioController{
             }
             //ESTE MEN ES EL EMPLEADO
             else if(cod_t_usuario == 4){
-                const usuarioCliente = await db.query("SELECT USUARIO.cod_t_usuario, T_EMPLEADO.nom_t_empleado, USUARIO.cedula, USUARIO.correo, USUARIO.nombre, USUARIO.contrasenia FROM USUARIO, EMPLEADO, T_EMPLEADO WHERE USUARIO.cedula = EMPLEADO.cedula AND EMPLEADO.cod_t_empleado = T_EMPLEADO.cod_t_empleado AND USUARIO.correo='"+correo+"'");
+                const usuarioCliente = await db.query("SELECT USUARIO.cod_t_usuario, T_EMPLEADO.nom_t_empleado, T_EMPLEADO.cod_t_empleado, USUARIO.cedula, USUARIO.correo, USUARIO.nombre, USUARIO.contrasenia FROM USUARIO, EMPLEADO, T_EMPLEADO WHERE USUARIO.cedula = EMPLEADO.cedula AND EMPLEADO.cod_t_empleado = T_EMPLEADO.cod_t_empleado AND USUARIO.correo='"+correo+"'");
                 resultado = res.json(usuarioCliente[0]);
             }
             //ESTE MEN ES EL DISTRIBUIDOR
