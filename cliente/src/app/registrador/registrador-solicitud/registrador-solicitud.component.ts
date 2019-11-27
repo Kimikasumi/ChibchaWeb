@@ -1,10 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-
-export interface Opcion {
-  cod_op: number;
-  nomOp: string;
-}
+import {ActivatedRoute, Router} from '@angular/router';
+import {RegistradorService} from '../../service/registrador.service';
 
 @Component({
   selector: 'app-registrador-solicitud',
@@ -13,32 +9,50 @@ export interface Opcion {
 })
 export class RegistradorSolicitudComponent implements OnInit {
 
-  opciones: Opcion[] = [
-    {cod_op: 1, nomOp: 'Aceptar'},
-    {cod_op: 2, nomOp: 'Denegar'}
+  ticketsRegistrador: any = [];
+
+  opciones: any = [
+    {valor: 1, nom: 'Aceptar'},
+    {valor: 2, nom: 'Denegar'}
   ];
 
-  nomDom = 'Pajarito';
-  nomCliente = 'Carlos';
-  descDom = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci animi architecto atque consectetur\n' +
-    '        consequatur debitis, dolor esse nobis officiis, provident quasi rem similique tempore voluptatibus? Nisi\n' +
-    '        provident quidem quos.\n';
-  descSolicitud = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci animi architecto atque consectetur\n' +
-    '        consequatur debitis, dolor esse nobis officiis, provident quasi rem similique tempore voluptatibus? Nisi\n' +
-    '        provident quidem quos.\n';
+  opcionAc: number;
 
-  constructor(private router: Router) {
-  }
-
-  enviar() {
-    this.router.navigate(['registrador/tabla']);
-  }
-
-  regresar() {
-    this.router.navigate(['registrador/tabla']);
+  constructor(private registradorService: RegistradorService, private router: Router, private activateRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
+    if (localStorage.getItem('codRegistrador') == null) {
+      this.router.navigate(['']);
+    }
+    this.cargarSolicitud();
+  }
+
+  enviar(codDominio: number, opcion: number) {
+    const codRegistrador: number = parseInt(localStorage.getItem('codRegistrador'), 10);
+    const codTicket: number = parseInt(localStorage.getItem('codTicket'), 10);
+    this.registradorService.accion(codRegistrador, codTicket, codDominio, opcion).subscribe(
+      res => {
+        this.ticketsRegistrador = res;
+        console.log(this.ticketsRegistrador);
+      }
+    );
+    this.router.navigate(['registrador/tabla/' + localStorage.getItem('codRegistrador')]);
+  }
+
+  regresar() {
+    this.router.navigate(['registrador/tabla/' + localStorage.getItem('codRegistrador')]);
+  }
+
+  cargarSolicitud() {
+    const codRegistrador: number = parseInt(localStorage.getItem('codRegistrador'), 10);
+    const codTicket: number = parseInt(localStorage.getItem('codTicket'), 10);
+    this.registradorService.obtenerUno(codRegistrador, codTicket).subscribe(
+      res => {
+       this.ticketsRegistrador = res;
+       console.log(this.ticketsRegistrador);
+      }
+    );
   }
 
 }

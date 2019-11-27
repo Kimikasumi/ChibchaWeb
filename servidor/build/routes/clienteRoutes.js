@@ -14,6 +14,10 @@ class ClienteRoutes {
         this.router.post('/crear', clienteController_1.default.crearCliente);
         this.router.get('/:cedula', clienteController_1.default.obtenerCliente);
         this.router.post('/solicitud/:cedula', clienteController_1.default.crearSolicitud);
+        this.router.get('/dominio/:cedula', clienteController_1.default.obtenerDominiosCliente);
+        this.router.post('/crearTarjeta', clienteController_1.default.agregarTarjeta);
+        this.router.put('/editarCliente/:cedula', clienteController_1.default.editarCliente);
+        this.router.get('/cargarPQR/:cedula', clienteController_1.default.historialPQRCliente);
     }
 }
 const clienteRoutes = new ClienteRoutes();

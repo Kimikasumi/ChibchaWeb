@@ -18,11 +18,11 @@
 
 <div class="row" style="border: solid 1px lightgray">
   <div class="col-6" align="center">
-    <h4><b>Nombre del cliente:</b> {{nomCliente}}</h4>
+    <h4><b>Nombre del cliente:</b> {{ticketsRegistrador.nombre}}</h4>
   </div>
 
   <div class="col-6" align="center">
-    <h4><b>Nombre del dominio:</b> {{nomDom}}</h4>
+    <h4><b>Nombre del dominio:</b> {{ticketsRegistrador.nom_dominio}}</h4>
   </div>
 </div>
 
@@ -31,41 +31,37 @@
 <div class="row" style="border: solid 1px lightgray">
   <div class="col-12">
     <h4><b>Descripción solicitud:</b></h4>
-    <p class="descrip">{{descSolicitud}}</p>
+    <p class="descrip">{{ticketsRegistrador.descripcion}}</p>
   </div>
 </div>
 
-<br>
-<br>
 <br>
 
 <div class="row" style="border: solid 1px lightgray">
   <div class="col-12">
-    <h4><b>Descripción solicitud:</b></h4>
-    <p class="descrip">{{descSolicitud}}</p>
+    <h4><b>Descripción dominio:</b></h4>
+    <p class="descrip">{{ticketsRegistrador.DomDescrip}}</p>
   </div>
 </div>
 
 <br>
 
-<div class="listHost">
-  <div class="row">
-    <div class="col-6" align="right">
-      <mat-form-field>
-        <mat-label>Acción a realizar</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let opcion of opciones" [value]="opcion.cod_op">
-            {{opcion.nomOp}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+<div class="row">
+  <div class="col-6" align="right">
+    <mat-form-field>
+      <mat-label>Acción a realizar</mat-label>
+      <mat-select [(value)]="opcionAc">
+        <mat-option *ngFor="let opcion of opciones" [value]="opcion.valor">
+          {{opcion.nom}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 
-    <div class="col-6" align="left">
-      <button mat-button (click)="enviar()">
-        Enviar
-      </button>
-    </div>
+  <div class="col-6" align="left">
+    <button mat-button (click)="enviar(ticketsRegistrador.cod_dominio, opcionAc)">
+      Enviar
+    </button>
   </div>
 </div>
 

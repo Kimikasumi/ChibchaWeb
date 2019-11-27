@@ -17,24 +17,25 @@ class RegistradorController {
     /** DOMINIOS */
     listarSolicitudes(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const cod_registrador = req.body.cod_registrador;
+            const { cod_registrador } = req.params;
+            console.log(cod_registrador);
             const cod_ticket = req.body.cod_ticket;
             const solicitudes = yield database_1.default.query("SELECT TICKET.cod_ticket, DOMINIO.cod_dominio, DOMINIO.nom_dominio," +
                 "DOMINIO.descripcion as DomDescrip, USUARIO.nombre, TICKET.descripcion, ESTADO.nom_estado FROM  TICKET, DOMINIO, USUARIO," +
                 "ESTADO, CLIENTE WHERE DOMINIO.cedula=CLIENTE.cedula AND " +
                 "TICKET.cod_dominio=DOMINIO.cod_dominio " +
                 "AND TICKET.cod_estado=ESTADO.cod_estado AND USUARIO.cedula=CLIENTE.cedula AND " +
-                "ESTADO.cod_estado=3 AND TICKET.cod_registrador=" + cod_registrador + " AND TICKET.cod_ticket=" + cod_ticket);
+                "ESTADO.cod_estado=3 AND TICKET.cod_registrador=?", [cod_registrador]);
             res.json(solicitudes);
         });
     }
     obtenerSolicitud(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const cod_ticket = parseInt(req.body.cod_ticket);
-            const cod_registrador = req.body.cod_registrador;
+            const { cod_ticket, cod_registrador } = req.params;
+            console.log(req.params);
             const solicitud = yield database_1.default.query("SELECT DOMINIO.cod_dominio, DOMINIO.nom_dominio," +
-                "USUARIO.nombre, TICKET.descripcion FROM  TICKET, DOMINIO, USUARIO, " +
-                "CLIENTE, REGISTRADOR WHERE DOMINIO.cedula=CLIENTE.cedula AND " +
+                "USUARIO.nombre, TICKET.descripcion,  ESTADO.nom_estado  FROM  TICKET, DOMINIO, USUARIO, " +
+                "CLIENTE, REGISTRADOR, ESTADO WHERE DOMINIO.cedula=CLIENTE.cedula AND TICKET.cod_estado=ESTADO.cod_estado AND " +
                 "DOMINIO.cod_registrador=REGISTRADOR.cod_registrador AND TICKET.cod_dominio=DOMINIO.cod_dominio " +
                 "AND USUARIO.cedula=CLIENTE.cedula AND " +
                 "ESTADO.cod_estado=3 AND TICKET.cod_registrador=" + cod_registrador + " AND TICKET.cod_ticket=" + cod_ticket);
@@ -64,15 +65,15 @@ class RegistradorController {
     }
     aceptarDominio(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const cod_ticket = req.body.cod_ticket;
-            yield database_1.default.query('UPDATE DOMINIO SET cod_registrador=' + req.body.cod_registrador + ' WHERE cod_dominio=' + req.body.cod_dominio);
+            const { cod_ticket, cod_dominio, cod_registrador } = req.params;
+            yield database_1.default.query('UPDATE DOMINIO SET cod_registrador=' + cod_registrador + ' WHERE cod_dominio=' + cod_dominio);
             yield database_1.default.query("UPDATE TICKET SET cod_estado=4 WHERE cod_ticket=?", parseInt(cod_ticket));
             res.json({ text: 'Dominio aceptado' });
         });
     }
     rechazarDominio(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const cod_ticket = req.body.cod_ticket;
+            const { cod_ticket } = req.params;
             yield database_1.default.query("UPDATE TICKET SET cod_estado=5 WHERE cod_ticket=?", parseInt(cod_ticket));
             res.json({ text: 'Dominio Rechazado' });
         });

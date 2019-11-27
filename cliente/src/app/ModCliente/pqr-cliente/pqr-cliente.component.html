@@ -37,12 +37,14 @@
             <tr >
               <th scope="col">PQR</th>
               <th scope="col">Respuesta</th>
+              <th scope="col">Tipo</th>
             </tr>
           </thead>
-          <tbody class="table-light"> 
+          <tbody class="table-light" *ngFor="let x of pqrCliente"> 
             <tr>
-              <th scope="row">Mi queja</th>
-              <td>Resultado</td>
+              <th scope="row">{{x.descripcion}}</th>
+              <td>{{x.respuesta}}</td>
+              <td>{{x.nom_t_ticket}}</td>
             </tr>
           </tbody>
         </table>
