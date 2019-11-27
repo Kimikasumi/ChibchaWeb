@@ -16,14 +16,12 @@
             <thead class="table-warning">
               <tr >
                 <th scope="col">Nombre del dominio</th>
-                <th scope="col">Estado</th>
                 <th scope="col">Host</th>
               </tr>
             </thead>
             <tbody class="bg-light" *ngFor="let dominios of clienteDominiosG"> 
               <tr>
                 <th scope="row">{{dominios.nom_dominio}}</th>
-                <td>{{dominios.nom_estado}}</td>
                 <td>{{dominios.nombre}}</td>
               </tr>
             </tbody>

@@ -16,12 +16,19 @@ export class DistribuidorService {
 
   crearSolicitud(cedula:number,infoTicket:ITicketS){
     return this.http.post(`${this.API_URI}/cliente/solicitud/${cedula}`,infoTicket);
-
   }
 
   obtenerDominio(aux:ITicketS){
     return this.http.post(`${this.API_URI}/regDominio/dominio/get`,aux);
-
   }
  
+  historialPQR(cedulaCliente:number){
+    return this.http.get(`${this.API_URI}/distribuidor/solicitudes/`+cedulaCliente)
+  }
+
+  listarClientes(){
+    return this.http.get(`${this.API_URI}/distribuidor/clientes/`+localStorage.getItem('cedulaDistribuidor'))
+  }
+  
+  
 }

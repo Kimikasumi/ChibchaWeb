@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ClienteService } from 'src/app/service/cliente.service';
 import {IPQR} from '../../models/ICliente'
-
+import {ITicketS} from '../../models/ITicket';
 @Component({
   selector: 'app-pqr-cliente',
   templateUrl: './pqr-cliente.component.html',
@@ -19,10 +19,23 @@ export class PqrClienteComponent implements OnInit {
     }
     else{
       this.cargarPQRCliente();
+      this.cargarOpciones();
     }
     
   }
 
+  selDominios:any=[]
+
+  infoSolicitud:ITicketS={
+    cod_dominio:0,
+    cod_t_ticket:1,
+    nom_dominio:"",
+    nombre:"",
+    descripcion:"",
+    nom_estado:"",
+    cedula:0
+  }
+  arrpqrCliente:any=[]
   pqrCliente: IPQR = {
     descripcion: "",
     respuesta: "",
@@ -35,9 +48,8 @@ export class PqrClienteComponent implements OnInit {
       this.clienteService.historialPQR().subscribe(
         res => {
           console.log(res);
-          console.log("AAAAAAAAAAAAAAAAAA")
           
-          this.pqrCliente = res;
+          this.arrpqrCliente = res;
         },
         err => console.error(err)
       )
@@ -45,4 +57,30 @@ export class PqrClienteComponent implements OnInit {
     console.log(params);
   }
 
+
+  cargarOpciones(){
+    let cedula: string= localStorage.getItem('cedulaCliente');
+    this.clienteService.cargarDominio(cedula).subscribe(
+      res => {
+        console.log("Entra")
+        console.log(res)
+        this.selDominios=res
+      },
+      err => console.error(err)
+    )
+
+  }
+
+  enviarSolicitud(){
+    let cedula: number= parseInt(localStorage.getItem('cedulaCliente'));
+    let aux=this.infoSolicitud
+    console.log(aux)
+      this.clienteService.crearSolicitud(cedula,aux).subscribe(
+        res => {
+          console.log("Solicitud creada")
+        },
+        err => console.error(err)
+        )
+
+  }
 }

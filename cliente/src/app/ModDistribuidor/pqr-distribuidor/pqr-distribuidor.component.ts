@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {IDistribuidorInfo} from '../../models/IDistribuidor';
+import {IPQR} from '../../models/IDistribuidor';
 import {ITicketS} from '../../models/ITicket';
 import { DistribuidorService } from '../../service/distribuidor.service'
 import { IDominio } from 'src/app/models/IDominio';
@@ -11,9 +12,17 @@ import { IDominio } from 'src/app/models/IDominio';
 })
 export class PqrDistribuidorComponent implements OnInit {
 
-  constructor(private distribuidorService: DistribuidorService, private router:Router) { }
+  constructor(private distribuidorService: DistribuidorService, private router:Router,  private activateRoute: ActivatedRoute) { }
 
   selDominios:any=[]
+
+  arrpqrDistribuidor:any=[]
+  pqrDistribuidor: IPQR = {
+    descripcion: "",
+    respuesta: "",
+    nom_t_ticket:"",
+    nom_estado:""
+  }
 
   infoSolicitud:ITicketS={
     cod_dominio:0,
@@ -45,6 +54,7 @@ export class PqrDistribuidorComponent implements OnInit {
       this.router.navigate([''])
     }else{
       this.cargarOpciones()
+      this.cargarPQRDistribuidor()
     }
   }
 
@@ -72,7 +82,7 @@ export class PqrDistribuidorComponent implements OnInit {
         console.log(aux)
           this.distribuidorService.crearSolicitud(cedula,aux).subscribe(
             res => {
-           
+              console.log("Solicitud creada")
             },
             err => console.error(err)
           )
@@ -81,5 +91,34 @@ export class PqrDistribuidorComponent implements OnInit {
     )
 
   }
+
+  cargarPQRDistribuidor(){
+    const params = this.activateRoute.snapshot.params;
+    let clientes:any=[]
+    if(params.cedula){
+      this.distribuidorService.listarClientes().subscribe(
+        res => {
+          let cedulas:any=[]
+          clientes=res
+          for(let x in clientes){
+            let aux = clientes[x]
+            cedulas.push(aux.cedula)
+          }
+          for(let y in cedulas){
+            this.distribuidorService.historialPQR(cedulas[y]).subscribe(
+              res => {
+                this.arrpqrDistribuidor = res;
+                console.log(this.arrpqrDistribuidor)
+              },
+              err => console.error(err)
+            )
+          }
+        },
+        err => console.error(err)
+      )
+
+      }
+  }
+
 
 }

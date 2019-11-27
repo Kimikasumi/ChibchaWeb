@@ -12,6 +12,7 @@ class DistribuidorRoutes{
         this.router.get('/clientes/:cedula', distribuidorController.listarClientes);
         this.router.post('/clientes', distribuidorController.crearCliente);
         this.router.delete('/clientes', distribuidorController.eliminarCliente);
+        this.router.get('/solicitudes/:cedula', distribuidorController.historialPQRDistribuidor);
     }
 }
 

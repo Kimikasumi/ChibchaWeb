@@ -47,6 +47,16 @@ class DistribuidorController {
             res.json(solicitudes);
         });
     }
+    historialPQRDistribuidor(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { cedula } = req.params;
+            const cliente = yield database_1.default.query('SELECT TICKET.descripcion, ESTADO.nom_estado, TICKET.respuesta, T_TICKET.nom_t_ticket FROM USUARIO, CLIENTE, DOMINIO, ESTADO, TICKET, T_TICKET WHERE CLIENTE.cedula = DOMINIO.cedula AND DOMINIO.cod_dominio = TICKET.cod_dominio AND T_TICKET.cod_t_ticket = TICKET.cod_t_ticket AND ESTADO.cod_estado=TICKET.cod_estado AND USUARIO.cedula = CLIENTE.cedula AND USUARIO.cedula=?', cedula);
+            if (cliente.length > 0) {
+                return res.json(cliente);
+            }
+            return res.status(404).json({ text: 'Historial de distribuidor obtenido ' });
+        });
+    }
 }
 const distribuidorController = new DistribuidorController();
 exports.default = distribuidorController;

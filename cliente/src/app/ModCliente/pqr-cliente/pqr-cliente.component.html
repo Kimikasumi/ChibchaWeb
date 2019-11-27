@@ -16,17 +16,22 @@
   <div class="col-6">
       <form>
           <div class="form-group">
-              <select class="form-control"  name="tarjeta" required>
+              <select class="form-control"  [(ngModel)]="infoSolicitud.cod_t_ticket"  name="tarjeta" required>
                   <option value="0"  selected>--Selecciona--</option>
                   <option value="1">Peticiones/Quejas/Reclamos</option>
                   <option value="2">Trámites Dominio</option>
                   <option value="3">Reporte Errores</option>
                 </select>
+                <label for="exampleFormControlTextarea1">Seleccione Dominio: </label>
+                <select class="form-control"  [(ngModel)]="infoSolicitud.cod_dominio" name="opcionT" required>
+                <option selected>--Selecciona--</option>
+                <option *ngFor="let dominio of selDominios" value="{{dominio.cod_dominio}}">{{dominio.nom_dominio}}</option>
+              </select>
             <label for="exampleFormControlTextarea1">Enviar Mensaje: </label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion" [(ngModel)]="infoSolicitud.descripcion"></textarea>
           </div>
         <div>
-        <button type="submit" class="btn btn-primary" align="center">Enviar</button>
+        <button type="submit" class="btn btn-primary" (click)=enviarSolicitud() align="center">Enviar</button>
       </div>
       </form>
   </div>
@@ -40,7 +45,8 @@
               <th scope="col">Tipo</th>
             </tr>
           </thead>
-          <tbody class="table-light" *ngFor="let x of pqrCliente"> 
+        
+          <tbody class="table-light" *ngFor="let x of arrpqrCliente"> 
             <tr>
               <th scope="row">{{x.descripcion}}</th>
               <td>{{x.respuesta}}</td>

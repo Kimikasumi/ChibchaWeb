@@ -14,3 +14,10 @@ export interface IDistribuidorInfo{
     nom_p_pago?:string;
 
 }
+
+export interface IPQR{
+    descripcion?: string;
+    respuesta?: string;
+    nom_t_ticket?: string;
+    nom_estado?:string;
+}
