@@ -16,6 +16,8 @@ export class RegistradorSolicitudComponent implements OnInit {
     {valor: 2, nom: 'Denegar'}
   ];
 
+  opcionAc: number;
+
   constructor(private registradorService: RegistradorService, private router: Router, private activateRoute: ActivatedRoute) {
   }
 
@@ -26,8 +28,16 @@ export class RegistradorSolicitudComponent implements OnInit {
     this.cargarSolicitud();
   }
 
-  enviar() {
-    this.router.navigate(['registrador/tabla']);
+  enviar(codDominio: number, opcion: number) {
+    const codRegistrador: number = parseInt(localStorage.getItem('codRegistrador'), 10);
+    const codTicket: number = parseInt(localStorage.getItem('codTicket'), 10);
+    this.registradorService.accion(codRegistrador, codTicket, codDominio, opcion).subscribe(
+      res => {
+        this.ticketsRegistrador = res;
+        console.log(this.ticketsRegistrador);
+      }
+    );
+    this.router.navigate(['registrador/tabla/' + localStorage.getItem('codRegistrador')]);
   }
 
   regresar() {
