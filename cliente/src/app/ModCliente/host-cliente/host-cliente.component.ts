@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route } from '@angular/compiler/src/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ClienteService } from 'src/app/service/cliente.service';
 
 @Component({
   selector: 'app-host-cliente',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HostClienteComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private clienteService: ClienteService, private router: Router, private activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
     if(localStorage.getItem("cedulaCliente")==null)
