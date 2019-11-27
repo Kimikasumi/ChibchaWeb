@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {RegistradorService} from '../../service/registrador.service';
 
 @Component({
   selector: 'app-registrador-inicio',
@@ -9,9 +11,12 @@ export class RegistradorInicioComponent implements OnInit {
 
   nombreRegistrador = 'Caps';
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private registradorService: RegistradorService, private router: Router, private activateRoute: ActivatedRoute) {
   }
 
+  ngOnInit() {
+    if (localStorage.getItem('codRegistrador') == null) {
+      this.router.navigate(['']);
+    }
+  }
 }
