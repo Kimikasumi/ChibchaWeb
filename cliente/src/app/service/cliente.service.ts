@@ -17,4 +17,19 @@ export class ClienteService {
     return this.http.get(`${this.API_URI}/cliente/${cedula}`);
   }
 
+  cargarDominio(cedula: string){
+    return this.http.get(`${this.API_URI}/cliente/dominio/${cedula}`)
+  }
+
+  crearTarjeta(tarjeta: ICliente){
+    return this.http.post(`${this.API_URI}/cliente/crearTarjeta/`,tarjeta)
+  }
+
+  editarCliente(cliente: ICliente){
+    return this.http.put(`${this.API_URI}/cliente/editarCliente/`+localStorage.getItem("cedulaCliente"), cliente)
+  }
+
+  historialPQR(){
+    return this.http.get(`${this.API_URI}/cliente/cargarPQR/`+localStorage.getItem("cedulaCliente"))
+  }
 }

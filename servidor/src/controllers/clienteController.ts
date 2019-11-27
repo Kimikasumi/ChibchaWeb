@@ -11,7 +11,7 @@ class ClienteController{
 
     public async obtenerCliente (req: Request,res: Response): Promise<any> {
         const {cedula} = req.params;
-        const cliente = await db.query("SELECT CLIENTE.cedula, planpago.nom_p_pago, PAQUETE.nom_paquete, USUARIO.correo, USUARIO.nombre, TARJETA.numero, date_format(tarjeta.fecha_vencimiento,'%Y-%m-%d') as fecha_vencimiento, TARJETA.cod_seguridad, T_TARJETA.nom_t_tarjeta FROM T_TARJETA, TARJETA, CLIENTE, PLANPAGO, PAQUETE, USUARIO WHERE T_TARJETA.cod_t_tarjeta = TARJETA.cod_t_tarjeta AND TARJETA.cod_tarjeta = CLIENTE.cod_tarjeta AND CLIENTE.cod_paquete = PAQUETE.cod_paquete AND CLIENTE.cod_p_pago = PLANPAGO.cod_p_pago AND USUARIO.cedula = CLIENTE.cedula AND CLIENTE.cedula = ?", cedula);
+        const cliente = await db.query("SELECT CLIENTE.cedula, planpago.nom_p_pago, PAQUETE.nom_paquete, USUARIO.correo, USUARIO.nombre, USUARIO.contrasenia, TARJETA.numero, date_format(tarjeta.fecha_vencimiento,'%Y-%m-%d') as fecha_vencimiento, TARJETA.cod_seguridad, T_TARJETA.nom_t_tarjeta FROM T_TARJETA, TARJETA, CLIENTE, PLANPAGO, PAQUETE, USUARIO WHERE T_TARJETA.cod_t_tarjeta = TARJETA.cod_t_tarjeta AND TARJETA.cod_tarjeta = CLIENTE.cod_tarjeta AND CLIENTE.cod_paquete = PAQUETE.cod_paquete AND CLIENTE.cod_p_pago = PLANPAGO.cod_p_pago AND USUARIO.cedula = CLIENTE.cedula AND CLIENTE.cedula = ?", cedula);
         if(cliente. length > 0){
             return res.json(cliente[0]);
         }
@@ -22,20 +22,31 @@ class ClienteController{
         const {cedula} = req.params;
         console.log(req.body)
         
-        await db.query('UPDATE USUARIO SET nombre='+req.body.nombre+' WHERE cedula=?', cedula);
-        await db.query("UPDATE CLIENTE SET cod_m_pago='"+req.body.cod_m_pago+"' WHERE cedula=?", cedula);
-        await db.query('UPDATE CLIENTE SET tarjeta='+req.body.tarjeta+' WHERE cedula=?', cedula);
-        res.json({text: 'Actualizando cliente '+ req.params.cedula});
+        await db.query("UPDATE USUARIO SET nombre='"+req.body.nombre+"' WHERE cedula=?", [cedula]);
+        await db.query("UPDATE USUARIO SET correo='"+req.body.correo+"' WHERE cedula=?", [cedula]);
+        await db.query("UPDATE USUARIO SET contrasenia='"+req.body.contrasenia+"' WHERE cedula=?", [cedula]);
+        res.json({text: 'Actualizando cliente '});
     }
 
     public async historialPQRCliente (req: Request,res: Response): Promise<any> {
         const {cedula} = req.params;
-        const cliente = await db.query('SELECT TICKET.cod_t_ticket, TICKET.cod_estado, TICKET.descripcion, TICKET.respuesta FROM USUARIO, CLIENTE, DOMINIO, TICKET, T_TICKET WHERE CLIENTE.cedula = DOMINIO.cedula AND DOMINIO.cod_dominio = TICKET.cod_dominio AND T_TICKET.cod_t_ticket = TICKET.cod_t_ticket  AND USUARIO.cedula = CLIENTE.cedula AND USUARIO.cedula=?',cedula);
+        const cliente = await db.query('SELECT TICKET.descripcion, TICKET.respuesta, T_TICKET.nom_t_ticket FROM USUARIO, CLIENTE, DOMINIO, TICKET, T_TICKET WHERE CLIENTE.cedula = DOMINIO.cedula AND DOMINIO.cod_dominio = TICKET.cod_dominio AND T_TICKET.cod_t_ticket = TICKET.cod_t_ticket  AND USUARIO.cedula = CLIENTE.cedula AND USUARIO.cedula=?',cedula);
         if(cliente. length > 0){
-            return res.json(cliente[0]);
+            return res.json(cliente);
         }
         return res.status(404).json({text: 'Historial de cliente obtenido '});
-    } 
+    }
+
+    public async obtenerDominiosCliente (req: Request,res: Response): Promise<any> {
+        const {cedula} = req.params;
+        const cliente = await db.query('SELECT nom_dominio, nom_estado, nombre FROM ESTADO, TICKET, DOMINIO, CLIENTE, USUARIO, REGISTRADOR WHERE ESTADO.cod_estado = TICKET.cod_estado AND TICKET.cod_dominio = DOMINIO.cod_dominio AND DOMINIO.cedula = CLIENTE.cedula AND DOMINIO.cod_registrador = USUARIO.cedula AND USUARIO.cedula = REGISTRADOR.cod_registrador AND CLIENTE.cedula = ?',cedula);
+        if(cliente. length > 0){
+            return res.json(cliente);
+        }
+        return res.status(404).json({text: 'Dominios cliente obtenidos '});
+    }
+
+
 
     public async crearSolicitud(req:Request, res:Response): Promise<void>{
         await db.query("INSERT INTO TICKET(cod_ticket,cod_t_ticket,cod_dominio,cod_estado,descripcion) VALUES ("+0+","+req.body.cod_t_ticket+","+ req.body.cod_dominio+",1,"+req.body.descripcion+")");
@@ -44,9 +55,9 @@ class ClienteController{
     }
 
     public async agregarTarjeta(req:Request, res:Response): Promise<void>{
-        await db.query('INSERT INTO TARJETA VALUES ('+(+parseInt(req.body.cot_t_tarjeta)+"','"+req.body.num_tarjeta+ "','"+ req.body.fecha_vencimiento +"','"+req.body.cod_seguridad +")"));
-        res.json({text: 'se agregó la tarjeta con éxito'});
+        await db.query('INSERT INTO TARJETA VALUES ('+999+","+(parseInt(req.body.nom_t_tarjeta)+","+req.body.numero+ ",'"+ req.body.fecha_vencimiento +"',"+req.body.cod_seguridad +")"));
         
+        res.json({text: 'se agregó la tarjeta con éxito'});
     }
 
 

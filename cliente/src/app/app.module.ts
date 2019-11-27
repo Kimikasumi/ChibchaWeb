@@ -9,7 +9,7 @@ import {LoginDialog} from './nav-principal/nav-principal.component';
 import {ModalTarjeta} from './ModCliente/perfil-cliente/perfil-cliente.component';
 
 import {RegClienteService} from './service/reg-cliente.service';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 /*
 * Angular Material
@@ -119,6 +119,7 @@ import { RegistradorSolicitudComponent } from './registrador/registrador-solicit
     MatSelectModule,
     MatDialogModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatTableModule,
     HttpClientModule,
