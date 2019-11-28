@@ -6,16 +6,16 @@
 <div class="row ">
     <div class="col-4">
       <h1 align="center"><span class="badge badge-success">Nuevo Dominio</span></h1>
-      <h1 align="center">¡Solicita tu dominio!</h1>
+      <h1 align="center">¡Registra tu dominio!</h1>
       <form>
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Nombre del dominio</label>
-            <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="1"/>
+            <input type="text" class="form-control" [(ngModel)]="dominioGrafico.nom_dominio" name="nombre_dominio"id="exampleFormControlTextarea1" rows="1"/>
             <label for="exampleFormControlTextarea3">Descripcion del dominio</label>
-            <textarea class="form-control" id="exampleFormControlTextarea3" rows="1"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea3" rows="1" [(ngModel)]="dominioGrafico.descripcion" name="descripcion"></textarea>
 
           </div>
-        <button align="center" type="submit" class="btn btn-success">Crear Dominio <mat-icon>done</mat-icon></button>
+        <button align="center" type="submit" class="btn btn-success" (click)=crearDominio()>Registrar Dominio <mat-icon>done</mat-icon></button>
       </form>
     </div>
     <div class="col-8">

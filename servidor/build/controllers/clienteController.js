@@ -54,7 +54,7 @@ class ClienteController {
     obtenerDominiosCliente(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { cedula } = req.params;
-            const cliente = yield database_1.default.query('SELECT nom_dominio, nom_estado, nombre FROM ESTADO, TICKET, DOMINIO, CLIENTE, USUARIO, REGISTRADOR WHERE ESTADO.cod_estado = TICKET.cod_estado AND TICKET.cod_dominio = DOMINIO.cod_dominio AND DOMINIO.cedula = CLIENTE.cedula AND DOMINIO.cod_registrador = USUARIO.cedula AND USUARIO.cedula = REGISTRADOR.cod_registrador AND CLIENTE.cedula = ?', cedula);
+            const cliente = yield database_1.default.query('SELECT DOMINIO.cod_dominio, DOMINIO.nom_dominio, USUARIO.nombre FROM DOMINIO, CLIENTE, USUARIO, REGISTRADOR WHERE  DOMINIO.cedula = CLIENTE.cedula AND DOMINIO.cod_registrador = REGISTRADOR.cod_registrador AND USUARIO.cedula = REGISTRADOR.cod_registrador AND CLIENTE.cedula =?', cedula);
             if (cliente.length > 0) {
                 return res.json(cliente);
             }
@@ -66,8 +66,15 @@ class ClienteController {
             console.log(req.body);
             const aux = parseInt(req.body.cod_t_ticket);
             console.log(aux);
-            yield database_1.default.query("INSERT INTO TICKET VALUES (21," + parseInt(req.body.cod_t_ticket) + "," + parseInt(req.body.cod_dominio) + ",1,'" + req.body.descripcion + "',NULL," + req.body.cedula + ",NULL)");
+            yield database_1.default.query("INSERT INTO TICKET VALUES (26," + parseInt(req.body.cod_t_ticket) + "," + parseInt(req.body.cod_dominio) + ",1,'" + req.body.descripcion + "',NULL," + req.body.cedula + ",NULL)");
             res.json({ text: 'Solicitud creada' });
+        });
+    }
+    crearDominio(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log(req.body);
+            yield database_1.default.query("INSERT INTO DOMINIO VALUES (9," + req.params.cedula + ",'" + req.body.nom_dominio + "',0,'" + req.body.descripcion + "')");
+            res.json({ text: 'Dominio Creado' });
         });
     }
     agregarTarjeta(req, res) {

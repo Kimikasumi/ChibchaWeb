@@ -39,7 +39,7 @@ class ClienteController{
 
     public async obtenerDominiosCliente (req: Request,res: Response): Promise<any> {
         const {cedula} = req.params;
-        const cliente = await db.query('SELECT nom_dominio, nom_estado, nombre FROM ESTADO, TICKET, DOMINIO, CLIENTE, USUARIO, REGISTRADOR WHERE ESTADO.cod_estado = TICKET.cod_estado AND TICKET.cod_dominio = DOMINIO.cod_dominio AND DOMINIO.cedula = CLIENTE.cedula AND DOMINIO.cod_registrador = USUARIO.cedula AND USUARIO.cedula = REGISTRADOR.cod_registrador AND CLIENTE.cedula = ?',cedula);
+        const cliente = await db.query('SELECT DOMINIO.cod_dominio, DOMINIO.nom_dominio, USUARIO.nombre FROM DOMINIO, CLIENTE, USUARIO, REGISTRADOR WHERE  DOMINIO.cedula = CLIENTE.cedula AND DOMINIO.cod_registrador = REGISTRADOR.cod_registrador AND USUARIO.cedula = REGISTRADOR.cod_registrador AND CLIENTE.cedula =?',cedula);
         if(cliente. length > 0){
             return res.json(cliente);
         }
@@ -52,11 +52,17 @@ class ClienteController{
         console.log(req.body)
         const aux =parseInt(req.body.cod_t_ticket)
         console.log(aux)
-        await db.query("INSERT INTO TICKET VALUES (21,"+parseInt(req.body.cod_t_ticket)+","+parseInt(req.body.cod_dominio)+",1,'"+req.body.descripcion+"',NULL,"+req.body.cedula+",NULL)");
+        await db.query("INSERT INTO TICKET VALUES (26,"+parseInt(req.body.cod_t_ticket)+","+parseInt(req.body.cod_dominio)+",1,'"+req.body.descripcion+"',NULL,"+req.body.cedula+",NULL)");
         res.json({text: 'Solicitud creada'});
         
     }
-
+    public async crearDominio(req:Request, res:Response): Promise<void>{
+        console.log(req.body)
+        await db.query("INSERT INTO DOMINIO VALUES (9,"+req.params.cedula+",'"+req.body.nom_dominio+"',0,'"+req.body.descripcion+"')");
+        res.json({text: 'Dominio Creado'});
+        
+    }
+    
     public async agregarTarjeta(req:Request, res:Response): Promise<void>{
         await db.query('INSERT INTO TARJETA VALUES ('+999+","+(parseInt(req.body.nom_t_tarjeta)+","+req.body.numero+ ",'"+ req.body.fecha_vencimiento +"',"+req.body.cod_seguridad +")"));
         

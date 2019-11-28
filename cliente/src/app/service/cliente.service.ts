@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ICliente} from '../models/ICliente'
-
+import {ITicketS} from '../models/ITicket';
+import {IDominio} from '../models/IDominio'
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,13 @@ export class ClienteService {
 
   historialPQR(){
     return this.http.get(`${this.API_URI}/cliente/cargarPQR/`+localStorage.getItem("cedulaCliente"))
+  }
+
+  crearSolicitud(cedula:number,infoTicket:ITicketS){
+    return this.http.post(`${this.API_URI}/cliente/solicitud/${cedula}`,infoTicket);
+  }
+
+  crearDominio(cedula:number,infoDominio:IDominio){
+    return this.http.post(`${this.API_URI}/cliente/crearDominio/${cedula}`,infoDominio);
   }
 }

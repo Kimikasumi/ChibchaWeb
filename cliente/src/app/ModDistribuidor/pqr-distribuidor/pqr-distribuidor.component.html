@@ -38,14 +38,17 @@
           <thead>
             <tr >
               <th scope="col">Solicitud</th>
+              <th scope="col">Tipo Solicitud</th>
               <th scope="col">Estado</th>
               <th scope="col">Respuesta</th>
             </tr>
           </thead>
-          <tbody class="table-light"> 
+ <tbody class="table-light" *ngFor="let x of arrpqrDistribuidor"> 
             <tr>
-              <th scope="row">Mi queja</th>
-              <td>Resultado</td>
+              <th scope="row">{{x.descripcion}}</th>
+              <td>{{x.nom_t_ticket}}</td>
+              <td>{{x.nom_estado}}</td>
+              <td>{{x.respuesta}}</td>
             </tr>
           </tbody>
         </table>
