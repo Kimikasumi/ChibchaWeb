@@ -63,6 +63,11 @@ import { RegistradorInicioComponent } from './registrador/registrador-inicio/reg
 import { RegistradorTablaComponent } from './registrador/registrador-tabla/registrador-tabla.component';
 import { RegistradorSolicitudComponent } from './registrador/registrador-solicitud/registrador-solicitud.component';
 
+import { InfoEmpleadoAdminComponent } from './ModAdmin/informacionAdicional/infoEmpleados-admin/infoEmpleado-admin.component';
+// tslint:disable-next-line:max-line-length
+import { InfoDistribuidoresAdminComponent } from './ModAdmin/informacionAdicional/infoDistribuidores-admin/infoDistribuidores-admin.component';
+import { InfoRegistradoresAdminComponent } from './ModAdmin/informacionAdicional/info-registradores-admin/info-registradores-admin.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -102,7 +107,10 @@ import { RegistradorSolicitudComponent } from './registrador/registrador-solicit
     RegistradorSideComponent,
     RegistradorInicioComponent,
     RegistradorTablaComponent,
-    RegistradorSolicitudComponent
+    RegistradorSolicitudComponent,
+    InfoEmpleadoAdminComponent,
+    InfoDistribuidoresAdminComponent,
+    InfoRegistradoresAdminComponent
   ],
   imports: [
     BrowserModule,

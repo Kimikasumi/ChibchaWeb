@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {EmpleadoService} from '../../service/empleado.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-inicio-empleado',
@@ -7,11 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioEmpleadoComponent implements OnInit {
 
-  nombreEmpleado = 'Raul';
+  nombreEmpleado = localStorage.getItem('nombre');
 
-  constructor() { }
+  constructor(private empleadoService: EmpleadoService, private router: Router, private activateRoute: ActivatedRoute) {
+  }
 
   ngOnInit() {
+    if (localStorage.getItem('cedula') == null) {
+      console.log('no entró');
+      this.router.navigate(['']);
+      console.log('no entró');
+    }
   }
 
 }

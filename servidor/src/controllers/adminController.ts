@@ -8,8 +8,8 @@ class AdminController{
         res.json(empleados);
     } 
     public async obtenerEmpleado (req: Request,res: Response): Promise<any> {
-        const {cedula_empleado} = req.params;
-        const empleado = await db.query('SELECT EMPLEADO.cedula, USUARIO.nombre, USUARIO.correo, T_EMPLEADO.nom_t_empleado FROM EMPLEADO, T_EMPLEADO, USUARIO WHERE EMPLEADO.cedula=USUARIO.cedula AND EMPLEADO.cod_t_empleado=T_EMPLEADO.cod_t_empleado AND USUARIO.cedula=?',[cedula_empleado]);
+        const cedula_empleado = parseInt(req.params.cedulaEmpleado);
+        const empleado = await db.query('SELECT EMPLEADO.cedula, USUARIO.nombre, USUARIO.correo, T_EMPLEADO.nom_t_empleado FROM EMPLEADO, T_EMPLEADO, USUARIO WHERE EMPLEADO.cedula=USUARIO.cedula AND EMPLEADO.cod_t_empleado=T_EMPLEADO.cod_t_empleado AND USUARIO.cedula='+cedula_empleado);
         if(empleado. length > 0){
             return res.json(empleado[0]);
         }
@@ -45,8 +45,8 @@ class AdminController{
         res.json(distribuidores);
     } 
     public async obtenerDistribuidor (req: Request,res: Response): Promise<any> {
-        const {cedula_distribuidor} = req.params;
-        const distribuidor = await db.query('SELECT DISTRIBUIDOR.cedula, USUARIO.nombre, USUARIO.correo, T_DISTRIBUIDOR.nom_t_distribuidor FROM DISTRIBUIDOR, T_DISTRIBUIDOR, USUARIO WHERE DISTRIBUIDOR.cedula=USUARIO.cedula AND DISTRIBUIDOR.cod_t_distribuidor=T_DISTRIBUIDOR.cod_t_distribuidor AND USUARIO.cedula=?',[cedula_distribuidor]);
+        const cedula_distribuidor = parseInt(req.params.cedulaDistribuidor);
+        const distribuidor = await db.query('SELECT DISTRIBUIDOR.cedula, USUARIO.nombre, USUARIO.correo, T_DISTRIBUIDOR.nom_t_distribuidor FROM DISTRIBUIDOR, T_DISTRIBUIDOR, USUARIO WHERE DISTRIBUIDOR.cedula=USUARIO.cedula AND DISTRIBUIDOR.cod_t_distribuidor=T_DISTRIBUIDOR.cod_t_distribuidor AND USUARIO.cedula='+cedula_distribuidor);
         if(distribuidor. length > 0){
             return res.json(distribuidor[0]);
         }
@@ -97,8 +97,8 @@ class AdminController{
         res.json(registradores);
     } 
     public async obtenerRegistrador (req: Request,res: Response): Promise<any> {
-        const {cod_registrador} = req.params;
-        const registrador = await db.query('SELECT REGISTRADOR.cod_registrador, USUARIO.nombre, USUARIO.correo, PAIS.nom_pais FROM REGISTRADOR, PAIS, USUARIO WHERE REGISTRADOR.cod_registrador=USUARIO.cedula AND REGISTRADOR.cod_pais=PAIS.cod_pais AND USUARIO.cedula=?',[cod_registrador]);
+        const cedula_r = parseInt(req.params.cedulaRegistrador);
+        const registrador = await db.query('SELECT REGISTRADOR.cod_registrador, USUARIO.nombre, USUARIO.correo, PAIS.nom_pais FROM REGISTRADOR, PAIS, USUARIO WHERE REGISTRADOR.cod_registrador=USUARIO.cedula AND REGISTRADOR.cod_pais=PAIS.cod_pais AND USUARIO.cedula='+cedula_r);
         if(registrador. length > 0){
             return res.json(registrador[0]);
         }
@@ -126,6 +126,14 @@ class AdminController{
         await db.query('DELETE FROM REGISTRADOR WHERE cod_registrador= ?', [cod_registrador]);
         await db.query('DELETE FROM USUARIO WHERE cedula= ?', [cod_registrador]);
         res.json({text: 'Borrando registrador '+ req.params.cod_registrador});
+    }
+    public async obtenerAdmin (req: Request,res: Response): Promise<any> {
+        const {cedula} = req.params;
+        const admin = await db.query("SELECT usuario.nombre , usuario.correo FROM usuario , administrador WHERE usuario.cedula=administrador.cedula and usuario.cedula= ?", cedula);
+        if(admin. length > 0){
+            return res.json(admin[0]);
+        }
+        return res.status(404).json({text: 'No existe el admin'});
     }
 
 }

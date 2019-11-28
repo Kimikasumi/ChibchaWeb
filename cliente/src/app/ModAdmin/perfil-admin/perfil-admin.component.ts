@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { AdminService } from '../../service/admin.service'
+import { Router, ActivatedRoute } from '@angular/router';
+import {IAdmin} from '../../models/IAdmin';
 
 export interface Food {
   value: string;
@@ -12,6 +13,7 @@ export interface Food {
   templateUrl: './perfil-admin.component.html',
   styleUrls: ['./perfil-admin.component.css']
 })
+
 export class PerfilAdminComponent implements OnInit {
 
   foods: Food[] = [
@@ -19,24 +21,42 @@ export class PerfilAdminComponent implements OnInit {
     {value: '1', viewValue: 'Transacciones'},
   ];
 
-  constructor(private router:Router) { }
-  
+  constructor(private adminService: AdminService, private router: Router, private activateRoute: ActivatedRoute) { }
+
+
+  adminGrafico: IAdmin = {
+    correo: "",
+    nombre: "",
+
+  }
+  mostrarSelect:boolean = false;
+
   ngOnInit() {
     if(localStorage.getItem("cedulaAdmin")==null)
     {
       this.router.navigate([''])
     }
+    else{
+      this.cargarPerfil();
+    }
+  }
+
+  cargarPerfil(){
+    const params = this.activateRoute.snapshot.params;
+    if(params.cedula){
+      this.adminService.cargarPerfilAdmin(params.cedula).subscribe(
+        res => {
+          console.log(res);
+          this.mostrarSelect = true;
+          this.adminGrafico = res;
+        },
+
+        err => console.error(err)
+
+      )
+    }
+    console.log(params);
   }
 
 }
 
-@Component({
-  selector: 'modal-tarjeta',
-  templateUrl: 'modal-tarjeta.component.html',
-})
-export class ModalTarjeta {
-
-  constructor() {
-
-  }
-}

@@ -1,7 +1,13 @@
 export interface IEmpleado{
     cedula?: number;
     nombre?: string;
-    correo?: Date;
-    contrasenia?: Date;
+    correo?: string;
+    contrasenia?: string;
     cod_t_empleado?: number;
+}
+export interface IempleadoAdmin{
+  cedula?: number;
+  nombre?: string;
+  correo?: string;
+  nom_t_empleado?: string;
 }

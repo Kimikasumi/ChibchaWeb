@@ -1,0 +1,23 @@
+.mat-button {
+  background-color: lightgrey;
+}
+
+.listHost {
+  border: solid 1px lightgrey;
+}
+
+.imgResponsive {
+  max-width: 90%;
+  height: auto;
+}
+
+.col-9 {
+  top: 60px;
+}
+
+.mat-button {
+  position: absolute;
+  top: 20%;
+  background-color: lightgrey;
+}
+

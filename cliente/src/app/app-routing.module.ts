@@ -22,9 +22,14 @@ import { ClienteDistribuidorComponent } from './ModDistribuidor/cliente-distribu
 
 import { ListadoDistribuidoresAdminComponent } from './ModAdmin/listadoDistribuidores-admin/listadoDistribuidores-admin.component';
 import { ListadoRegistradoresAdminComponent } from './ModAdmin/listadoRegistradores-admin/listadoRegistradores-admin.component';
+import { InfoEmpleadoAdminComponent } from './ModAdmin/informacionAdicional/infoEmpleados-admin/infoEmpleado-admin.component';
+
+import { InfoDistribuidoresAdminComponent } from './ModAdmin/informacionAdicional/infoDistribuidores-admin/infoDistribuidores-admin.component';
+
+import { InfoRegistradoresAdminComponent } from './ModAdmin/informacionAdicional/info-registradores-admin/info-registradores-admin.component';
 
 /*Empleado*/
-import {EmpleadoTablaComponent, Solicitud} from './empleados/empleado-tabla/empleado-tabla.component';
+import {EmpleadoTablaComponent} from './empleados/empleado-tabla/empleado-tabla.component';
 import {EmpleadoSideComponent} from './empleados/empleado-side/empleado-side.component';
 import {InicioEmpleadoComponent} from './empleados/inicio-empleado/inicio-empleado.component';
 /*Solicitudes*/
@@ -65,12 +70,15 @@ const routes: Routes = [
     },
     {path: 'admin', component: SideAdminComponent, children:
     [
-      {path: 'inicio', component: InicioAdminComponent},
-      {path: 'perfil', component: PerfilAdminComponent },
-      {path: 'nempleados', component: EmpleadoAdminComponent},
-      {path: 'lempleados', component: ListadoEmpleadosAdminComponent},
-      {path: 'ldistribuidores', component: ListadoDistribuidoresAdminComponent},
-      {path: 'lregistradores', component: ListadoRegistradoresAdminComponent},
+      {path: 'inicio/:cedula', component: InicioAdminComponent},
+      {path: 'perfil/:cedula', component: PerfilAdminComponent },
+      {path: 'nempleados/:cedula', component: EmpleadoAdminComponent},
+      {path: 'lempleados/:cedula', component: ListadoEmpleadosAdminComponent},
+      {path: 'ldistribuidores/:cedula', component: ListadoDistribuidoresAdminComponent},
+      {path: 'lregistradores/:cedula', component: ListadoRegistradoresAdminComponent},
+      {path: 'infoEmpleado/:cedula/:cedulaEmpleado', component: InfoEmpleadoAdminComponent},
+      {path: 'infoRegistrador/:cedula/:cedulaRegistrador', component: InfoRegistradoresAdminComponent},
+      {path: 'infoDistribuidor/:cedula/:cedulaDistribuidor', component: InfoDistribuidoresAdminComponent}
 
 
     ]
@@ -78,8 +86,8 @@ const routes: Routes = [
   {
     path: 'empleado', component: EmpleadoSideComponent, children:
       [
-        {path: 'solicitudes', component: EmpleadoTablaComponent},
-        {path: 'inicio', component: InicioEmpleadoComponent},
+        {path: 'solicitudes/:cedula', component: EmpleadoTablaComponent},
+        {path: 'inicio/:cedula', component: InicioEmpleadoComponent},
         /*Solicitudes*/
         {path: 'ndom', component: SolicitudNDomComponent},
         {path: 'chost', component: SolicitudChostComponent},

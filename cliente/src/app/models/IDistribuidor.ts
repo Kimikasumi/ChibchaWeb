@@ -7,7 +7,12 @@ export interface IDistribuidor{
     nom_t_distribuidor?:string;
     val_comision?:number;
 }
-
+export interface IDistribuidorAdmin{
+  cedula?: number;
+  nombre?: string;
+  correo?: string;
+  nom_t_distribuidor?: string;
+}
 export interface IDistribuidorInfo{
     cedula?:number;
     nombre?:string;

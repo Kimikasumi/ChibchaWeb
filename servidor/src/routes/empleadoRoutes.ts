@@ -9,8 +9,10 @@ class EmpleadoRoutes{
     }
 
     config():void{
-        this.router.get('/ticket', empleadoController.listarSolicitudes);
+        this.router.get('/ticket/:cod_t_empleado', empleadoController.listarSolicitudes);
+
         this.router.get('/ticket/get', empleadoController.obtenerSolicitud);
+
         this.router.put('/ticket/responderND', empleadoController.responderTicketND);
         this.router.put('/ticket/responderCH', empleadoController.responderTicketCH);
         this.router.put('/ticket/responderCPP', empleadoController.responderTicketCPP);

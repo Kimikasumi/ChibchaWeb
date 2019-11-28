@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AdminService} from "../../service/admin.service";
 
 
 /**
@@ -12,17 +13,46 @@ import { Router } from '@angular/router';
 })
 export class ListadoEmpleadosAdminComponent  implements OnInit {
 
-  constructor(private router:Router) { }
+
+  listadoEmpleadosG: any = [];
 
 
-  
+  constructor(private adminService: AdminService, private router: Router, private activateRoute: ActivatedRoute) { }
+
+  navegar(codTick: number) {
+    this.router.navigate(['admin/infoEmpleado/' + localStorage.getItem('cedulaAdmin') + '/' + codTick]);
+    localStorage.setItem('codEmpleadoAdmin', String(codTick));
+  }
+
+
   ngOnInit() {
     if(localStorage.getItem("cedulaAdmin")==null)
     {
       this.router.navigate([''])
     }
-  }
+    else {
+      this.listadoEmpleados();
 
+    }
+  }
+  listadoEmpleados(){
+    const params = this.activateRoute.snapshot.params;
+      this.adminService.cargarListadoEmpleados().subscribe(
+        res => {
+          console.log(res);
+          this.listadoEmpleadosG = res;
+          console.log(this.listadoEmpleadosG);
+        },
+        err => console.error(err)
+      )
+
+
+    console.log("AAAAAAAAA");
+  }
 }
+
+
+
+
 
 
