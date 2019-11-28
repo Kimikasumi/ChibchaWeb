@@ -17,16 +17,14 @@
                 <tr>
                   <th scope="col">Nombre del dominio</th>
                   <th scope="col">Cliente</th>
-                  <th scope="col">Estado</th>
                   <th scope="col">Host</th>
                 </tr>
               </thead>
-              <tbody class="table-light"> 
+              <tbody class="table-light" *ngFor="let x of arrdominioGrafico" > 
                 <tr >
-                  <td >ElMenWeb</td>
-                  <td >Yoprro</td>
-                  <td>Aceptado</td>
-                  <td>Arroba</td>
+                  <td >{{x.nom_dominio}}</td>
+                  <td >{{x.nombre}}</td>
+                  <td>{{x.nom_registrador}}</td>
                 </tr>
               </tbody>
             </table>
@@ -39,26 +37,18 @@
       <form class="example-form">
 
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Nombre">
+            <input matInput [(ngModel)]="distribuidorGrafico.nombre" placeholder="Nombre" value="{{distribuidorGrafico.nombre}}" name="nombre">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Correo">
+            <input matInput [(ngModel)]="distribuidorGrafico.correo" placeholder="Correo"  name="correo" value="{{distribuidorGrafico.correo}}">
         </mat-form-field>
         <label for="exampleFormControlTextarea1">Contraseña Actual</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="1"/>
+        <input type="password" class="form-control" name="contrasenia" [(ngModel)]="distribuidorGrafico.contrasenia" id="exampleFormControlTextarea1" value="{{distribuidorGrafico.contrasenia}}" rows="1"/>
         <label for="exampleFormControlTextarea2">Nueva Contraseña</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea2" rows="1"/>
         <br/>
-        <button mat-raised-button onclick="">Cambiar Información</button>
-        
-        <!--mat-select placeholder="Tipo de pago">
-            <mat-option *ngFor="let food of foods" [value]="food.value" >
-              {{food.viewValue}}
-            </mat-option>
-          </mat-select>-->
-
-        
+        <button mat-raised-button (click)="guardarInfoDistribuidor()">Cambiar Información</button>
         </form>
     </div>
 

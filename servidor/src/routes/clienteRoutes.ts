@@ -16,6 +16,8 @@ class ClienteRoutes{
         this.router.post('/crearTarjeta', clienteController.agregarTarjeta)
         this.router.put('/editarCliente/:cedula', clienteController.editarCliente)
         this.router.get('/cargarPQR/:cedula', clienteController.historialPQRCliente)
+        this.router.post('/crearDominio/:cedula', clienteController.crearDominio)
+        
 
     }
 }

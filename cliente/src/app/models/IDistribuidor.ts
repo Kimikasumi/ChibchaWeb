@@ -1,9 +1,11 @@
 export interface IDistribuidor{
     cedula?: number;
     nombre?: string;
-    correo?: Date;
-    contrasenia?: Date;
+    correo?: string;
+    contrasenia?: string;
     cod_t_distribuidor?: number;
+    nom_t_distribuidor?:string;
+    val_comision?:number;
 }
 
 export interface IDistribuidorInfo{

@@ -19,3 +19,13 @@ export interface IPQR{
     respuesta?: string;
     nom_t_ticket?: string;
 }
+
+export interface IClienteReg{
+
+    cedula?: number;
+    cod_p_pago?: number;
+    cod_paquete?: number;
+    correo?: string;
+    contrasenia?:string;
+    nombre?: string;
+}

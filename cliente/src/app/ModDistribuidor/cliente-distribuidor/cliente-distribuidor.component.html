@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-12">
     <h1 align="center"><span class="badge badge-secondary">Nuevo Cliente</span></h1>
-    <h1 align="center">Agrega aquí a tus clientes</h1>
+    <h1 align="center">Registra aquí a tus clientes</h1>
   </div>
 </div>
 <div class="row">
@@ -11,34 +11,31 @@
   <div class="col-6">
       <form>
           <div class="form-group">
-            <label for="exampleFormControlTextarea1">Numero de identificacion del cliente</label>
-            <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="1"/>
+            <label for="exampleFormControlTextarea1">Documento de identificación del cliente</label>
+            <input type="number" class="form-control" [(ngModel)]="cliente.cedula" placeholder="Cedula" name="cedula"  rows="1"/>
             <label for="exampleFormControlTextarea2">Nombre del cliente</label>
-            <input type="text" class="form-control" id="exampleFormControlTextarea2" rows="1"/>
+            <input type="text" class="form-control" name="nombre"  [(ngModel)]="cliente.nombre"  rows="1"/>
             <label for="exampleFormControlTextarea2">Correo del cliente</label>
-            <input type="text" class="form-control" id="exampleFormControlTextarea2" rows="1"/>
+            <input type="text" class="form-control" name="correo"  [(ngModel)]="cliente.correo" rows="1"/>
             <label for="exampleFormControlTextarea2">Contraseña temporal</label>
-            <input type="text" class="form-control" id="exampleFormControlTextarea2" rows="1"/>
+            <input type="password" class="form-control" name="constrasenia" id="exampleInputPassword1" [(ngModel)]="cliente.contrasenia" rows="1"/>
             <label for="exampleFormControlTextarea2">Paquete Chibchaweb</label>
-            <select class="form-control">
-                <option value="0">Selecciona una opción</option>
-                <option value="1">Chibcha Platino</option>
-                <option value="2">Chibcha Plata</option>
-                <option value="3">Chibcha Oro</option>
+            <select class="form-control" name="paquete" [(ngModel)]="cliente.cod_paquete">
+                <option value="0" selected>Selecciona una opción</option>
+                <option value="1">Chibcha-Platino</option>
+                <option value="2">Chibcha-Plata</option>
+                <option value="3">Chibcha-Oro</option>
               </select>
-            <label for="exampleFormControlTextarea2">Frecuencia de pago</label>
-            <select class="form-control">
-              <option value="0">Selecciona una opción</option>
+            <label for="exampleFormControlTextarea2">Plan de pago</label>
+            <select class="form-control" [(ngModel)]="cliente.cod_p_pago" name="p_pago">
+              <option value="0" selected>Selecciona una opción</option>
               <option value="1">Mensual</option>
               <option value="2">Trimestral</option>
               <option value="3">Semestral</option>
               <option value="4">Anual</option>
             </select>
-            <label for="exampleFormControlTextarea3">Frecuencia de pago</label>
-            <input type="text" class="form-control" id="exampleFormControlTextarea3" rows="1"/>
-
           </div>
-        <button type="submit" class="btn btn-primary">Crear cliente</button>
+        <button type="submit" class="btn btn-primary" (click)=crearUsuario()>Registrar Cliente</button>
       </form>
   </div>
   <div class="col-3">

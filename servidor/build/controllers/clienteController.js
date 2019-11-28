@@ -66,8 +66,15 @@ class ClienteController {
             console.log(req.body);
             const aux = parseInt(req.body.cod_t_ticket);
             console.log(aux);
-            yield database_1.default.query("INSERT INTO TICKET VALUES (23," + parseInt(req.body.cod_t_ticket) + "," + parseInt(req.body.cod_dominio) + ",1,'" + req.body.descripcion + "',NULL," + req.body.cedula + ",NULL)");
+            yield database_1.default.query("INSERT INTO TICKET VALUES (26," + parseInt(req.body.cod_t_ticket) + "," + parseInt(req.body.cod_dominio) + ",1,'" + req.body.descripcion + "',NULL," + req.body.cedula + ",NULL)");
             res.json({ text: 'Solicitud creada' });
+        });
+    }
+    crearDominio(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log(req.body);
+            yield database_1.default.query("INSERT INTO DOMINIO VALUES (9," + req.params.cedula + ",'" + req.body.nom_dominio + "',0,'" + req.body.descripcion + "')");
+            res.json({ text: 'Dominio Creado' });
         });
     }
     agregarTarjeta(req, res) {

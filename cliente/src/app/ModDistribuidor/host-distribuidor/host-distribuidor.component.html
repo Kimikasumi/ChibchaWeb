@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col-12">
     <h1 align="center"><span class="badge badge-success">Nuevo Dominio</span></h1>
-    <h1 align="center">Crear Nuevo Dominio</h1>
+    <h1 align="center">Registrar Nuevo Dominio</h1>
   </div>
 </div>
 <div class="row">
@@ -15,14 +15,16 @@
       <form>
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Nombre del dominio</label>
-            <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="1"/>
-            <label for="exampleFormControlTextarea2">Identificacion del cliente</label>
-            <input type="text" class="form-control" id="exampleFormControlTextarea2" rows="1"/>
-            <label for="exampleFormControlTextarea3">Descripcion del dominio</label>
-            <textarea class="form-control" id="exampleFormControlTextarea3" rows="1"></textarea>
-
+            <input type="text" class="form-control" [(ngModel)]="infoSolicitud.nom_dominio" name="nom_dominio" id="exampleFormControlTextarea1" rows="1"/>
+            <label for="exampleFormControlTextarea1">Seleccione el cliente: </label>
+          <select class="form-control"  [(ngModel)]="infoSolicitud.cedula" name="opcionT" required>
+            <option selected>--Selecciona--</option>
+            <option *ngFor="let cliente of selClientes" value="{{cliente.cedula}}">{{cliente.cedula}} - {{cliente.nombre}}</option>
+          </select>
+            <label for="exampleFormControlTextarea3">Descripción del dominio</label>
+            <textarea class="form-control" id="exampleFormControlTextarea3" rows="1" [(ngModel)]="infoSolicitud.descripcion" name="descripcion"></textarea>
           </div>
-        <button type="submit" class="btn btn-primary">Solicitar Dominio</button>
+        <button type="submit" class="btn btn-primary" (click)=crearDominio()>Registrar Dominio</button>
       </form>
   </div>
   <div class="col-2">

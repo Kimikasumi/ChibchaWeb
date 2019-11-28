@@ -52,11 +52,16 @@ class ClienteController{
         console.log(req.body)
         const aux =parseInt(req.body.cod_t_ticket)
         console.log(aux)
-        await db.query("INSERT INTO TICKET VALUES (23,"+parseInt(req.body.cod_t_ticket)+","+parseInt(req.body.cod_dominio)+",1,'"+req.body.descripcion+"',NULL,"+req.body.cedula+",NULL)");
+        await db.query("INSERT INTO TICKET VALUES (26,"+parseInt(req.body.cod_t_ticket)+","+parseInt(req.body.cod_dominio)+",1,'"+req.body.descripcion+"',NULL,"+req.body.cedula+",NULL)");
         res.json({text: 'Solicitud creada'});
         
     }
-
+    public async crearDominio(req:Request, res:Response): Promise<void>{
+        console.log(req.body)
+        await db.query("INSERT INTO DOMINIO VALUES (9,"+req.params.cedula+",'"+req.body.nom_dominio+"',0,'"+req.body.descripcion+"')");
+        res.json({text: 'Dominio Creado'});
+        
+    }
     
     public async agregarTarjeta(req:Request, res:Response): Promise<void>{
         await db.query('INSERT INTO TARJETA VALUES ('+999+","+(parseInt(req.body.nom_t_tarjeta)+","+req.body.numero+ ",'"+ req.body.fecha_vencimiento +"',"+req.body.cod_seguridad +")"));

@@ -72,14 +72,12 @@ export class PqrDistribuidorComponent implements OnInit {
     let cedula: number= parseInt(localStorage.getItem('cedulaDistribuidor'));
     let aux=this.infoSolicitud
     let cod_t_ticket=aux.cod_t_ticket
-    console.log(aux)
     this.distribuidorService.obtenerDominio(aux).subscribe(
       res => {
         this.dominio=res
         aux.nom_dominio=this.dominio.nom_dominio
         aux.cedula=this.dominio.cedula
         aux.nombre=this.dominio.nombre
-        console.log(aux)
           this.distribuidorService.crearSolicitud(cedula,aux).subscribe(
             res => {
               console.log("Solicitud creada")
@@ -108,7 +106,6 @@ export class PqrDistribuidorComponent implements OnInit {
             this.distribuidorService.historialPQR(cedulas[y]).subscribe(
               res => {
                 this.arrpqrDistribuidor = res;
-                console.log(this.arrpqrDistribuidor)
               },
               err => console.error(err)
             )
