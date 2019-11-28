@@ -17,19 +17,12 @@
     <form class="example-form">
 
       <mat-form-field class="example-full-width">
-          <input matInput placeholder="Nombre">
+          <input matInput placeholder="Nombre" value="{{ adminGrafico.nombre }}">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-          <input matInput placeholder="Correo">
+          <input matInput placeholder="Correo" value="{{ adminGrafico.correo }}">
       </mat-form-field>
-
-      <label for="exampleFormControlTextarea1">Contraseña Actual</label>
-      <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="1"/>
-      <label for="exampleFormControlTextarea2">Nueva Contraseña</label>
-      <input type="text" class="form-control" id="exampleFormControlTextarea2" rows="1"/>
-      <br/>
-      <button mat-raised-button onclick="">Cambiar Información</button>
 
       <!--mat-select placeholder="Tipo de pago">
           <mat-option *ngFor="let food of foods" [value]="food.value" >
@@ -37,11 +30,11 @@
           </mat-option>
         </mat-select>-->
 
-      
+
       </form>
   </div>
   <div class="col-6">
       <img class="imgResponsive rounded-circle mx-auto d-block" src="../../../assets/images/CW1.png">
   </div>
-  
+
 </div>
