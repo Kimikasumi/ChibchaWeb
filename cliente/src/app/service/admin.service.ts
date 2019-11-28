@@ -37,6 +37,10 @@ export class AdminService {
   cargarListadoRegistradores(){
     return this.http.get(`${this.API_URI}/admin/registrador`);
   }
+
+  crearEmpleado(){
+
+  }
 }
 
 

@@ -22,7 +22,6 @@ export class NavPrincipalComponent {
 
 }
 
-
 @Component({
   selector: 'registro-dialog',
   templateUrl: 'registro-dialog.component.html',
