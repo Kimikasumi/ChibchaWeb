@@ -26,7 +26,7 @@ export class NavPrincipalComponent {
   selector: 'registro-dialog',
   templateUrl: 'registro-dialog.component.html',
 })
-export class RegistroDialog implements OnInit{
+export class RegistroDialog implements OnInit {
 
   cliente: IRegistrarCliente={
     cedula: 0,

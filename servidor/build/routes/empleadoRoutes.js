@@ -12,7 +12,7 @@ class EmpleadoRoutes {
     }
     config() {
         this.router.get('/ticket/:cod_t_empleado', empleadoController_1.default.listarSolicitudes);
-        this.router.get('/ticket/get', empleadoController_1.default.obtenerSolicitud);
+        this.router.get('/ticket/get/:cod_ticket', empleadoController_1.default.obtenerSolicitud);
         this.router.put('/ticket/responderND', empleadoController_1.default.responderTicketND);
         this.router.put('/ticket/responderCH', empleadoController_1.default.responderTicketCH);
         this.router.put('/ticket/responderCPP', empleadoController_1.default.responderTicketCPP);

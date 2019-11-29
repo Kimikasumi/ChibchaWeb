@@ -18,7 +18,8 @@ class EmpleadoController {
     listarSolicitudes(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { cod_t_empleado } = req.params;
-            const dominios = yield database_1.default.query("SELECT DOMINIO.cod_dominio, DOMINIO.nom_dominio," +
+            const dominios = yield database_1.default.query("SELECT DOMINIO.cod_dominio, TICKET.cod_ticket, TICKET.cod_t_ticket, " +
+                "DOMINIO.nom_dominio," +
                 "USUARIO.nombre, TICKET.descripcion, ESTADO.nom_estado FROM  TICKET, DOMINIO, USUARIO, " +
                 "ESTADO, CLIENTE, REGISTRADOR WHERE DOMINIO.cedula=CLIENTE.cedula AND " +
                 "DOMINIO.cod_registrador=REGISTRADOR.cod_registrador AND TICKET.cod_dominio=DOMINIO.cod_dominio " +
