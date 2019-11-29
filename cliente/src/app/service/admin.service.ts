@@ -38,8 +38,8 @@ export class AdminService {
     return this.http.get(`${this.API_URI}/admin/registrador`);
   }
 
-  crearEmpleado(){
-
+  crearEmpleado() {
+    return null;
   }
 }
 
