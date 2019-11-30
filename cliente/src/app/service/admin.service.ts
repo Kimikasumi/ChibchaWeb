@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {IAdmin} from '../models/IAdmin'
+import {IEmpleado} from '../models/IEmpleado'
+import { IDistribuidor } from '../models/IDistribuidor';
+import { IRegistrador } from '../models/IRegistrador';
 
 
 @Injectable({
@@ -38,8 +40,19 @@ export class AdminService {
     return this.http.get(`${this.API_URI}/admin/registrador`);
   }
 
-  crearEmpleado(){
+  crearEmpleado(empleado:IEmpleado){
+    return this.http.post(`${this.API_URI}/admin/empleado/crear`,empleado);
+  }
+  crearDistribuidor(distribuidor:IDistribuidor){
+    return this.http.post(`${this.API_URI}/admin/distribuidor`,distribuidor);
+  }
 
+  selPais(){
+    return this.http.get(`${this.API_URI}/admin/registrador/selPaises`);
+  }
+  
+  crearRegistrador(registrador:IRegistrador){
+    return this.http.post(`${this.API_URI}/admin/registrador`, registrador);
   }
 }
 

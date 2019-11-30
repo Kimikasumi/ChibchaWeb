@@ -9,9 +9,9 @@ class AdminRoutes{
     }
 
     config():void{
+        this.router.post('/empleado/crear',adminController.crearEmpleado);
         this.router.get('/empleado', adminController.listarEmpleados);
         this.router.get('/empleado/:cedula/:cedulaEmpleado', adminController.obtenerEmpleado);
-        this.router.post('/empleado',adminController.crearEmpleado);
         this.router.put('/empleado/:cedula', adminController.editarEmpleado);
         this.router.delete('/empleado/:cedula', adminController.eliminarEmpleado);
 
@@ -27,6 +27,8 @@ class AdminRoutes{
         this.router.post('/registrador',adminController.crearRegistrador);
         this.router.put('/registrador/:cod_registrador', adminController.editarRegistrador);
         this.router.delete('/registrador/:cod_registrador', adminController.eliminarRegistrador);
+        this.router.get('/registrador/selPaises', adminController.selPaises);
+        
 
         this.router.get("/perfilAdmin/:cedula", adminController.obtenerAdmin);
     }

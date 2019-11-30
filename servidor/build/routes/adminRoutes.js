@@ -11,9 +11,9 @@ class AdminRoutes {
         this.config();
     }
     config() {
+        this.router.post('/empleado/crear', adminController_1.default.crearEmpleado);
         this.router.get('/empleado', adminController_1.default.listarEmpleados);
         this.router.get('/empleado/:cedula/:cedulaEmpleado', adminController_1.default.obtenerEmpleado);
-        this.router.post('/empleado', adminController_1.default.crearEmpleado);
         this.router.put('/empleado/:cedula', adminController_1.default.editarEmpleado);
         this.router.delete('/empleado/:cedula', adminController_1.default.eliminarEmpleado);
         this.router.get('/distribuidor', adminController_1.default.listarDistribuidores);
@@ -27,6 +27,7 @@ class AdminRoutes {
         this.router.post('/registrador', adminController_1.default.crearRegistrador);
         this.router.put('/registrador/:cod_registrador', adminController_1.default.editarRegistrador);
         this.router.delete('/registrador/:cod_registrador', adminController_1.default.eliminarRegistrador);
+        this.router.get('/registrador/selPaises', adminController_1.default.selPaises);
         this.router.get("/perfilAdmin/:cedula", adminController_1.default.obtenerAdmin);
     }
 }

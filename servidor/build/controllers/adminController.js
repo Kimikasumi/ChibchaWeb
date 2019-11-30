@@ -33,9 +33,8 @@ class AdminController {
     }
     crearEmpleado(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("(" + parseInt(req.body.cedula) + ",'" + req.body.correo + "','" + req.body.nombre + "','" + req.body.contrasenia + "'," + parseInt(req.body.cod_t_usuario) + ")");
-            yield database_1.default.query('INSERT INTO USUARIO VALUES (' + (+parseInt(req.body.cedula) + ",'" + req.body.correo + "','" + req.body.nombre + "','" + req.body.contrasenia + "'," + parseInt(req.body.cod_t_usuario) + ")"));
-            yield database_1.default.query('UPDATE EMPLEADO SET cod_t_empleado=' + req.body.cod_t_empleado + ' WHERE cedula=' + req.body.cedula);
+            yield database_1.default.query('INSERT INTO USUARIO VALUES (' + req.body.cedula + ",'" + req.body.correo + "','" + req.body.nombre + "','" + req.body.contrasenia + "',4)");
+            yield database_1.default.query('UPDATE EMPLEADO SET cod_t_empleado=' + parseInt(req.body.cod_t_empleado) + ' WHERE cedula=' + req.body.cedula);
             res.json({ text: 'Empleado creado' });
         });
     }
@@ -59,7 +58,7 @@ class AdminController {
     /** DISTRIBUIDOR */
     listarDistribuidores(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const distribuidores = yield database_1.default.query('SELECT DISTRIBUIDOR.cedula, USUARIO.nombre, USUARIO.correo, T_DISTRIBUIDOR.nom_t_distribuidor FROM DISTRIBUIDOR, T_DISTRIBUIDOR, USUARIO WHERE DISTRIBUIDOR.cedula=USUARIO.cedula AND DISTRIBUIDOR.cod_t_distribuidor=T_DISTRIBUIDOR.cod_t_distribuidor');
+            const distribuidores = yield database_1.default.query('SELECT DISTRIBUIDOR.cedula, USUARIO.nombre, USUARIO.correo, T_DISTRIBUIDOR.nom_t_distribuidor FROM DISTRIBUIDOR, T_DISTRIBUIDOR, USUARIO WHERE DISTRIBUIDOR.cedula<>0 AND DISTRIBUIDOR.cedula=USUARIO.cedula AND DISTRIBUIDOR.cod_t_distribuidor=T_DISTRIBUIDOR.cod_t_distribuidor');
             res.json(distribuidores);
         });
     }
@@ -75,8 +74,8 @@ class AdminController {
     }
     crearDistribuidor(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("(" + parseInt(req.body.cedula) + ",'" + req.body.correo + "','" + req.body.nombre + "','" + req.body.contrasenia + "'," + parseInt(req.body.cod_t_usuario) + ")");
-            yield database_1.default.query('INSERT INTO USUARIO VALUES (' + (+parseInt(req.body.cedula) + ",'" + req.body.correo + "','" + req.body.nombre + "','" + req.body.contrasenia + "'," + parseInt(req.body.cod_t_usuario) + ")"));
+            console.log(req.body);
+            yield database_1.default.query('INSERT INTO USUARIO VALUES (' + parseInt(req.body.cedula) + ",'" + req.body.correo + "','" + req.body.nombre + "','" + req.body.contrasenia + "',5)");
             yield database_1.default.query('UPDATE DISTRIBUIDOR SET cod_t_distribuidor=' + req.body.cod_t_distribuidor + ' WHERE cedula=' + req.body.cedula);
             res.json({ text: 'Distribuidor creado' });
         });
@@ -130,7 +129,7 @@ class AdminController {
     crearRegistrador(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const cod_reg = parseInt(req.body.cod_registrador);
-            yield database_1.default.query('INSERT INTO USUARIO VALUES (' + cod_reg + ",'" + req.body.correo + "','" + req.body.nombre + "','" + req.body.contrasenia + "'," + parseInt(req.body.cod_t_usuario) + ")");
+            yield database_1.default.query('INSERT INTO USUARIO VALUES (' + cod_reg + ",'" + req.body.correo + "','" + req.body.nombre + "','" + req.body.contrasenia + "',3)");
             yield database_1.default.query('UPDATE REGISTRADOR SET cod_pais=' + req.body.cod_pais + ' WHERE cod_registrador=' + req.body.cod_registrador);
             res.json({ text: 'Registrador creado' });
         });
@@ -149,6 +148,15 @@ class AdminController {
             yield database_1.default.query('DELETE FROM REGISTRADOR WHERE cod_registrador= ?', [cod_registrador]);
             yield database_1.default.query('DELETE FROM USUARIO WHERE cedula= ?', [cod_registrador]);
             res.json({ text: 'Borrando registrador ' + req.params.cod_registrador });
+        });
+    }
+    selPaises(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const paises = yield database_1.default.query('SELECT cod_pais, nom_pais FROM PAIS');
+            if (paises.length > 0) {
+                return res.json(paises);
+            }
+            return res.status(404).json({ text: 'No existe el paises' });
         });
     }
     obtenerAdmin(req, res) {

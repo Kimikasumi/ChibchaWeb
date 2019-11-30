@@ -21,18 +21,24 @@ export class EmpleadoAdminComponent implements OnInit {
     }
   }
 
+  empleadoGrafico:IEmpleado={
+    cedula:0,
+    nombre:"",
+    correo:"",
+    contrasenia:"",
+    cod_t_empleado:0
+}
+
   nuevoEmpleado(){
 
-    console.log(this.cliente)
-    this.adminService.crearEmpleado().
-    subscribe(
+    console.log(this.empleadoGrafico)
+    this.adminService.crearEmpleado(this.empleadoGrafico).subscribe(
       res=>{
         console.log(res);
+        alert("Empleado Registrado")
       },
       err => console.error(err)
 
     )
   }
-}
-
 }

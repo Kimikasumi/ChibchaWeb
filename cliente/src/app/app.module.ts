@@ -67,6 +67,8 @@ import { InfoEmpleadoAdminComponent } from './ModAdmin/informacionAdicional/info
 // tslint:disable-next-line:max-line-length
 import { InfoDistribuidoresAdminComponent } from './ModAdmin/informacionAdicional/infoDistribuidores-admin/infoDistribuidores-admin.component';
 import { InfoRegistradoresAdminComponent } from './ModAdmin/informacionAdicional/info-registradores-admin/info-registradores-admin.component';
+import { DistribuidorAdminComponent } from './ModAdmin/distribuidor-admin/distribuidor-admin.component';
+import { RegistradorAdminComponent } from './ModAdmin/registrador-admin/registrador-admin.component';
 
 @NgModule({
   declarations: [
@@ -110,7 +112,9 @@ import { InfoRegistradoresAdminComponent } from './ModAdmin/informacionAdicional
     RegistradorSolicitudComponent,
     InfoEmpleadoAdminComponent,
     InfoDistribuidoresAdminComponent,
-    InfoRegistradoresAdminComponent
+    InfoRegistradoresAdminComponent,
+    DistribuidorAdminComponent,
+    RegistradorAdminComponent
   ],
   imports: [
     BrowserModule,

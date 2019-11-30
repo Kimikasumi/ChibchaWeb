@@ -13,9 +13,11 @@ export class SideAdminComponent {
 
   //fillerNav = Array(5).fill(0).map((_, i) => `Nav Item ${i + 1}`);
   fillerNav=[
-    {name:"inicio", route:"inicio/"+localStorage.getItem("cedulaAdmin"), icon: "home"},
-    {name:"perfil", route:"perfil/"+localStorage.getItem("cedulaAdmin"), icon:"account_circle"},
+    {name:"Inicio", route:"inicio/"+localStorage.getItem("cedulaAdmin"), icon: "home"},
+    {name:"Perfil", route:"perfil/"+localStorage.getItem("cedulaAdmin"), icon:"account_circle"},
     {name:"Nuevo Empleado", route:"nempleados/"+localStorage.getItem("cedulaAdmin"), icon:"person_add"},
+    {name:"Nuevo Distribuidor", route:"ndistribuidores/"+localStorage.getItem("cedulaAdmin"), icon:"person_add"},
+    {name:"Nuevo Registrador", route:"nregistradores/"+localStorage.getItem("cedulaAdmin"), icon:"person_add"},
     {name:"Listado Empleados", route:"lempleados/"+localStorage.getItem("cedulaAdmin"), icon:"headset_mic"},
     {name:"Listado Distribuidores", route:"ldistribuidores/"+localStorage.getItem("cedulaAdmin"), icon:"how_to_reg"},
     {name:"Listado Registradores", route:"lregistradores/"+localStorage.getItem("cedulaAdmin"), icon:"group"},
