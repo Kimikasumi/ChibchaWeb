@@ -11,6 +11,7 @@ import {ModalTarjeta} from './ModCliente/perfil-cliente/perfil-cliente.component
 import {RegClienteService} from './service/reg-cliente.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+
 /*
 * Angular Material
 */
@@ -68,8 +69,11 @@ import { InfoEmpleadoAdminComponent } from './ModAdmin/informacionAdicional/info
 import { InfoDistribuidoresAdminComponent } from './ModAdmin/informacionAdicional/infoDistribuidores-admin/infoDistribuidores-admin.component';
 // tslint:disable-next-line:max-line-length
 import { InfoRegistradoresAdminComponent } from './ModAdmin/informacionAdicional/info-registradores-admin/info-registradores-admin.component';
+import { DistribuidorAdminComponent } from './ModAdmin/distribuidor-admin/distribuidor-admin.component';
+import { RegistradorAdminComponent } from './ModAdmin/registrador-admin/registrador-admin.component';
 import { EmpleadoTramiteDomComponent } from './empleados/solicitudes2/empleado-tramite-dom/empleado-tramite-dom.component';
 import { EmpleadoErroresComponent } from './empleados/solicitudes2/empleado-errores/empleado-errores.component';
+
 
 @NgModule({
   declarations: [
@@ -114,6 +118,8 @@ import { EmpleadoErroresComponent } from './empleados/solicitudes2/empleado-erro
     InfoEmpleadoAdminComponent,
     InfoDistribuidoresAdminComponent,
     InfoRegistradoresAdminComponent,
+    DistribuidorAdminComponent,
+    RegistradorAdminComponent
     EmpleadoTramiteDomComponent,
     EmpleadoErroresComponent
   ],

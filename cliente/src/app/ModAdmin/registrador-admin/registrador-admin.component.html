@@ -1,0 +1,34 @@
+<br/>
+<br/>
+<div class="row">
+  <div class="col-12">
+    <h1 align="center"><span class="badge badge-info">Nuevo Registrador</span></h1>
+    <h1 align="center">¡Añade a un nuevo registrador!</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">
+      <form id="myform">
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Nombre</label>
+            <input type="text" class="form-control" id="exampleFormControlTextarea1" name="nombre" [(ngModel)]="registradorGrafico.nombre" rows="1"/>
+            <label for="exampleFormControlTextarea2">Código Registrador</label>
+            <input type="number" class="form-control" id="exampleFormControlTextarea2" name="cod_registrador" [(ngModel)]="registradorGrafico.cod_registrador" rows="1"/>
+            <label for="exampleFormControlTextarea2">Correo</label>
+            <input type="text" class="form-control" id="exampleFormControlTextarea3" name="correo" [(ngModel)]="registradorGrafico.correo" rows="1"/>
+            <label for="exampleFormControlTextarea3">Contraseña Temporal</label>
+            <input type="text" class="form-control" id="exampleFormControlTextarea4" name="contrasenia" [(ngModel)]="registradorGrafico.contrasenia" rows="1"/>
+            <label for="exampleFormControlTextarea2">País</label>
+            <select class="form-control"  name="cod_pais" [(ngModel)]="registradorGrafico.cod_pais" >
+              <option value="0">Selecciona una opción</option>
+              <option *ngFor="let pais of selPaises" value="{{pais.cod_pais}}">{{pais.nom_pais}}</option>
+            </select>
+          </div>
+        <button type="submit" class="btn btn-primary" (click)=nuevoRegistrador()>Crear Registrador</button>
+      </form>
+  </div>
+  <div class="col-5">
+      <img class="imgResponsive rounded-circle mx-auto d-block" src="../../../assets/images/empleado.png">
+    </div>
+
+</div>

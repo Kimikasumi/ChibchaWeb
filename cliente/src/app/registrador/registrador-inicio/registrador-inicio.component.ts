@@ -9,7 +9,6 @@ import {RegistradorService} from '../../service/registrador.service';
 })
 export class RegistradorInicioComponent implements OnInit {
 
-  nombreRegistrador = 'Caps';
 
   constructor(private registradorService: RegistradorService, private router: Router, private activateRoute: ActivatedRoute) {
   }

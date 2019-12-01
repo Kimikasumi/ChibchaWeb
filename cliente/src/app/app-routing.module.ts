@@ -28,6 +28,8 @@ import { InfoEmpleadoAdminComponent } from './ModAdmin/informacionAdicional/info
 import { InfoDistribuidoresAdminComponent } from './ModAdmin/informacionAdicional/infoDistribuidores-admin/infoDistribuidores-admin.component';
 // tslint:disable-next-line:max-line-length
 import { InfoRegistradoresAdminComponent } from './ModAdmin/informacionAdicional/info-registradores-admin/info-registradores-admin.component';
+import { DistribuidorAdminComponent } from './ModAdmin/distribuidor-admin/distribuidor-admin.component';
+import { RegistradorAdminComponent } from './ModAdmin/registrador-admin/registrador-admin.component';
 
 /*Empleado*/
 import {EmpleadoTablaComponent} from './empleados/empleado-tabla/empleado-tabla.component';
@@ -76,7 +78,9 @@ const routes: Routes = [
     [
       {path: 'inicio/:cedula', component: InicioAdminComponent},
       {path: 'perfil/:cedula', component: PerfilAdminComponent },
+      {path: 'ndistribuidores/:cedula', component: DistribuidorAdminComponent},
       {path: 'nempleados/:cedula', component: EmpleadoAdminComponent},
+      {path: 'nregistradores/:cedula', component: RegistradorAdminComponent},
       {path: 'lempleados/:cedula', component: ListadoEmpleadosAdminComponent},
       {path: 'ldistribuidores/:cedula', component: ListadoDistribuidoresAdminComponent},
       {path: 'lregistradores/:cedula', component: ListadoRegistradoresAdminComponent},

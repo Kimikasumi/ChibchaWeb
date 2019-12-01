@@ -17,9 +17,8 @@ class AdminController{
     } 
     
     public async crearEmpleado(req:Request, res:Response): Promise<void>{
-        console.log("("+parseInt(req.body.cedula)+",'"+req.body.correo+ "','"+ req.body.nombre+ "','"+ req.body.contrasenia+ "',"+ parseInt(req.body.cod_t_usuario)+")");
-        await db.query('INSERT INTO USUARIO VALUES ('+(+parseInt(req.body.cedula)+",'"+req.body.correo+ "','"+ req.body.nombre+ "','"+ req.body.contrasenia+ "',"+ parseInt(req.body.cod_t_usuario)+")"));
-        await db.query('UPDATE EMPLEADO SET cod_t_empleado='+req.body.cod_t_empleado+' WHERE cedula='+req.body.cedula);
+        await db.query('INSERT INTO USUARIO VALUES ('+req.body.cedula+",'"+req.body.correo+ "','"+ req.body.nombre+ "','"+ req.body.contrasenia+ "',4)");
+        await db.query('UPDATE EMPLEADO SET cod_t_empleado='+parseInt(req.body.cod_t_empleado)+' WHERE cedula='+req.body.cedula);
         res.json({text: 'Empleado creado'});
         
     }
@@ -41,7 +40,7 @@ class AdminController{
 
     /** DISTRIBUIDOR */
     public async listarDistribuidores (req: Request,res: Response) {
-        const distribuidores= await db.query('SELECT DISTRIBUIDOR.cedula, USUARIO.nombre, USUARIO.correo, T_DISTRIBUIDOR.nom_t_distribuidor FROM DISTRIBUIDOR, T_DISTRIBUIDOR, USUARIO WHERE DISTRIBUIDOR.cedula=USUARIO.cedula AND DISTRIBUIDOR.cod_t_distribuidor=T_DISTRIBUIDOR.cod_t_distribuidor');
+        const distribuidores= await db.query('SELECT DISTRIBUIDOR.cedula, USUARIO.nombre, USUARIO.correo, T_DISTRIBUIDOR.nom_t_distribuidor FROM DISTRIBUIDOR, T_DISTRIBUIDOR, USUARIO WHERE DISTRIBUIDOR.cedula<>0 AND DISTRIBUIDOR.cedula=USUARIO.cedula AND DISTRIBUIDOR.cod_t_distribuidor=T_DISTRIBUIDOR.cod_t_distribuidor');
         res.json(distribuidores);
     } 
     public async obtenerDistribuidor (req: Request,res: Response): Promise<any> {
@@ -54,8 +53,8 @@ class AdminController{
     } 
     
     public async crearDistribuidor(req:Request, res:Response): Promise<void>{
-        console.log("("+parseInt(req.body.cedula)+",'"+req.body.correo+ "','"+ req.body.nombre+ "','"+ req.body.contrasenia+ "',"+ parseInt(req.body.cod_t_usuario)+")");
-        await db.query('INSERT INTO USUARIO VALUES ('+(+parseInt(req.body.cedula)+",'"+req.body.correo+ "','"+ req.body.nombre+ "','"+ req.body.contrasenia+ "',"+ parseInt(req.body.cod_t_usuario)+")"));
+        console.log(req.body)
+        await db.query('INSERT INTO USUARIO VALUES ('+parseInt(req.body.cedula)+",'"+req.body.correo+ "','"+ req.body.nombre+ "','"+ req.body.contrasenia+"',5)");
         await db.query('UPDATE DISTRIBUIDOR SET cod_t_distribuidor='+req.body.cod_t_distribuidor+' WHERE cedula='+req.body.cedula);
         res.json({text: 'Distribuidor creado'});
         
@@ -78,7 +77,7 @@ class AdminController{
     
     
     public async obtenerCliDis(req:Request, res:Response): Promise<void>{
-        const cedula_distribuidor = parseInt(req.body.cedula_distribuidor);
+        const cedula_distribuidor = parseInt(req.params.cedula);
         
         //const cantidad =await db.query("CALL consultarComision("+cedula_distribuidor+")");
         const cantidad =await db.query("SELECT consultarComisionF("+cedula_distribuidor+") as Respuesta");
@@ -107,7 +106,7 @@ class AdminController{
     
     public async crearRegistrador(req:Request, res:Response): Promise<void>{
         const cod_reg=parseInt(req.body.cod_registrador);
-        await db.query('INSERT INTO USUARIO VALUES ('+cod_reg+",'"+req.body.correo+ "','"+ req.body.nombre+ "','"+ req.body.contrasenia+ "',"+ parseInt(req.body.cod_t_usuario)+")");
+        await db.query('INSERT INTO USUARIO VALUES ('+cod_reg+",'"+req.body.correo+ "','"+ req.body.nombre+ "','"+ req.body.contrasenia+ "',3)");
         await db.query('UPDATE REGISTRADOR SET cod_pais='+req.body.cod_pais+' WHERE cod_registrador='+req.body.cod_registrador);
         res.json({text: 'Registrador creado'});
         
@@ -127,6 +126,15 @@ class AdminController{
         await db.query('DELETE FROM USUARIO WHERE cedula= ?', [cod_registrador]);
         res.json({text: 'Borrando registrador '+ req.params.cod_registrador});
     }
+
+    public async selPaises(req:Request, res:Response): Promise<any>{
+        const paises = await db.query('SELECT cod_pais, nom_pais FROM PAIS');
+        if(paises. length > 0){
+            return res.json(paises);
+        }
+        return res.status(404).json({text: 'No existe el paises'});
+    }
+
     public async obtenerAdmin (req: Request,res: Response): Promise<any> {
         const {cedula} = req.params;
         const admin = await db.query("SELECT usuario.nombre , usuario.correo FROM usuario , administrador WHERE usuario.cedula=administrador.cedula and usuario.cedula= ?", cedula);

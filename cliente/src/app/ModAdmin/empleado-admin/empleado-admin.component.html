@@ -2,31 +2,31 @@
 <br/>
 <div class="row">
   <div class="col-12">
-    <h1 align="center"><span class="badge badge-success">Nuevo Empleado</span></h1>
+    <h1 align="center"><span class="badge badge-info">Nuevo Empleado</span></h1>
     <h1 align="center">¡Añade a un nuevo empleado!</h1>
   </div>
 </div>
 <div class="row">
   <div class="col-6">
-      <form>
+      <form id="myform">
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Nombre</label>
-            <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="1"/>
-            <label for="exampleFormControlTextarea2">Cedula</label>
-            <input type="text" class="form-control" id="exampleFormControlTextarea2" rows="1"/>
+            <input type="text" class="form-control" id="exampleFormControlTextarea1" name="nombre" [(ngModel)]="empleadoGrafico.nombre" rows="1"/>
+            <label for="exampleFormControlTextarea2">Cédula</label>
+            <input type="number" class="form-control" id="exampleFormControlTextarea2" name="cedula" [(ngModel)]="empleadoGrafico.cedula" rows="1"/>
             <label for="exampleFormControlTextarea2">Correo</label>
-            <input type="text" class="form-control" id="exampleFormControlTextarea3" rows="1"/>
+            <input type="text" class="form-control" id="exampleFormControlTextarea3" name="correo" [(ngModel)]="empleadoGrafico.correo" rows="1"/>
             <label for="exampleFormControlTextarea3">Contraseña Temporal</label>
-            <input type="text" class="form-control" id="exampleFormControlTextarea4" rows="1"/>
+            <input type="text" class="form-control" id="exampleFormControlTextarea4" name="contrasenia" [(ngModel)]="empleadoGrafico.contrasenia" rows="1"/>
             <label for="exampleFormControlTextarea2">Tipo de empleado</label>
-            <select class="form-control">
+            <select class="form-control"  name="cod_t_empleado" [(ngModel)]="empleadoGrafico.cod_t_empleado" >
               <option value="0">Selecciona una opción</option>
               <option value="1">Soporte de Nivel 1</option>
               <option value="2">Soporte de Nivel 2</option>
               <option value="3">Soporte de Nivel 3</option>
             </select>
           </div>
-        <button type="submit" class="btn btn-primary">Crear Empleado</button>
+        <button type="submit" class="btn btn-primary" (click)=nuevoEmpleado()>Crear Empleado</button>
       </form>
   </div>
   <div class="col-5">

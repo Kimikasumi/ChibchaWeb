@@ -3,7 +3,7 @@
 <br/>
 <div class="row">
   <div class="col-12">
-    <h1 align="center"><span class="badge badge-warning">Listado de Distribuidores</span></h1>
+    <h1 align="center"><span class="badge badge-info">Listado de Distribuidores</span></h1>
     <h1 align="center">Aquí podrás ver la información de todos los distribuidores que estan con ChibchaWeb</h1>
   </div>
 </div>
@@ -13,7 +13,12 @@
 
 <table class="table table-sm" >
   <thead class="table-warning">
-  <tr >
+      <tr class="table-info">
+          <th><input type="text" [(ngModel)]="nombre" (input)="search()" placeholder="Buscar"/></th>
+          <th></th>
+          <th></th>
+        </tr>
+  <tr class="table-info">
     <th scope="col">Nombre del distribuidor</th>
     <th scope="col">Correo</th>
     <th scope="col"></th>
@@ -24,7 +29,7 @@
     <th scope="row">{{listadoDistribuidores.nombre}}</th>
     <td>{{listadoDistribuidores.correo}}</td>
     <td>
-      <button mat-button (click)="navegar(listadoDistribuidores.cedula)">Mas Informacion</button>
+      <button mat-button class="btn btn-primary" (click)="navegar(listadoDistribuidores.cedula)">Más Información</button>
     </td>
   </tr>
   </tbody>

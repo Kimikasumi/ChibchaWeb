@@ -3,7 +3,7 @@
 <br/>
 <div class="row">
   <div class="col-12">
-    <h1 align="center"><span class="badge badge-warning">Listado de Registradores</span></h1>
+    <h1 align="center"><span class="badge badge-info">Listado de Registradores</span></h1>
     <h1 align="center">Aquí podrás ver la información de todos los Registradores que estan con ChibchaWeb</h1>
   </div>
 </div>
@@ -11,8 +11,13 @@
 
 <table class="table table-sm" >
   <thead class="table-warning">
-  <tr >
-    <th scope="col">Nombre del cliente</th>
+      <tr  class="table-info">
+          <th><input type="text" [(ngModel)]="nombre" (input)="search()" placeholder="Buscar"/></th>
+          <th></th>
+          <th></th>
+        </tr>
+  <tr  class="table-info">
+    <th scope="col">Nombre del registrador</th>
     <th scope="col">Correo</th>
     <th scope="col"> </th>
   </tr>
@@ -22,7 +27,7 @@
     <th scope="row">{{list.nombre}}</th>
     <td>{{list.correo}}</td>
     <td>
-      <button mat-button (click)="navegar(list.cod_registrador)">Mas Informacion</button>
+      <button mat-button class="btn btn-primary" (click)="navegar(list.cod_registrador)">Más Información</button>
     </td>
   </tr>
   </tbody>
