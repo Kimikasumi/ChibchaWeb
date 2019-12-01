@@ -14,4 +14,26 @@ export class EmpleadoService {
     console.log(codTempleado);
     return this.http.get(`${this.API_URI}/empleado/ticket/${codTempleado}`);
   }
+
+  cargarTicket(codTicket: number) {
+    console.log(codTicket);
+    return this.http.get(`${this.API_URI}/empleado/ticket/get/${codTicket}`);
+  }
+
+  cargarHoster(codTicket: number) {
+    console.log(codTicket);
+    return this.http.get(`${this.API_URI}/empleado/ticket/host/${codTicket}`);
+  }
+
+  obtenerPlanesPago() {
+    return this.http.get(`${this.API_URI}/empleado/opciones/PlanesPago`);
+  }
+
+  obtenerPaquetes() {
+    return this.http.get(`${this.API_URI}/empleado/opciones/Paquetes`);
+  }
+
+  obtenerRegistradores() {
+    return this.http.get(`${this.API_URI}/empleado/opciones/registradores`);
+  }
 }

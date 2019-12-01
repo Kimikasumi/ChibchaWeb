@@ -28,10 +28,50 @@ class EmpleadoController {
             res.json(dominios);
         });
     }
+    obtenerTicketBasico(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { cod_ticket } = req.params;
+            const solicitud = yield database_1.default.query('SELECT \n' +
+                '\tcliente.cedula, usuario.nombre, dominio.cod_dominio, dominio.nom_dominio,\n' +
+                '\tpaquete.nom_paquete, planpago.nom_p_pago, ticket.descripcion \n' +
+                'FROM \n' +
+                '\tplanpago, cliente, paquete, dominio, ticket, usuario \n' +
+                'WHERE \n' +
+                '\tcliente.cod_p_pago = planpago.cod_p_pago AND \n' +
+                '\tcliente.cedula = usuario.cedula AND\n' +
+                '\tticket.cod_dominio = dominio.cod_dominio AND \n' +
+                '\tdominio.cedula = cliente.cedula AND\t\n' +
+                '\tcliente.cod_paquete = paquete.cod_paquete AND\n' +
+                '\tdominio.cedula = cliente.cedula AND\n' +
+                '\tdominio.cod_dominio = ticket.cod_dominio AND \n' +
+                '\tusuario.cedula = cliente.cedula AND \n' +
+                '\tticket.cod_ticket =' + cod_ticket + ';');
+            if (solicitud.length > 0) {
+                return res.json(solicitud[0]);
+            }
+            return res.status(404).json({ text: 'No existe la solicitud' });
+        });
+    }
+    obtenerHoster(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { cod_ticket } = req.params;
+            const solicitud = yield database_1.default.query('SELECT\n' +
+                '\tusuario.nombre,\n' +
+                '\tticket.cod_registrador\n' +
+                'FROM\n' +
+                '\tusuario, ticket\n' +
+                'WHERE\n' +
+                '\tusuario.cedula = ticket.cod_registrador AND\n' +
+                '\tticket.cod_ticket =' + cod_ticket + ';');
+            if (solicitud.length > 0) {
+                return res.json(solicitud[0]);
+            }
+            return res.status(404).json({ text: 'No existe la solicitud' });
+        });
+    }
     obtenerSolicitud(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const cod_ticket = parseInt(req.body.cod_ticket);
-            const cod_t_empleado = req.body.cod_t_empleado;
+            const { cod_ticket, cod_t_empleado } = req.params;
             const solicitud = yield database_1.default.query("SELECT DOMINIO.cod_dominio, DOMINIO.nom_dominio," +
                 "USUARIO.nombre, TICKET.descripcion, ESTADO.nom_estado FROM  TICKET, DOMINIO, USUARIO, " +
                 "ESTADO, CLIENTE, REGISTRADOR WHERE DOMINIO.cedula=CLIENTE.cedula AND " +

@@ -15,8 +15,14 @@ export class EmpleadoTablaComponent implements OnInit {
   }
 
   navegar(codTick: number) {
-    this.router.navigate(['empleado/ticket/get/' + localStorage.getItem('cedula') + '/' + codTick]);
     localStorage.setItem('codTicket', String(codTick));
+    if (codTick === 1) {
+      this.router.navigate(['empleado/pqr/' + localStorage.getItem('cedula') + '/' + codTick]);
+    } else if (codTick === 2) {
+      this.router.navigate(['empleado/dom/' + localStorage.getItem('cedula') + '/' + codTick]);
+    } else if (codTick === 3) {
+      this.router.navigate(['empleado/err/' + localStorage.getItem('cedula') + '/' + codTick]);
+    }
   }
 
   ngOnInit() {

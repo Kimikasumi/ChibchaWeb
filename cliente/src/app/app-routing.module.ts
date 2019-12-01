@@ -24,8 +24,9 @@ import { ListadoDistribuidoresAdminComponent } from './ModAdmin/listadoDistribui
 import { ListadoRegistradoresAdminComponent } from './ModAdmin/listadoRegistradores-admin/listadoRegistradores-admin.component';
 import { InfoEmpleadoAdminComponent } from './ModAdmin/informacionAdicional/infoEmpleados-admin/infoEmpleado-admin.component';
 
+// tslint:disable-next-line:max-line-length
 import { InfoDistribuidoresAdminComponent } from './ModAdmin/informacionAdicional/infoDistribuidores-admin/infoDistribuidores-admin.component';
-
+// tslint:disable-next-line:max-line-length
 import { InfoRegistradoresAdminComponent } from './ModAdmin/informacionAdicional/info-registradores-admin/info-registradores-admin.component';
 
 /*Empleado*/
@@ -37,7 +38,10 @@ import {SolicitudNDomComponent} from './empleados/solicitudes/solicitud-n-dom/so
 import {SolicitudChostComponent} from './empleados/solicitudes/solicitud-chost/solicitud-chost.component';
 import {SolicitudCplanComponent} from './empleados/solicitudes/solicitud-cplan/solicitud-cplan.component';
 import {SolicitudCpaqueteComponent} from './empleados/solicitudes/solicitud-cpaquete/solicitud-cpaquete.component';
-import {EmpleadoPqrComponent} from './empleados/solicitudes/empleado-pqr/empleado-pqr.component';
+
+import {EmpleadoPqrComponent} from './empleados/solicitudes2/empleado-pqr/empleado-pqr.component';
+import {EmpleadoErroresComponent} from './empleados/solicitudes2/empleado-errores/empleado-errores.component';
+import {EmpleadoTramiteDomComponent} from './empleados/solicitudes2/empleado-tramite-dom/empleado-tramite-dom.component';
 /*Registrador*/
 import {RegistradorSideComponent} from './registrador/registrador-side/registrador-side.component';
 import {RegistradorInicioComponent} from './registrador/registrador-inicio/registrador-inicio.component';
@@ -89,6 +93,10 @@ const routes: Routes = [
         {path: 'solicitudes/:cedula', component: EmpleadoTablaComponent},
         {path: 'inicio/:cedula', component: InicioEmpleadoComponent},
         /*Solicitudes*/
+        {path: 'pqr/:cedula/:cod_ticket', component: EmpleadoPqrComponent},
+        {path: 'err/:cedula/:cod_ticket', component: EmpleadoErroresComponent},
+        {path: 'dom/:cedula/:cod_ticket', component: EmpleadoTramiteDomComponent},
+
         {path: 'ndom', component: SolicitudNDomComponent},
         {path: 'chost', component: SolicitudChostComponent},
         {path: 'cplan', component: SolicitudCplanComponent},
