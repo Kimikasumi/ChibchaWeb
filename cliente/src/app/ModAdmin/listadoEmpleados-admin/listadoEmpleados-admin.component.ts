@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AdminService} from "../../service/admin.service";
-
-
+import {MatTableDataSource} from '@angular/material/table';
+import {pruebaE} from '../../models/IEmpleado'
 /**
  * @title Basic use of `<table mat-table>`
  */
@@ -15,8 +15,7 @@ export class ListadoEmpleadosAdminComponent  implements OnInit {
 
 
   listadoEmpleadosG: any = [];
-
-
+  nombre:string;
   constructor(private adminService: AdminService, private router: Router, private activateRoute: ActivatedRoute) { }
 
   navegar(codTick: number) {
@@ -35,6 +34,23 @@ export class ListadoEmpleadosAdminComponent  implements OnInit {
 
     }
   }
+
+  search(){
+    if(this.nombre != ""){
+      this.listadoEmpleadosG = this.listadoEmpleadosG.filter(res=>{
+        return res.nombre.toLowerCase().match(this.nombre.toLowerCase());
+      });
+    }else if(this.nombre ==""){
+      this.ngOnInit();
+    }
+   
+  }
+
+
+  applyFilter(filterValue: string) {
+    this.listadoEmpleadosG.filter = filterValue.trim().toLowerCase();
+  }
+
   listadoEmpleados(){
     const params = this.activateRoute.snapshot.params;
       this.adminService.cargarListadoEmpleados().subscribe(
@@ -50,9 +66,6 @@ export class ListadoEmpleadosAdminComponent  implements OnInit {
     console.log("AAAAAAAAA");
   }
 }
-
-
-
 
 
 

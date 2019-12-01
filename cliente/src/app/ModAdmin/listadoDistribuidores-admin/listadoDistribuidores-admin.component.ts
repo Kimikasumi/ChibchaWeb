@@ -15,7 +15,7 @@ export class ListadoDistribuidoresAdminComponent  implements OnInit {
 
 
   listadoDistribuidoresG: any = [];
-
+  nombre:string;
 
   constructor(private adminService: AdminService, private router: Router, private activateRoute: ActivatedRoute) { }
 
@@ -35,6 +35,18 @@ export class ListadoDistribuidoresAdminComponent  implements OnInit {
 
     }
   }
+
+  search(){
+    if(this.nombre != ""){
+      this.listadoDistribuidoresG = this.listadoDistribuidoresG.filter(res=>{
+        return res.nombre.toLowerCase().match(this.nombre.toLowerCase());
+      });
+    }else if(this.nombre ==""){
+      this.ngOnInit();
+    }
+   
+  }
+
   listadoDistribuidores(){
     const params = this.activateRoute.snapshot.params;
     this.adminService.cargarListadoDistribuidores().subscribe(
@@ -45,10 +57,26 @@ export class ListadoDistribuidoresAdminComponent  implements OnInit {
       },
       err => console.error(err)
     )
-
-
-    console.log("AAAAAAAAA");
   }
+
+  generarCheques(){
+    let suma:number;
+    let distribuidor=this.listadoDistribuidoresG
+    for(let x in distribuidor){
+      let aux=distribuidor[x].cedula
+      this.adminService.generarCheque(aux).subscribe(
+        res => {
+          //suma=suma+res
+          console.log(res)
+        },
+        err => console.error(err)
+      )
+
+
+    }
+
+  }
+
 }
 
 

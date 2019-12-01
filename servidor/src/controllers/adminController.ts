@@ -77,7 +77,7 @@ class AdminController{
     
     
     public async obtenerCliDis(req:Request, res:Response): Promise<void>{
-        const cedula_distribuidor = parseInt(req.body.cedula_distribuidor);
+        const cedula_distribuidor = parseInt(req.params.cedula);
         
         //const cantidad =await db.query("CALL consultarComision("+cedula_distribuidor+")");
         const cantidad =await db.query("SELECT consultarComisionF("+cedula_distribuidor+") as Respuesta");

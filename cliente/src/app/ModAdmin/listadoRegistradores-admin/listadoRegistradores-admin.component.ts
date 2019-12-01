@@ -10,7 +10,7 @@ import {AdminService} from "../../service/admin.service";
 })
 export class ListadoRegistradoresAdminComponent  implements OnInit {
   listadoRegistradoresG: any = [];
-
+  nombre:string;
 
   constructor(private adminService: AdminService, private router: Router, private activateRoute: ActivatedRoute) { }
 
@@ -30,6 +30,18 @@ export class ListadoRegistradoresAdminComponent  implements OnInit {
       this.listadoRegistradores();
 
     }
+  }
+
+  
+  search(){
+    if(this.nombre != ""){
+      this.listadoRegistradoresG = this.listadoRegistradoresG.filter(res=>{
+        return res.nombre.toLowerCase().match(this.nombre.toLowerCase());
+      });
+    }else if(this.nombre ==""){
+      this.ngOnInit();
+    }
+   
   }
   listadoRegistradores(){
     const params = this.activateRoute.snapshot.params;

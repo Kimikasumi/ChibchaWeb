@@ -21,7 +21,7 @@ class AdminRoutes {
         this.router.post('/distribuidor', adminController_1.default.crearDistribuidor);
         this.router.put('/distribuidor/:cedula', adminController_1.default.editarDistribuidor);
         this.router.delete('/distribuidor/:cedula', adminController_1.default.eliminarDistribuidor);
-        this.router.post('/distribuidor2', adminController_1.default.obtenerCliDis);
+        this.router.get('/distribuidor2/:cedula', adminController_1.default.obtenerCliDis);
         this.router.get('/registrador', adminController_1.default.listarRegistrador);
         this.router.get('/registrador/:cod_registrador/:cedulaRegistrador', adminController_1.default.obtenerRegistrador);
         this.router.post('/registrador', adminController_1.default.crearRegistrador);

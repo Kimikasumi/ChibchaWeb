@@ -14,7 +14,7 @@
     <div class="row">
         <table class="table table-sm" >
             <thead class="table-warning">
-              <tr >
+              <tr   class="table-info">
                 <th scope="col">Nombre del dominio</th>
                 <th scope="col">Host</th>
               </tr>
@@ -53,7 +53,7 @@
       <label for="exampleFormControlTextarea2">Nueva Contraseña</label>
       <input type="text" class="form-control" id="exampleFormControlTextarea2" rows="1"/>
       <br/>
-      <button mat-raised-button (click)="guardarInfoCliente()">Cambiar Información</button>
+      <button mat-raised-button class="btn btn-primary" (click)="guardarInfoCliente()">Cambiar Información</button>
       
       <!--mat-select placeholder="Tipo de pago">
           <mat-option *ngFor="let food of foods" [value]="food.value" >

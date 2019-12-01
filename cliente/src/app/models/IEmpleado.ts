@@ -11,3 +11,10 @@ export interface IempleadoAdmin{
   correo?: string;
   nom_t_empleado?: string;
 }
+
+export interface pruebaE{
+  nombre?: string;
+  correo?: string;
+}
+
+

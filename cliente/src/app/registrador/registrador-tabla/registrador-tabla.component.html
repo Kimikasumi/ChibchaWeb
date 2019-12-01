@@ -7,7 +7,7 @@
 
 <table class="table table-sm" >
   <thead class="table-warning">
-  <tr >
+  <tr   class="table-info">
     <th scope="col">Nombre dominio</th>
     <th scope="col">Acciones</th>
   </tr>
@@ -18,7 +18,7 @@
       {{ticket.nom_dominio}}
     </td>
     <td>
-      <button mat-button (click)="navegar(ticket.cod_ticket)">Abrir</button>
+      <button mat-button  class="btn btn-primary" (click)="navegar(ticket.cod_ticket)">Abrir</button>
     </td>
   </tr>
   </tbody>

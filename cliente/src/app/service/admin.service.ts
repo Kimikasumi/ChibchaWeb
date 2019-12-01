@@ -54,6 +54,12 @@ export class AdminService {
   crearRegistrador(registrador:IRegistrador){
     return this.http.post(`${this.API_URI}/admin/registrador`, registrador);
   }
+
+  generarCheque(cedula:number){
+    console.log(cedula)
+    return this.http.get(`${this.API_URI}/admin/distribuidor2/`+cedula);  
+  }
+
 }
 
 

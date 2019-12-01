@@ -11,6 +11,7 @@ import {ModalTarjeta} from './ModCliente/perfil-cliente/perfil-cliente.component
 import {RegClienteService} from './service/reg-cliente.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+
 /*
 * Angular Material
 */
@@ -69,6 +70,7 @@ import { InfoDistribuidoresAdminComponent } from './ModAdmin/informacionAdiciona
 import { InfoRegistradoresAdminComponent } from './ModAdmin/informacionAdicional/info-registradores-admin/info-registradores-admin.component';
 import { DistribuidorAdminComponent } from './ModAdmin/distribuidor-admin/distribuidor-admin.component';
 import { RegistradorAdminComponent } from './ModAdmin/registrador-admin/registrador-admin.component';
+
 
 @NgModule({
   declarations: [
