@@ -1,4 +1,4 @@
-.n-.mat-button {
+.mat-button {
   background-color: lightgrey;
 }
 
@@ -19,14 +19,4 @@
   position: absolute;
   top: 20%;
   background-color: lightgrey;
-}
-
-.respuesta {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
-
-.example-full-width {
-  width: 100%;
 }

@@ -38,7 +38,7 @@ import { SolicitudNDomComponent } from './empleados/solicitudes/solicitud-n-dom/
 import {MatGridListModule} from '@angular/material/grid-list';
 import { SolicitudCplanComponent } from './empleados/solicitudes/solicitud-cplan/solicitud-cplan.component';
 import { SolicitudCpaqueteComponent } from './empleados/solicitudes/solicitud-cpaquete/solicitud-cpaquete.component';
-import { EmpleadoPqrComponent } from './empleados/solicitudes/empleado-pqr/empleado-pqr.component';
+import {EmpleadoPqrComponent} from './empleados/solicitudes2/empleado-pqr/empleado-pqr.component';
 import { InicioEmpleadoComponent } from './empleados/inicio-empleado/inicio-empleado.component';
 
 
@@ -67,9 +67,12 @@ import { RegistradorSolicitudComponent } from './registrador/registrador-solicit
 import { InfoEmpleadoAdminComponent } from './ModAdmin/informacionAdicional/infoEmpleados-admin/infoEmpleado-admin.component';
 // tslint:disable-next-line:max-line-length
 import { InfoDistribuidoresAdminComponent } from './ModAdmin/informacionAdicional/infoDistribuidores-admin/infoDistribuidores-admin.component';
+// tslint:disable-next-line:max-line-length
 import { InfoRegistradoresAdminComponent } from './ModAdmin/informacionAdicional/info-registradores-admin/info-registradores-admin.component';
 import { DistribuidorAdminComponent } from './ModAdmin/distribuidor-admin/distribuidor-admin.component';
 import { RegistradorAdminComponent } from './ModAdmin/registrador-admin/registrador-admin.component';
+import { EmpleadoTramiteDomComponent } from './empleados/solicitudes2/empleado-tramite-dom/empleado-tramite-dom.component';
+import { EmpleadoErroresComponent } from './empleados/solicitudes2/empleado-errores/empleado-errores.component';
 
 
 @NgModule({
@@ -116,7 +119,9 @@ import { RegistradorAdminComponent } from './ModAdmin/registrador-admin/registra
     InfoDistribuidoresAdminComponent,
     InfoRegistradoresAdminComponent,
     DistribuidorAdminComponent,
-    RegistradorAdminComponent
+    RegistradorAdminComponent,
+    EmpleadoTramiteDomComponent,
+    EmpleadoErroresComponent
   ],
   imports: [
     BrowserModule,

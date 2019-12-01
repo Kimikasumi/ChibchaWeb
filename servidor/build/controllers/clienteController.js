@@ -66,20 +66,20 @@ class ClienteController {
             console.log(req.body);
             const aux = parseInt(req.body.cod_t_ticket);
             console.log(aux);
-            yield database_1.default.query("INSERT INTO TICKET VALUES (26," + parseInt(req.body.cod_t_ticket) + "," + parseInt(req.body.cod_dominio) + ",1,'" + req.body.descripcion + "',NULL," + req.body.cedula + ",NULL)");
+            yield database_1.default.query("INSERT INTO TICKET (cod_t_ticket, cod_dominio, cod_estado , descripcion, respuesta ,cedula, cod_registrador) VALUES (" + parseInt(req.body.cod_t_ticket) + "," + parseInt(req.body.cod_dominio) + ",1,'" + req.body.descripcion + "',NULL," + req.body.cedula + ",NULL)");
             res.json({ text: 'Solicitud creada' });
         });
     }
     crearDominio(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log(req.body);
-            yield database_1.default.query("INSERT INTO DOMINIO VALUES (9," + req.params.cedula + ",'" + req.body.nom_dominio + "',0,'" + req.body.descripcion + "')");
+            yield database_1.default.query("INSERT INTO DOMINIO (cedula, nom_dominio, cod_registrador, descripcion) VALUES (" + req.params.cedula + ",'" + req.body.nom_dominio + "',0,'" + req.body.descripcion + "')");
             res.json({ text: 'Dominio Creado' });
         });
     }
     agregarTarjeta(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO TARJETA VALUES (' + 999 + "," + (parseInt(req.body.nom_t_tarjeta) + "," + req.body.numero + ",'" + req.body.fecha_vencimiento + "'," + req.body.cod_seguridad + ")"));
+            yield database_1.default.query('INSERT INTO TARJETA (cod_t_tarjeta, numero, fecha_vencimiento, cod_seguridad) VALUES (' + (parseInt(req.body.nom_t_tarjeta) + "," + req.body.numero + ",'" + req.body.fecha_vencimiento + "'," + req.body.cod_seguridad + ")"));
             res.json({ text: 'se agregó la tarjeta con éxito' });
         });
     }

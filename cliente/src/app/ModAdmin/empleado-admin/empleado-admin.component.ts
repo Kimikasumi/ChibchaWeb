@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import {IEmpleado} from "../../models/IEmpleado";
-import {AdminService} from "../../service/admin.service";
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {IEmpleado} from '../../models/IEmpleado';
+import {AdminService} from '../../service/admin.service';
 
 @Component({
   selector: 'app-empleado-admin',
@@ -10,14 +10,14 @@ import {AdminService} from "../../service/admin.service";
 })
 export class EmpleadoAdminComponent implements OnInit {
 
-  constructor(private router:Router, private adminService: AdminService) { }
+  constructor(private router: Router, private adminService: AdminService) {
+  }
 
-
+  cliente: any = [];
 
   ngOnInit() {
-    if(localStorage.getItem("cedulaAdmin")==null)
-    {
-      this.router.navigate([''])
+    if (localStorage.getItem('cedulaAdmin') == null) {
+      this.router.navigate(['']);
     }
   }
 
@@ -38,7 +38,6 @@ export class EmpleadoAdminComponent implements OnInit {
         alert("Empleado Registrado")
       },
       err => console.error(err)
-
-    )
+    );
   }
 }
