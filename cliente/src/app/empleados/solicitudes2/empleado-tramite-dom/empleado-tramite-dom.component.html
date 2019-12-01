@@ -1,0 +1,98 @@
+<br>
+
+<div class="row">
+  <div align="center" class="col-12">
+    <h1><span class="badge badge-success">PQR</span></h1>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-12" align="left">
+    <h3><span class="badge">Información del cliente</span></h3>
+  </div>
+</div>
+
+<br>
+
+<div class="row" style="border: solid 1px lightgray">
+  <div class="col-3" align="center">
+    <h5><b>Nombre del cliente:</b> {{infoTicket.nombre}}</h5>
+  </div>
+
+  <div class="col-3" align="center">
+    <h5><b>Plan de pago:</b> {{infoTicket.nom_p_pago}}</h5>
+  </div>
+
+  <div class="col-3" align="center">
+    <h5><b>Paquete:</b> {{infoTicket.nom_paquete}}</h5>
+  </div>
+
+  <div class="col-3" align="center">
+    <h5><b>Nombre del dominio:</b> {{infoTicket.nom_dominio}}</h5>
+  </div>
+</div>
+
+<br>
+
+<div class="row" style="border: solid 1px lightgray">
+  <div class="col-12">
+    <h4><b>Descripción:</b></h4>
+    <p class="descrip">{{infoTicket.descripcion}}</p>
+  </div>
+</div>
+
+<br>
+
+<div class="row" style="border: solid 1px lightgray">
+  <div class="col-12">
+    <h4><b>Respuesta</b></h4>
+    <textarea matInput placeholder="Demosle un calurosa respueta!"></textarea>
+  </div>
+</div>
+
+<br>
+<br>
+
+
+<div class="row">
+  <div class="col-6" align="center">
+    <mat-form-field>
+      <mat-label>Hoster actual: {{inforHoster.nombre}}</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let host of hostsDisp" [value]="host.cod_registrador">
+          {{host.nombre}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div align="right" class="col-10">
+    <button mat-button (click)="regresar()">
+      Regresar
+    </button>
+  </div>
+
+  <div class="col-2" align="center">
+    <button mat-button (click)="enviar()">
+      Enviar
+    </button>
+  </div>
+</div>
+<br>
+<br>
+
+<div class="row">
+  <div class="col-3" align="center">
+    <img class="imgResponsive" align="center" src="../../../../assets/images/chiblogo.png">
+  </div>
+
+  <div class="col-9">
+    <h1 align="center"><span class="badge">Somos el mejor servicio!</span></h1>
+  </div>
+</div>
