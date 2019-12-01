@@ -119,7 +119,7 @@ import { EmpleadoErroresComponent } from './empleados/solicitudes2/empleado-erro
     InfoDistribuidoresAdminComponent,
     InfoRegistradoresAdminComponent,
     DistribuidorAdminComponent,
-    RegistradorAdminComponent
+    RegistradorAdminComponent,
     EmpleadoTramiteDomComponent,
     EmpleadoErroresComponent
   ],
