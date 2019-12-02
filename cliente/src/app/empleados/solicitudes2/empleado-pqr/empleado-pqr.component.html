@@ -48,7 +48,7 @@
 <div class="row" style="border: solid 1px lightgray">
   <div class="col-12">
     <h4><b>Respuesta</b></h4>
-    <textarea matInput placeholder="Demosle un calurosa respueta!"></textarea>
+    <textarea matInput placeholder="Demosle un calurosa respueta!" #respuesta></textarea>
   </div>
 </div>
 
@@ -60,7 +60,7 @@
   <div class="col-6" align="right">
     <mat-form-field>
       <mat-label>Plan actual: {{infoTicket.nom_p_pago}}</mat-label>
-      <mat-select>
+      <mat-select #p_pago>
         <mat-option *ngFor="let plan of planesPago" [value]="plan.cod_p_pago">
           {{plan.nom_p_pago}}
         </mat-option>
@@ -71,7 +71,7 @@
   <div class="col-6" align="left">
     <mat-form-field>
       <mat-label>Paquete actual: {{infoTicket.nom_paquete}}</mat-label>
-      <mat-select>
+      <mat-select #paquete>
         <mat-option *ngFor="let paquete of paquetes" [value]="paquete.cod_paquete">
           {{paquete.nom_paquete}}
         </mat-option>
@@ -91,7 +91,7 @@
   </div>
 
   <div class="col-2" align="center">
-    <button mat-button (click)="enviar()">
+    <button mat-button (click)="enviar(respuesta.value, p_pago.value, paquete.value)">
       Enviar
     </button>
   </div>

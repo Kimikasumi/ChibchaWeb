@@ -21,7 +21,7 @@ export class PerfilClienteComponent implements OnInit {
   ];
 
   constructor(private clienteService: ClienteService, private router: Router, private activateRoute: ActivatedRoute) { }
-  
+
 
   clienteGrafico: ICliente = {
     cedula: 0,
@@ -33,7 +33,7 @@ export class PerfilClienteComponent implements OnInit {
     fecha_vencimiento: null,
     nom_t_tarjeta: "",
     cod_seguridad: 0
-    
+
   }
 
   ngOnInit() {
@@ -43,7 +43,7 @@ export class PerfilClienteComponent implements OnInit {
     }
     else{
       this.cargarPerfil();
-      
+
     }
   }
 
@@ -74,7 +74,7 @@ export class PerfilClienteComponent implements OnInit {
         err => console.error(err)
       )
     }
-    
+
     console.log("AAAAAAAAA");
   }
 
@@ -87,7 +87,7 @@ export class PerfilClienteComponent implements OnInit {
         console.log(this.clienteGrafico);
       },
       err => console.error(err)
-      
+
     )
   }
 
@@ -100,7 +100,7 @@ export class PerfilClienteComponent implements OnInit {
 export class ModalTarjeta implements OnInit {
 
   constructor(private clienteService: ClienteService, private router: Router, private activateRoute: ActivatedRoute) { }
-  
+
 
   clienteGrafico: ICliente = {
     cedula: 0,
@@ -111,7 +111,7 @@ export class ModalTarjeta implements OnInit {
     nombre: "",
     fecha_vencimiento: null,
     cod_seguridad: 0
-    
+
   }
 
   ngOnInit() {
@@ -125,7 +125,7 @@ export class ModalTarjeta implements OnInit {
       this.clienteService.cargarPerfilCliente(params.cedula).subscribe(
         res => {
           console.log(res);
-          
+
           this.clienteGrafico = res;
           if(this.clienteGrafico.numero!="0")
           {
@@ -147,9 +147,9 @@ export class ModalTarjeta implements OnInit {
         console.log(this.clienteGrafico);
       },
       err => console.error(err)
-      
+
     )
   }
 
-  
+
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EmpleadoService} from '../../../service/empleado.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ITicketE} from '../../../models/ITicket';
 
 @Component({
   selector: 'app-empleado-tramite-dom',
@@ -13,21 +14,40 @@ export class EmpleadoTramiteDomComponent implements OnInit {
   inforHoster: any = [];
   hostsDisp: any = [];
 
+  ticket: ITicketE = {
+    resp: '',
+    cedula: 0,
+    cod_paquete: 0,
+    cod_p_pago: 0
+  };
+
   constructor(private empleadoService: EmpleadoService, private router: Router, private activateRoute: ActivatedRoute) { }
 
   regresar() {
     this.router.navigate(['empleado/solicitudes/' + localStorage.getItem('cedula')]);
   }
 
-  enviar() {
-    return null;
+  enviar(respuesta: string, codRegistrador: number) {
+    console.log(respuesta);
+    this.ticket.resp = respuesta;
+    this.ticket.cedula = codRegistrador;
+    const codTicket: number = parseInt(localStorage.getItem('codTicket'), 10);
+    const codEmpleado: number = parseInt(localStorage.getItem('cedula'), 10);
+
+    this.empleadoService.responderDom(codTicket, codEmpleado, this.ticket).subscribe(
+      res => {
+        this.router.navigate(['empleado/solicitudes/' + localStorage.getItem('cedula')]);
+        console.log(codTicket + ' ' + respuesta + ' ' + codEmpleado);
+      }
+    );
   }
 
   ngOnInit() {
-    if (localStorage.getItem('codRegistrador') == null) {
+    if (localStorage.getItem('cedula') == null) {
       this.router.navigate(['']);
     }
     this.cargarInfo();
+    this.cargarHost();
     this.cargarHosts();
   }
 

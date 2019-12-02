@@ -100,12 +100,6 @@ const routes: Routes = [
         {path: 'pqr/:cedula/:cod_ticket', component: EmpleadoPqrComponent},
         {path: 'err/:cedula/:cod_ticket', component: EmpleadoErroresComponent},
         {path: 'dom/:cedula/:cod_ticket', component: EmpleadoTramiteDomComponent},
-
-        {path: 'ndom', component: SolicitudNDomComponent},
-        {path: 'chost', component: SolicitudChostComponent},
-        {path: 'cplan', component: SolicitudCplanComponent},
-        {path: 'cpaquete', component: SolicitudCpaqueteComponent},
-        {path: 'pqr', component: EmpleadoPqrComponent}
       ]
   },
   {
