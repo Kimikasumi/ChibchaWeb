@@ -65,7 +65,6 @@ class ClienteController{
     
     public async agregarTarjeta(req:Request, res:Response): Promise<void>{
         await db.query('INSERT INTO TARJETA (cod_t_tarjeta, numero, fecha_vencimiento, cod_seguridad) VALUES ('+(parseInt(req.body.nom_t_tarjeta)+","+req.body.numero+ ",'"+ req.body.fecha_vencimiento +"',"+req.body.cod_seguridad +")"));
-        
         res.json({text: 'se agregó la tarjeta con éxito'});
     }
 
