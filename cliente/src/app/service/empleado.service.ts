@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {ITicketE} from '../models/ITicket';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,17 @@ export class EmpleadoService {
 
   obtenerRegistradores() {
     return this.http.get(`${this.API_URI}/empleado/opciones/registradores`);
+  }
+
+  responderErr(codTicket: number, codEmpleado: number, ticket: ITicketE) {
+    return this.http.put(`${this.API_URI}/empleado/ticket/responderErr/${codTicket}/${codEmpleado}`, ticket);
+  }
+
+  responderPqr(codTicket: number, cedula: number, ticket: ITicketE) {
+    return this.http.put(`${this.API_URI}/empleado/ticket/responderPqr/${codTicket}/${cedula}`, ticket);
+  }
+
+  responderDom(codTicket: number, cedula: number, ticket: ITicketE) {
+    return this.http.put(`${this.API_URI}/empleado/ticket/responderDom/${codTicket}/${cedula}`, ticket);
   }
 }

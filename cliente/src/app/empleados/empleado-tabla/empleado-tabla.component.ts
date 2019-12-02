@@ -14,13 +14,19 @@ export class EmpleadoTablaComponent implements OnInit {
   constructor(private empleadoService: EmpleadoService, private router: Router, private activateRoute: ActivatedRoute) {
   }
 
-  navegar(codTick: number, codTticket: number) {
+  navegar(codTick: number, codTticket: number, cedulaCliente: number) {
     localStorage.setItem('codTicket', String(codTick));
+    localStorage.setItem('cedulaCliente', String(cedulaCliente));
+    console.log(codTick);
+    console.log(codTticket);
     if (codTticket === 1) {
+      console.log('PQR');
       this.router.navigate(['empleado/pqr/' + localStorage.getItem('cedula') + '/' + codTick]);
     } else if (codTticket === 2) {
+      console.log('DOM');
       this.router.navigate(['empleado/dom/' + localStorage.getItem('cedula') + '/' + codTick]);
     } else if (codTticket === 3) {
+      console.log('ERR');
       this.router.navigate(['empleado/err/' + localStorage.getItem('cedula') + '/' + codTick]);
     }
   }

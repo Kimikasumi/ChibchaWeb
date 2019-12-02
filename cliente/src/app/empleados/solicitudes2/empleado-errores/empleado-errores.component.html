@@ -48,7 +48,7 @@
 <div class="row" style="border: solid 1px lightgray">
   <div class="col-12">
     <h4><b>Respuesta</b></h4>
-    <textarea matInput placeholder="Demosle un calurosa respueta!"></textarea>
+    <textarea matInput placeholder="Demosle un calurosa respueta!" style="width: 100%" #respuesta></textarea>
   </div>
 </div>
 
@@ -62,7 +62,7 @@
   </div>
 
   <div class="col-2" align="center">
-    <button mat-button (click)="enviar()">
+    <button mat-button (click)="enviar(respuesta.value)">
       Enviar
     </button>
   </div>

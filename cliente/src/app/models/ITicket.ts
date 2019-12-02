@@ -4,6 +4,8 @@ export interface ITicketC {
   cod_ticket?: number;
   nombre?: string;
 
+  respuesta?: string;
+
   DomDescrip?: string;
   descripcion?: string;
 
@@ -19,4 +21,11 @@ export interface ITicketS{
     descripcion?:string;
     nom_estado?:string;
     cedula?:number;
+}
+
+export interface ITicketE {
+  cedula?: number;
+  cod_p_pago?: number;
+  cod_paquete?: number;
+  resp?: string;
 }
